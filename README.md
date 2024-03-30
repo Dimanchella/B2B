@@ -233,4 +233,17 @@ backend/documents/views.py NewOrderView.post:
             order.contractor = request.user.contractor
             order.partner = request.user.contractor.partner
 ```
+Скрипты:
+
+- frontend/setup.sh - установка frontend
+- frontend/run.sh - запуск frontend
+- backend/run.sh - запуск backend
+- show.sh - запуск проекта
+
+Документация:
+
+- Deploy B2B.txt
+- README.md
+- Шпаргалка.txt
+
 
