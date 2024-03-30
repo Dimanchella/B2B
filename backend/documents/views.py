@@ -1,6 +1,3 @@
-from django.shortcuts import render
-
-# Create your views here.
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
@@ -73,8 +70,9 @@ class NewOrderView(APIView):
 
     def post(self, request):
         order = Orders.objects.create()
-        order.contractor = request.user.contractor
-        order.partner = request.user.contractor.partner
+        if request.user.contractor is not None:
+            order.contractor = request.user.contractor
+            order.partner = request.user.contractor.partner
 
         if IsDeepDebug:
             print_to(None, '\n%s\nNewOrderView.post[request.data], contractor:%s' % ('-'*20, order.contractor))

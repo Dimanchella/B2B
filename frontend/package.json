@@ -24,7 +24,7 @@
   "dependencies": {
     "@mdi/font": "^7.4.47",
     "@pinia/nuxt": "^0.5.1",
-    "next-auth": "^4.22.5",
+    "next-auth": "^4.21.1",
     "pinia": "^2.1.7",
     "swiper": "^11.0.7",
     "vee-validate": "^4.12.5"

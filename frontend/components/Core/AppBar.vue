@@ -28,7 +28,7 @@
 
       <CoreThemeChecker class="mr-2"/>
 
-      <v-divider class="hidden-sm-and-down border-opacity-50 ml-6 mr-6" vertical/>
+      <v-divider class=" hidden-sm-and-down border-opacity-50 ml-6 mr-6" vertical/>
       <v-btn
           class="hidden-sm-and-down"
           v-if="status === 'authenticated'"

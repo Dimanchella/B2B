@@ -1,7 +1,7 @@
 export const useCatalogsStore = defineStore('catalogsStore', () => {
 
     const organization = ref([])
-    const contractor = ref([])
+    const counterparty = ref([])
     const agreement = ref([])
     const contract = ref([])
 
@@ -11,10 +11,10 @@ export const useCatalogsStore = defineStore('catalogsStore', () => {
         console.log('organization:', data)
     }
 
-    const getContractor = async () => {
-        const {data} = await useFetch('/api/v1/contractor')
+    const getCounterparty = async () => {
+        const {data} = await useFetch('/api/v1/counterparty')
         counterparty.value = data.value?.results
-        console.log('contractor:', data)
+        console.log('counterparty:', data)
     }
 
     const getAgreement = async () => {
@@ -29,7 +29,7 @@ export const useCatalogsStore = defineStore('catalogsStore', () => {
         console.log('contract:', data)
     }
 
-    return {organization, contractor, agreement, contract, getOrganization, getContractor, getAgreement, getContract}
+    return {organization, counterparty, agreement, contract, getOrganization, getCounterparty, getAgreement, getContract}
 })
 
 

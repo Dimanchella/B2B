@@ -1,0 +1,359 @@
+backend
+frontend
+nginx - conf
+
+Настриваем DNS записи домена
+
+На сервере устанавливаем Docker
+https://docs.docker.com/engine/install/ubuntu/
+
+Установка Docker compose
+https://github.com/docker/compose/
+
+sudo curl -L https://github.com/docker/compose/releases/download/v2.23.3/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
+
+делаем файл исполняемым
+chmod +x /usr/local/bin/docker-compose
+
+И проверяем
+docker-compose
+
+В папке nginx/conf создаем файл конфигурации web сервера nginx.conf
+
+server {
+    listen [::]:80;
+    listen 80;
+
+    server_name b2bportal.site lk.b2bportal.site;
+    server_tokens off;
+
+    location /test/ {
+        alias /var/www/test/;
+    }
+}
+
+В корне создаем docker-compose.yml
+
+version: "3.9"
+
+services:
+  nginx:
+    image: nginx:1.24.0
+    container_name: b2b-nginx
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/conf/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./nginx/logs:/var/log/nginx
+      - ./www/test:/var/www/test
+    restart: always
+
+
+В папке www/test создаем index.html
+
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>b2bportal.site!</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>WEB сервер b2bportal.site работает</h1>
+        <a href="http://lk.b2bportal.site">Перейти в личный кабинет</a>
+    </body>
+</html>
+
+Загружаем файлы на сервер и запускаем контейнер
+docker-compose up -d
+
+Пробуем открыть сайт http://b2bportal.site/test/
+
+Генерируем сертификат
+
+В файле конфигурации nginx.conf добавляем
+
+server {
+    listen [::]:80;
+    listen 80;
+
+    server_name b2bportal.site lk.b2bportal.site;
+    server_tokens off;
+
+    location /.well-known/acme-challenge/ {
+        root /var/www/certbot;
+    }
+
+    location /test/ {
+        alias /var/www/test/;
+    }
+}
+
+Генерируем сертификат
+
+docker-compose run certbot certonly --webroot -w /var/www/certbot/ -d b2bportal.site -d lk.b2bportal.site
+
+После генерации меняем конфиг nginx
+
+server {
+    listen [::]:80;
+    listen 80;
+
+    server_name b2bportal.site lk.b2bportal.site;
+    server_tokens off;
+
+    location /.well-known/acme-challenge/ {
+        root /var/www/certbot;
+    }
+
+    location / {
+        return 301 https://b2bportal.site$request_uri;
+    }
+}
+
+server {
+    listen 443 default_server ssl http2;
+    listen [::]:443 ssl http2;
+
+    server_name b2bportal.site lk.b2bportal.site;
+
+    ssl_certificate /etc/nginx/ssl/live/b2bportal.site/fullchain.pem;
+    ssl_certificate_key /etc/nginx/ssl/live/b2bportal.site/privkey.pem;
+
+    location /test/ {
+        alias /var/www/test/;
+    }
+}
+
+Меняем docker-compose.yml
+
+version: "3.9"
+
+services:  
+  nginx:
+    image: nginx:1.24.0
+    container_name: b2b-nginx
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/conf/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/logs:/var/log/nginx
+      - ./www/test:/var/www/test
+      - ./certbot/www:/var/www/certbot
+      - ./nginx/letsencrypt:/etc/nginx/ssl/
+    restart: always
+  certbot:
+      image: certbot/certbot:latest
+      volumes:
+        - ./certbot/www:/var/www/certbot
+        - ./nginx/letsencrypt:/etc/letsencrypt
+
+Добавляем сервис Postgresql
+
+  db:
+    container_name: b2b-postgres
+    image: postgres:12.6-alpine
+    environment:
+      - POSTGRES_PASSWORD=d5_K8BUkML0I!
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=b2bportal
+    restart: always
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+	  
+
+Архивируем каталог с проектами и копируем на сервер
+
+Распаковка архива
+
+sudo apt install unzip
+
+unzip B2B.zip
+
+rm B2B.zip
+
+
+
+Добавляем сервис backend
+
+  backend:
+    container_name: b2b-backend
+    build: ./backend
+    image: b2b_backend:0.1
+    command: python3 -m gunicorn -b 0.0.0.0:8000 lk.wsgi --reload
+    restart: always
+    environment:
+      - DEBUG=True
+      - SECRET_KEY=django-insecure-=7&5snsb=%*d+jb)^n_&l0(n&7$^q69q&gwdlr-&gqtk+m$j4q
+      - ALLOWED_HOSTS=127.0.0.1,10.10.1.10,localhost,backend
+      - CORS_ALLOWED_ORIGINS=http://localhost:3000,https://lk.b2bportal.site
+      - EMAIL_YANDEX=smtp+ssl://test1s2015@yandex.ru:ynmwtlbcfiktijpa@smtp.yandex.ru:465
+      - POSTGRES_PASSWORD=d5_K8BUkML0I!
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=b2bportal
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
+      - TIME_ZONE=Asia/Yekaterinburg
+      - DEV=False
+      - HTTP_SERVICE=
+      - HTTP_USER=
+      - HTTP_PASSWORD=
+      - CSRF_TRUSTED_ORIGINS=https://lk.b2bportal.site,http://localhost
+    volumes:
+      - ./www/backend/static:/app/static
+      - ./www/backend/media:/app/media
+      - ./www/backend/upload:/app/upload
+    stdin_open: True
+    tty: True
+    depends_on: 
+      - db
+
+
+Добавляем пути до наших сервисов в nginx
+
+    location /backend {
+        proxy_pass http://backend:8000;
+    }
+      
+    location /admin {
+        proxy_pass http://backend:8000;
+    }
+
+    location /ckeditor {
+        proxy_pass http://backend:8000;
+    }
+
+    location /static/ {
+        alias /var/www/b2b/static/;
+    }
+
+    location /media/ {
+        alias /var/www/b2b/media/;
+    }
+
+    location /test/ {
+        alias /var/www/test/;
+    }
+
+
+В конфиге nginx добавляем пути до файлов статики
+
+      - ./www/backend/static:/var/www/b2b/static
+      - ./www/backend/media:/var/www/b2b/media
+      - ./www/backend/upload:/var/www/b2b/upload
+
+Подключаемся к контейнеру b2b-backend
+
+docker exec -it b2b-backend sh
+
+Выполняем миграции
+python manage.py migrate
+
+Создаем супер пользователя
+python manage.py createsuperuser
+
+python manage.py collectstatic
+
+Выходим из консоли контейнера
+exit
+
+
+Заходим в админку https://lk.b2bportal.site/admin
+и генерируем токен для обмена
+
+63fe0091b0b162cd12d8820fa1ae1d05587c3f74
+
+Добавляем сервис frontend
+
+
+  frontend:
+    build: ./frontend
+    container_name: b2b-frontend
+    image: b2b_frontend:0.1
+    restart: always
+    environment:
+      - AUTH_ORIGIN=https://lk.b2bportal.site
+      - AUTH_SECRET=ElFv00uX/f+ZwkBpmUzFPsuuBzjQn7KJVQyHglTfQJU=
+      - NUXT_PUBLIC_DJANGO_URL=http://backend:8000
+    command: node .output/server/index.mjs
+    stdin_open: True
+    tty: True
+    depends_on: 
+      - backend
+      - db
+
+
+Добавляем пути до фронтенда в nginx
+
+    location / {
+        proxy_pass http://frontend:3000;
+    }
+        
+В dockerfile фронтенда укажем сколько памяти может использовать контейнер 
+
+ENV NODE_OPTIONS="--max-old-space-size=1024"
+
+==============================================================
+
+frontend:
+---------
+
+npm install
+npm i -D @sidebase/nuxt-auth
+npm i next-auth@4.21.1
+npm install -D nuxt-schema-org
+
+Для корректной работы модуля надо создать переменные окружения, для этого создаем файл .env и задаем значения переменных:
+
+AUTH_ORIGIN=http://localhost:3000
+AUTH_SECRET="9^&z#**ky(m+z@_32vac#&x0ex=h(x5%!^q+gp&yf7fp970%d-"
+DJANGO_URL=http://localhost:8000
+API_URL=api/v1
+
+
+./run.sh
+
+backend:
+--------
+
+UBUNTU
+------
+sudo add-apt-repository ppa:deadsnakes/ppa -y
+sudo apt update
+sudo apt install python3.12 -y
+
+PYTHON
+------
+pip -V
+sudo apt install python3-pip
+pip install --upgrade pip
+
+venv
+sudo apt install python3-venv
+
+virtualenv
+sudo apt install python3-virtualenv
+
+python3 -m venv venv
+virtualenv venv
+
+# check versions!!!
+
+python manage.py createsuperuser
+python manage.py migrate
+
+python manage.py shell
+python manage.py show_urls
+
+./run.sh
+
+python manage.py runserver [8000]
+
+POSTGRES
+--------
+
+install not only psycopg but just psycopg2 !!!
+
+pip install psycopg2-binary
+

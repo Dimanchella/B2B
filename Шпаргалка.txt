@@ -1,0 +1,711 @@
+npx nuxi init django
+
+npm install
+
+Создаем конфигурацию запуска проекта
+
+Очищаем демо компонент
+
+Для использования шаблонов добавляем стандартный компонент (Рабочая область начальной страницы)
+
+  <NuxtLayout>
+
+  </NuxtLayout>
+
+Мы можем добавлять контент прямо здесь, но для отображения контента страниц добавляем компонент
+
+<NuxtPage />
+
+Создаем папка pages и внутри файл index.vue В шаблое выведем тег <h1>Главная</h1>
+
+Добавим темный стиль для страницы, чтобы при смене экранов не было перепадов яркости
+
+<style>
+body {
+  color: #eee;
+  background: #121212;
+}
+body a {
+  color: #809fff;
+}
+</style>
+
+
+Идем в доступные модули, ищем auth и устанавливаем пакет
+https://sidebase.io/nuxt-auth/v0.6/getting-started/installation
+
+
+npm i -D @sidebase/nuxt-auth
+
+Так как мы будем использовать authjs provider то устанавливаем пакет
+npm i next-auth@4.21.1
+
+Версии и все установленные в проекте пакеты вы можете посмотреть в файле package.json
+
+В nuxt.config.ts добавляем установленный модуль
+
+  modules: [
+    '@sidebase/nuxt-auth'
+  ],
+
+и минимальные настройки модуля
+
+  // @ts-ignore
+  auth: {
+    provider: {
+      type: 'authjs'
+    }
+  },
+
+Для корректной работы модуля надо создать переменные окружения, для этого создаем файл .env и задаем значения переменных
+AUTH_ORIGIN=http://10.10.1.10:3000
+AUTH_SECRET=ElFv00uX/f+ZwkBpmUzFPsuuBzjQn7KJVQyHglTfQJU=
+DJANGO_URL=http://10.10.1.10:8000
+
+AUTH_ORIGIN обязательный параметр для обратных вызовов от сторонних провайдеров
+AUTH_SECRET для шифрования, если стоит openssl, то вы можете сгенерировать его при помощи "openssl rand -base64 32"
+DJANGO_URL путь для запросов к django
+
+Далее нам необходимо разработать обработчик аутентификации, в котором будет описана вся логика получения токенов, их обновления и получение данных пользователя
+
+В папке server создаем папку api - auth и в ней файл [...].ts
+
+// @ts-ignore
+import { NuxtAuthHandler } from '#auth'
+
+export default NuxtAuthHandler({})
+
+В обработчике указываем ключ secret с помощью которого будут шифроваться куки
+	secret: process.env.AUTH_SECRET,
+
+И массив провайдеров
+    providers: []
+
+Внутри массива providers мы можем указать настройки для различных провайдеров аутентификации, в нашем случае нам нужна аутентификация по логину и паролю. Для этого создаем настройки CredentialsProvider
+https://next-auth.js.org/configuration/providers/credentials
+
+
+Импортируем его
+
+import CredentialsProvider from "next-auth/providers/credentials";
+
+И настраиваем
+
+        // @ts-ignore
+        CredentialsProvider.default({})
+
+Указываем наименование и поля которые будут созданы на автоматически генерируемой форме
+
+            name: 'Credentials',
+            credentials: {
+                username: { label: "ИНН", type: "text" },
+                password: { label: "Пароль", type: "password" }
+            },
+
+
+Описываем асинхронную функцию авторизации которая будет вызываться с помощью специального метода и принимать данные аутентификации в переменную credentials.
+
+            // @ts-ignore
+            async authorize(credentials) {
+                console.log(credentials)
+                return null
+            }
+
+Пока мы возвращаем из этой функции null, мы как бы не логинимся в приложении
+
+Вернемся на главную страницу и с помощью скрипта компилятора definePageMeta защитим страницу от неавторизованных пользователей
+
+<script setup>
+  definePageMeta({ middleware: 'auth' })
+</script>
+
+Запустим проект. Теперь при входе на главную страницу нас автоматически должно перекидывать на сгенерированную страницу ввода логина и пароля. Если их ввести, то мы попадаем в функцию авторизации где в консоли выводим данные с формы.
+
+Доработаем функцию авторизации для получения JWT токена и данных пользователя
+
+				console.log('authorize')
+                try {
+                    const payload = {
+                        username: credentials.username,
+                        password: credentials.password,
+                    }
+
+                    const userTokens = await $fetch(
+                        `${process.env.DJANGO_URL}/api/token/`,
+                        {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: payload,
+                        }
+                    )
+
+                    // @ts-ignore
+                    if (!userTokens || !userTokens.access ) {
+                        throw createError({
+                            statusCode: 500,
+                            statusMessage: "Ошибка получения JWT токена",
+                        })
+                    }
+
+                    const userDetails = await $fetch(
+                        `${process.env.DJANGO_URL}/api/v1/user/`,
+                        {
+                            method: "GET",
+                            headers: {
+                                "Content-Type": "application/json",
+                                // @ts-ignore
+                                Authorization: `Bearer ${userTokens?.access}`,
+                            },
+                        }
+                    )
+
+                    // @ts-ignore
+                    if (!userDetails || !userDetails.user) {
+                        throw createError({
+                            statusCode: 500,
+                            statusMessage: "Ошибка получения данных пользователя",
+                        })
+                    }
+
+                    const userData = {
+                        // @ts-ignore
+                        username: userDetails.user.username,
+                        // @ts-ignore
+                        full_name: userDetails.user.full_name,
+                        // @ts-ignore
+                        accessToken: userTokens.access,
+                        // @ts-ignore
+                        accessTokenExpires: Date.now() + userTokens.lifetime * 1000,
+                        // @ts-ignore
+                        refreshToken: userTokens.refresh,
+                    }
+
+                    console.log(userData)
+
+                    return userData
+                } catch (error) {
+                    console.error("Ошибка входа", error);
+                    return null
+                }
+
+Выведем данные сессии на главной странице. В скрипте получим статус и данные
+
+const { status, data } = useAuth()
+
+В шаблоне выведем их
+
+  <div>
+    <h1>Главная</h1>
+    <p>Статус: {{ status }}</p>
+    <p>Данные: {{ data }}</p>
+  </div>
+
+
+Хоть мы теперь и авторизованы но наши сессионные данные не сохранили наши токены и данные пользователя
+Чтобы это реализовать нам надо описать 2 функции в callbacks
+
+    callbacks: {
+        // @ts-ignore
+        async jwt({ token, user, account }) {
+
+            console.log('jwt')
+
+            if (account && user) {
+                console.log('account && user')
+                return { ...token, ...user }
+            }
+
+            if (Date.now() > token.accessTokenExpires) {
+                console.log("Срок действия токена истек. Получение нового")
+                // @ts-ignore
+                return refreshAccessToken(token)
+            }
+            return { ...token, ...user }
+        },
+        // @ts-ignore
+        async session({ session, token }) {
+            console.log('session')
+            session.user = token
+            return session
+        },
+    },
+
+Далее описываем функцию обновления токена
+
+// @ts-ignore
+async function refreshAccessToken(token) {
+    try {
+        console.warn("Обновить токен");
+
+        const payload = {
+            refresh: token.refreshToken,
+        };
+
+        const refreshedTokens = await $fetch(
+            `${process.env.DJANGO_URL}/api/token/refresh/`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: payload
+            }
+        )
+
+        // @ts-ignore
+        if (!refreshedTokens || !refreshedTokens.access) {
+            console.error("Нет обновленных токенов")
+            throw refreshedTokens
+        }
+        console.log("Токен обновлен")
+
+        return {
+            ...token,
+            // @ts-ignore
+            accessToken: refreshedTokens.access,
+            // @ts-ignore
+            accessTokenExpires: Date.now() + refreshedTokens.lifetime * 1000,
+            // @ts-ignore
+            refreshToken: refreshedTokens.refresh,
+        }
+    } catch (error) {
+        throw createError({ statusCode: 403, statusMessage: 'Ошибка обновления токена' })
+    }
+}
+
+Установка Vuetify 3
+
+npm install vuetify@^3.3.4 @mdi/font
+
+Создаем папку plugins и там файл vuetify.ts
+
+Любой плагин в Nuxt должен иметь функцию
+
+export default defineNuxtPlugin((nuxtApp) => {})
+
+В качесте аргумента передается nuxtApp
+
+Импортируем все необходимое
+
+// @ts-ignore
+import { createVuetify } from 'vuetify'
+import '@mdi/font/css/materialdesignicons.css'
+import 'vuetify/styles'
+// @ts-ignore
+import * as components from 'vuetify/components'
+// @ts-ignore
+import * as directives from 'vuetify/directives'
+// @ts-ignore
+import { aliases, mdi } from 'vuetify/iconsets/mdi'
+
+Создаем переменную в которой будет содержаться результат выполнения функции
+
+const vuetify = createVuetify({})
+
+Внутри описываем настройки
+
+        ssr: true,
+        components,
+        directives,
+        icons: {
+            defaultSet: 'mdi',
+            aliases,
+            sets: { mdi }
+        },
+
+В конце подключаем Vuetify к проекту
+
+nuxtApp.vueApp.use(vuetify)
+
+Чтобы победить ошибку в nuxt.config.ts добавляем
+
+  // @ts-ignore
+  build: {
+    transpile: ['vuetify'],
+  },
+
+В app.vue зазадим базовый шаблон
+
+  <NuxtLayout>
+    <v-app>
+      <v-main>
+        <v-container>
+          <NuxtPage />
+        </v-container>
+      </v-main>
+    </v-app>
+  </NuxtLayout>
+
+Еа главной странице выведем контент в карточке
+
+    <v-card
+        color="#385F73"
+    >
+      <v-card-title>Главная</v-card-title>
+      <v-card-text>Статус: {{ status }}</v-card-text>
+      <v-card-text>Данные: <pre>{{ data }}</pre></v-card-text>
+    </v-card>
+
+
+ШАБЛОНЫ
+
+Создаем папку layouts в этой папке размещаются шаблоны
+
+Создаем шаблон по умолчанию, он должен называться default.vue
+
+Идет в документацию vuetify и берем базовую разметку
+https://vuetifyjs.com/en/getting-started/wireframes/
+https://github.com/vuetifyjs/vuetify/blob/master/packages/docs/src/examples/wireframes/baseline.vue
+
+Давайте подробнее посмотрим для чего нужны эти элементы
+https://vuetifyjs.com/en/features/application-layout/#placing-components
+
+
+  <v-app id="inspire">
+    <v-navigation-drawer v-model="drawer">
+      Боковое меню
+    </v-navigation-drawer>
+
+    <v-app-bar>
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-toolbar-title>Главное меню</v-toolbar-title>
+    </v-app-bar>
+
+    <v-main>
+      <slot />
+    </v-main>
+  </v-app>
+
+<script setup>
+import { ref } from 'vue'
+const drawer = ref(null)
+</script>
+
+Очищаем app.vue
+
+В index заменим div на v-container
+
+МЕНЮ
+
+Создаем каталог public и размещаем там нашу иконку. Все файлы расположенные в этой папке будут доступны в наших шаблонах
+
+Убираем в шаблоне тестовое меню
+
+Создаем папку components и внутри Core
+
+Добавляем компонент AppBar.vue
+
+Прежде чем разрабатывать визуальную часть, опишем необходимые данные и функции в скрипте
+
+<script setup>
+  import { ref } from 'vue'
+  const drawer = ref(null)
+
+  const links = [
+    { title: 'Заказы', to: '/'},
+    { title: 'Прайс', to: '/price'},
+  ]
+
+  const { status, signOut } = useAuth()
+
+</script>
+
+
+// Группа командная панель
+
+<v-app-bar flat>
+
+</v-app-bar>
+
+    <v-container class="fill-height">
+   </v-container>
+
+      <v-app-bar-nav-icon
+          class="hidden-md-and-up"
+          @click.stop="drawer = !drawer">
+      </v-app-bar-nav-icon>
+
+      <v-avatar
+          class="ms-4 me-10 hidden-sm-and-down"
+          size="32"
+          image="favicon.ico"
+      ></v-avatar>
+
+      <v-btn
+          class="hidden-sm-and-down"
+          v-for="link in links"
+          :key="link.title"
+          :to="link.to"
+      >
+        {{ link.title }}
+      </v-btn>
+
+      <v-spacer></v-spacer>
+
+      <v-btn
+          class="hidden-sm-and-down"
+          v-if="status == 'authenticated'"
+          key="logout"
+          @click="signOut()"
+      >
+        Выйти
+      </v-btn>
+
+Мобильное меню
+
+// Группа командная панель выезжающая слева
+// v-model как Путь к данным в 1С
+// temporary - затемняет фон
+//
+
+  <v-navigation-drawer
+      v-model="drawer"
+      temporary
+      color="#385F73"
+  >
+  </v-navigation-drawer>
+
+    <v-list
+        nav
+    >
+        <v-list-item
+            v-for="link in links"
+            :key="link.title"
+            :to="link.to"
+            :title="link.title"
+        >
+        </v-list-item>
+    </v-list>
+
+https://vuetifyjs.com/en/api/v-navigation-drawer/#slots
+
+    <template v-slot:append>
+        <v-btn
+            class="ma-2"
+            v-if="status == 'authenticated'"
+            key="logout"
+            @click="signOut()"
+        >
+          Выйти
+        </v-btn>
+    </template>
+
+Выводим компонент в шаблоне <CoreAppBar />
+
+ФОРМА ЛОГИНА
+
+Давайте исправим небольшой недочет, скорее всего стили указанные вначале уроков у вас не работают, но у меня экран темный
+дело в том что я поставил принудительную темную тему в хроме. И чтобы сейчас все работало у всех одинаково, идем в настройки
+плагина vuetify и добавляем темную тему по умолчанию
+
+        theme: {
+            defaultTheme: 'dark'
+        }
+
+
+Создаем шаблон без меню и подменяем шаблон по умолчанию на шаблон без меню на странице ввода логина
+
+Создаем шаблон custom и копируем в него стандартный шаблон, убираем меню
+
+Для валидации будем использовать один из пакетов придлагаемых в документации Vuetify
+
+npm install vee-validate --save
+
+В папке pages создаем auth и signin.vue
+
+definePageMeta({
+  layout: "custom",
+  auth: {
+    unauthenticatedOnly: true,
+    navigateAuthenticatedTo: '/',
+  }
+})
+
+import { useField, useForm } from 'vee-validate'
+
+
+const userValidationSchema = {}
+
+  username(value) {
+    if (value?.length === 10) return true
+
+    return 'ИНН должен быть из 10 символов'
+  },
+
+  password(value) {
+    if (value?.length > 7 && /[0-9-]+/.test(value)) return true
+
+    return 'Пароль должен быть больше 7-и символов и состоять из цифр'
+  },
+
+
+NuxtAuthHandler прописываем путь до новой страницы
+
+pages: {
+        signIn: '/auth/signin',
+    },
+
+ПЕРЕКЛЮЧЕНИЕ ТЕМЫ
+
+в app
+
+<script setup>
+import {useTheme} from "vuetify"
+
+const theme = useTheme()
+const darkMode = useCookie('darkMode')
+
+if (darkMode.value !== undefined) {
+  theme.global.name.value = darkMode.value
+}
+
+</script>
+
+в core добавялем ThemeChecker.vue
+
+
+
+Добавляем Store Pinia
+https://pinia.vuejs.org/ssr/nuxt.html
+
+npm install pinia @pinia/nuxt
+
+Получаем ошибки зависимостей
+
+Прописываем
+
+"overrides": {
+  "vue": "latest"
+}
+
+И устанавливаем заново
+
+
+Добавляем в модули и сразу прописываем автоимпорт
+
+  modules: [
+    '@sidebase/nuxt-auth',
+    [
+      '@pinia/nuxt',
+      {
+        autoImports: ['defineStore'],
+      },
+    ],
+  ],
+
+Все сторы размещаем в папке stores
+
+Создаем стор для заказов orders.get.js
+
+
+Очищаем внутри главной страницы контейнер
+
+Создаем папку Order и внутри компонент Table
+
+Прописываем компонент на главной странице
+
+
+ЗАКАЗЫ
+
+Правка в 1С.
+
+Так как при записи заказа в базу добавили ключ from_frontend для проверки откуда пришел заказ, в 1С надо внести правку.
+Общий модуль ns_Документы - ПолучитьДанныеЗаказа, добавляем ключ
+
+    Данные.Вставить("from_frontend", Ложь);
+
+Правка Django. Добавляем пагинацию в заказы
+
+documents/views.py
+
+from rest_framework.pagination import PageNumberPagination
+from rest_framework.response import Response
+
+
+class StandardResultsSetPagination(PageNumberPagination):
+    page_size = 10
+    page_size_query_param = 'page_size'
+    max_page_size = 10
+
+    def get_paginated_response(self, data):
+        results = {
+            'count': self.page.paginator.count,
+            'num_pages': self.page.paginator.num_pages,
+            'current_page': self.page.number,
+            'per_page': self.page.paginator.per_page,
+            'results': data,
+        }
+
+        return Response({
+            'results': results,
+            'errors': None
+        })
+
+
+class OrdersViewSet(viewsets.ModelViewSet):
+    ...
+    pagination_class = StandardResultsSetPagination
+
+Удаляем миксин.
+
+
+
+
+Фронтенд
+
+Создаем серверный маршрут api/v1/orders
+
+Добавляем стор orders. В запросах прописываем получение JWT токенов
+
+Переносим функционал из компонет OrderMain на главную страницу и удаляем компонент
+Подключаем стор
+Добавляем таблицу и настраиваем вывод информации
+
+
+
+Сохранение стора при перезагрузке страницы
+
+npm i -D @pinia-plugin-persistedstate/nuxt
+
+Добавляем в модули nuxt.config.ts:
+
+export default defineNuxtConfig({
+  modules: [
+    ...
+    '@pinia-plugin-persistedstate/nuxt',
+  ],
+})
+
+В параметры стора добавляем
+
+{
+    persist: true,
+}
+
+
+Карусель товаров
+
+npm i swiper
+
+
+SEO
+
+useHead({
+  title: product.title,
+  meta: [
+    { name: 'description', content: product.description }
+  ],
+})
+
+// Микрозаметка
+
+npm install -D nuxt-schema-org
+
+export default defineNuxtConfig({
+  modules: ['nuxt-schema-org']
+})
+
+
+

@@ -54,8 +54,8 @@
             :disabled="disabled()"
         ></v-select>
         <v-select
-            v-model="order.contractor"
-            :items="contractor"
+            v-model="order.counterparty"
+            :items="counterparty"
             item-title="name"
             item-value="id"
             label="Контрагент"
@@ -117,7 +117,6 @@
               >
                 mdi-minus
               </v-icon>
-              <!-- <span>{{ item.quantity }} шт.</span>-->
                 <input
                     class="product-count"
                     type="text"
@@ -174,11 +173,11 @@ const catalogsStore = useCatalogsStore()
 
 const {getOrder, updateOrder, orderCount, orderSum, uniProductsCount} = orderStore
 
-const {organization, contractor, agreement, contract} = storeToRefs(catalogsStore)
-const {getOrganization, getContractor, getAgreement, getContract} = catalogsStore
+const {organization, counterparty, agreement, contract} = storeToRefs(catalogsStore)
+const {getOrganization, getCounterparty, getAgreement, getContract} = catalogsStore
 
 await getOrganization()
-await getContractor()
+await getCounterparty()
 await getAgreement()
 await getContract()
 

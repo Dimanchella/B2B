@@ -10,7 +10,6 @@
     >
       <v-card>
         <v-img
-            :style="{'border':'1px solid white', 'background':'black', 'padding':'10px'}"
             :src="getProductImg(product)"
             class="cart-img"
             max-height="200"
@@ -61,12 +60,13 @@ const getProductImg = (product) => {
 const editProductLocal = (product) => {
   emit('editProduct', product)
 }
-const orderProduct = (product) => {
-  alert(product.title)
-}
 
 </script>
 
 <style scoped>
-
+.cart-img {
+ border: 1px solid white;
+ background:black; 
+ padding:10px;
+}
 </style>
