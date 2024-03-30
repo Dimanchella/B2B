@@ -222,3 +222,15 @@ products.value = data.value?.results.results
 	Возврат;
 КонецЕсли;
 ```
+
+###20240330
+
+Сверка и тестирование (validate)
+
+backend/documents/views.py NewOrderView.post:
+```
+        if request.user.contractor is not None:
+            order.contractor = request.user.contractor
+            order.partner = request.user.contractor.partner
+```
+
