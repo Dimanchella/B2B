@@ -223,7 +223,7 @@ products.value = data.value?.results.results
 КонецЕсли;
 ```
 
-###20240330
+### 20240330
 
 Сверка и тестирование (validate)
 
