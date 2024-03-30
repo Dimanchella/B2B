@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MetaDataObject xmlns="http://v8.1c.ru/8.3/MDClasses" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:cmi="http://v8.1c.ru/8.2/managed-application/cmi" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xpr="http://v8.1c.ru/8.3/xcf/predef" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.15">
+	<InformationRegister uuid="e9d7778e-0af0-4ea2-a06d-3d71502a034f">
+		<InternalInfo>
+			<xr:GeneratedType name="InformationRegisterRecord.СтавкиНДСНоменклатуры" category="Record">
+				<xr:TypeId>e10a29d5-aa75-4884-8be6-a0a87729d918</xr:TypeId>
+				<xr:ValueId>6faa8ac0-df3a-4519-ab39-4cfcd7164b92</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterManager.СтавкиНДСНоменклатуры" category="Manager">
+				<xr:TypeId>b47b385d-e128-4be4-aa11-6c0f9359b5e7</xr:TypeId>
+				<xr:ValueId>1e00e9a9-85c1-4a78-a75b-2638bb0caa1c</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterSelection.СтавкиНДСНоменклатуры" category="Selection">
+				<xr:TypeId>a0382ed6-f272-4e94-b686-dc255ef2ce99</xr:TypeId>
+				<xr:ValueId>d5a4f592-125a-4cd6-945d-7ecd9c869ecf</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterList.СтавкиНДСНоменклатуры" category="List">
+				<xr:TypeId>49a50065-d475-47f7-aa0e-6f9504144ccc</xr:TypeId>
+				<xr:ValueId>78f2a635-64d8-44e0-a02e-421cfac460a9</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterRecordSet.СтавкиНДСНоменклатуры" category="RecordSet">
+				<xr:TypeId>8058ae88-30b2-4807-be1a-a9ac6a652ceb</xr:TypeId>
+				<xr:ValueId>df1d088e-d0ba-412b-a22f-8a482e47dda8</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterRecordKey.СтавкиНДСНоменклатуры" category="RecordKey">
+				<xr:TypeId>1aeb755a-de14-4872-9af3-cd5c28561406</xr:TypeId>
+				<xr:ValueId>55635970-3e2b-4488-8452-8e4d93aa3bde</xr:ValueId>
+			</xr:GeneratedType>
+			<xr:GeneratedType name="InformationRegisterRecordManager.СтавкиНДСНоменклатуры" category="RecordManager">
+				<xr:TypeId>03a344e1-2e39-422c-802f-f3f32f5201f6</xr:TypeId>
+				<xr:ValueId>68d878ea-33aa-4e98-8d2a-79d5fadbb5b8</xr:ValueId>
+			</xr:GeneratedType>
+		</InternalInfo>
+		<Properties>
+			<ObjectBelonging>Adopted</ObjectBelonging>
+			<Name>СтавкиНДСНоменклатуры</Name>
+			<Comment/>
+			<ExtendedConfigurationObject>12798d99-42e0-4eb6-9005-a7e4d1d47ac0</ExtendedConfigurationObject>
+			<InformationRegisterPeriodicity>Day</InformationRegisterPeriodicity>
+			<WriteMode>Independent</WriteMode>
+		</Properties>
+		<ChildObjects>
+			<Resource uuid="619c98fb-6900-4f0e-a36d-40b476587ae0">
+				<InternalInfo/>
+				<Properties>
+					<ObjectBelonging>Adopted</ObjectBelonging>
+					<Name>СтавкаНДС</Name>
+					<Comment/>
+					<ExtendedConfigurationObject>b10ade8d-4180-4279-975c-8bfdd3ef50aa</ExtendedConfigurationObject>
+					<Type>
+						<v8:Type>cfg:CatalogRef.СтавкиНДС</v8:Type>
+					</Type>
+				</Properties>
+			</Resource>
+			<Dimension uuid="e3584153-7a05-4c4f-bcda-ec7cf4d7fbc8">
+				<InternalInfo/>
+				<Properties>
+					<ObjectBelonging>Adopted</ObjectBelonging>
+					<Name>Номенклатура</Name>
+					<Comment/>
+					<ExtendedConfigurationObject>d9ec4c25-d8fd-488c-b607-3f0eeb047003</ExtendedConfigurationObject>
+					<Type>
+						<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
+					</Type>
+				</Properties>
+			</Dimension>
+		</ChildObjects>
+	</InformationRegister>
+</MetaDataObject>
