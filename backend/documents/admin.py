@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Orders, OrdersDetail, ExchangeNode
+from .models import Order, OrdersDetail, ExchangeNode
 
 
 class OrdersDetailInLine(admin.TabularInline):
@@ -15,6 +15,6 @@ class OrdersAdmin(admin.ModelAdmin):
     ]
 
 
-admin.site.register(Orders, OrdersAdmin)
+admin.site.register(Order, OrdersAdmin)
 admin.site.register(OrdersDetail)
 admin.site.register(ExchangeNode)

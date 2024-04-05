@@ -62,6 +62,8 @@
 </template>
 
 <script setup>
+definePageMeta({ middleware: 'auth' })
+
 import {storeToRefs} from "pinia";
 import {useOrderStore} from "~/stores/orders.js";
 

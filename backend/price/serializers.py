@@ -1,8 +1,8 @@
 from rest_framework import serializers
 
-from .models import Prices
-from catalogs.models import Images
-from catalogs.serializers import PriceImagesSerializer
+from .models import Price
+from catalogs.models import Image
+from catalogs.serializers import PriceImageSerializer
 
 
 class PriceSerializer(serializers.ModelSerializer):
@@ -12,14 +12,14 @@ class PriceSerializer(serializers.ModelSerializer):
     count = serializers.IntegerField(default=0)
 
     def get_images(self, obj):
-        images = Images.objects.filter(product=obj.product)
+        images = Image.objects.filter(product=obj.product)
         if images:
-            result = PriceImagesSerializer(images, many=True)
+            result = PriceImageSerializer(images, many=True)
             return result.data
         return []
 
     class Meta:
-        model = Prices
+        model = Price
         fields = ["id", "product", "title", "characteristic", "title_characteristic", "price", "count", "images"]
 
 
@@ -31,14 +31,14 @@ class PriceDetailSerializer(serializers.ModelSerializer):
     description = serializers.CharField(source="product.description", read_only=True, default='')
 
     def get_images(self, obj):
-        images = Images.objects.filter(product=obj.product)
+        images = Image.objects.filter(product=obj.product)
         if images:
-            result = PriceImagesSerializer(images, many=True)
+            result = PriceImageSerializer(images, many=True)
             return result.data
         return []
 
     class Meta:
-        model = Prices
+        model = Price
         fields = [
             "id",
             "product",

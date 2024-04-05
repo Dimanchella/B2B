@@ -5,7 +5,7 @@ from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 
-from catalogs.models import Contractors
+from catalogs.models import Contractor
 
 
 class CustomUser(AbstractUser):
@@ -13,7 +13,7 @@ class CustomUser(AbstractUser):
 
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     contractor = models.OneToOneField(
-        Contractors,
+        Contractor,
         on_delete=models.PROTECT,
         verbose_name='Контрагент',
         related_name='contractor_profile',

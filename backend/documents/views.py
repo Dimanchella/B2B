@@ -10,26 +10,27 @@ from django.http import HttpResponse
 
 from general_methods.mixins import GeneralModelViewSet, general_response, StandardResultsSetPagination
 from price.serializers import PriceSerializer
-from .serializers import OrdersSerializer, ExchangeNodeSerializer
-from .models import Orders, ExchangeNode, OrdersDetail
+from .serializers import OrderSerializer, ExchangeNodeSerializer
+from .models import Order, ExchangeNode, OrdersDetail
 from .tasks import upload_orders
 
 from debug import IsDebug, IsDeepDebug, IsPrintExceptions, print_exception, print_to
+
 
 #   ------
 #   ЗАКАЗЫ
 #   ------
 
-class OrdersViewSet(ModelViewSet):
-    serializer_class = OrdersSerializer
+class OrderViewSet(ModelViewSet):
+    serializer_class = OrderSerializer
     permission_classes = [IsAuthenticated]
     pagination_class = StandardResultsSetPagination
 
     def get_queryset(self):
         if self.request.user and self.request.user.is_staff:
-            return Orders.objects.all().order_by('-date_time')
+            return Order.objects.all().order_by('-date_time')
         elif self.request.user:
-            return Orders.objects.filter(contractor=self.request.user.contractor).order_by('-date_time')
+            return Order.objects.filter(contractor=self.request.user.contractor).order_by('-date_time')
 
     def update(self, request, *args, **kwargs):
         if IsDebug:
@@ -72,13 +73,13 @@ class NewOrderView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
-        order = Orders.objects.create()
+        order = Order.objects.create()
+        order.contractor = request.user.contractor
         if request.user.contractor is not None:
-            order.contractor = request.user.contractor
             order.partner = request.user.contractor.partner
 
         if IsDeepDebug:
-            print_to(None, '\n%s\nNewOrderView.post[request.data], contractor:%s' % ('-'*20, order.contractor))
+            print_to(None, '\n%s\nNewOrderView.post[request.data], contractor:%s' % ('-' * 20, order.contractor))
             for item in request.data:
                 print_to(None, '\n%s' % str(item))
 
@@ -88,7 +89,8 @@ class NewOrderView(APIView):
             data = price_serializer.validated_data
 
             if IsDeepDebug:
-                print_to(None, '\nNewOrderView.data:\n%s' % '\n'.join(['%s:%s' % (key, data[key]) for key in data.keys()]))
+                print_to(None,
+                         '\nNewOrderView.data:\n%s' % '\n'.join(['%s:%s' % (key, data[key]) for key in data.keys()]))
 
             OrdersDetail.objects.create(
                 order=order,
@@ -101,9 +103,9 @@ class NewOrderView(APIView):
 
         order.save()
 
-        serializer = OrdersSerializer(order)
+        serializer = OrderSerializer(order)
         if IsDeepDebug:
-            print_to(None, '\n%s' % ('-'*20))
+            print_to(None, '\n%s' % ('-' * 20))
 
         return general_response(serializer.data, response_status=status.HTTP_201_CREATED)
 

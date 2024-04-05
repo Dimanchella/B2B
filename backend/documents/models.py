@@ -5,13 +5,13 @@ from django.utils import timezone
 from uuid import uuid4
 
 from catalogs.models import (
-    Contractors,
-    Organizations,
-    Partners,
-    Agreements,
-    Contracts,
-    Products,
-    Characteristics,
+    Contractor,
+    Organization,
+    Partner,
+    Agreement,
+    Contract,
+    Product,
+    Characteristic,
 )
 
 
@@ -22,7 +22,7 @@ class SiteOrderStatus(models.TextChoices):
     CLOSED = "CL", "Закрыт"
 
 
-class Orders(models.Model):
+class Order(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     date_time = models.DateTimeField(verbose_name="Дата и время", default=timezone.now)
     number = models.CharField(
@@ -33,7 +33,7 @@ class Orders(models.Model):
         null=True
     )
     partner = models.ForeignKey(
-        Partners,
+        Partner,
         on_delete=models.PROTECT,
         verbose_name="Партнер",
         related_name="partner_order",
@@ -42,7 +42,7 @@ class Orders(models.Model):
         null=True
     )
     contractor = models.ForeignKey(
-        Contractors,
+        Contractor,
         on_delete=models.PROTECT,
         verbose_name="Контрагент",
         related_name="contractor_order",
@@ -51,7 +51,7 @@ class Orders(models.Model):
         null=True
     )
     organization = models.ForeignKey(
-        Organizations,
+        Organization,
         on_delete=models.PROTECT,
         verbose_name="Организация",
         related_name="organization_order",
@@ -60,7 +60,7 @@ class Orders(models.Model):
         null=True
     )
     agreement = models.ForeignKey(
-        Agreements,
+        Agreement,
         on_delete=models.PROTECT,
         verbose_name="Соглашение",
         related_name="agreement_order",
@@ -69,7 +69,7 @@ class Orders(models.Model):
         blank=True
     )
     contract = models.ForeignKey(
-        Contracts,
+        Contract,
         on_delete=models.PROTECT,
         verbose_name="Договор",
         related_name="contract_order",
@@ -104,21 +104,21 @@ class Orders(models.Model):
 
 class OrdersDetail(models.Model):
     order = models.ForeignKey(
-        Orders,
+        Order,
         on_delete=models.CASCADE,
         verbose_name="Заказ клиента",
         related_name="order_orders_detail",
         default=None
     )
     product = models.ForeignKey(
-        Products,
+        Product,
         on_delete=models.PROTECT,
         verbose_name="Номенклатура",
         related_name="product_orders_detail",
         default=None
     )
     characteristic = models.ForeignKey(
-        Characteristics,
+        Characteristic,
         on_delete=models.PROTECT,
         verbose_name="Характеристика",
         related_name="product_characteristic",
@@ -156,7 +156,7 @@ class OrdersDetail(models.Model):
 class ExchangeNode(models.Model):
     updated_at = models.DateTimeField(verbose_name="Дата и время изменения", default=timezone.now)
     order = models.ForeignKey(
-        Orders,
+        Order,
         on_delete=models.CASCADE,
         verbose_name="Заказ клиента",
         default=None,

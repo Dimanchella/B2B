@@ -1,33 +1,33 @@
 from uuid import uuid4
 from rest_framework import serializers
 from .models import (
-    TypesOfProducts,
-    Products,
+    TypeOfProducts,
+    Product,
     ProductsGroup,
-    Images,
-    Characteristics,
-    Organizations,
-    Partners,
-    Contractors,
-    Agreements,
-    Contracts
+    Image,
+    Characteristic,
+    Organization,
+    Partner,
+    Contractor,
+    Agreement,
+    Contract
 )
 
 from debug import IsDebug, IsDeepDebug, IsPrintExceptions, print_exception, print_to
 
-class TypesOfProductsSerializer(serializers.ModelSerializer):
+class TypeOfProductsSerializer(serializers.ModelSerializer):
     id = serializers.UUIDField(default=uuid4)
 
     class Meta:
-        model = TypesOfProducts
+        model = TypeOfProducts
         fields = ['id', 'name']
 
 
-class ProductsSerializer(serializers.ModelSerializer):
+class ProductSerializer(serializers.ModelSerializer):
     id = serializers.UUIDField(default=uuid4)
 
     class Meta:
-        model = Products
+        model = Product
         fields = ["id", "full_name", "group", "use_characteristic", "type_of_product"]
 
 
@@ -37,18 +37,18 @@ class ProductDetailSerializer(serializers.ModelSerializer):
     count = serializers.IntegerField(default=0, read_only=True)
 
     def get_images(self, obj):
-        images = Images.objects.filter(product=obj.id)
+        images = Image.objects.filter(product=obj.id)
         if images:
-            result = PriceImagesSerializer(images, many=True)
+            result = PriceImageSerializer(images, many=True)
             return result.data
         return []
 
     class Meta:
-        model = Products
+        model = Product
         fields = ['id', 'full_name', 'description', 'images', 'count']
 
 
-class CharacteristicsDetailSerializer(serializers.ModelSerializer):
+class CharacteristicDetailSerializer(serializers.ModelSerializer):
     id = serializers.UUIDField(default=uuid4, source='product.id')
     full_name = serializers.CharField(source='product.full_name')
     description = serializers.CharField(source='product.description')
@@ -57,14 +57,14 @@ class CharacteristicsDetailSerializer(serializers.ModelSerializer):
     characteristic = serializers.UUIDField(default=uuid4, source='id')
 
     def get_images(self, obj):
-        images = Images.objects.filter(product=obj.product)
+        images = Image.objects.filter(product=obj.product)
         if images:
-            result = PriceImagesSerializer(images, many=True)
+            result = PriceImageSerializer(images, many=True)
             return result.data
         return []
 
     class Meta:
-        model = Characteristics
+        model = Characteristic
         fields = ['id', 'full_name', 'description', 'images', 'title_characteristic', 'characteristic']
 
 
@@ -76,17 +76,17 @@ class ProductsGroupSerializer(serializers.ModelSerializer):
         fields = ["id", "title", "parent"]
 
 
-class ImagesSerializer(serializers.ModelSerializer):
+class ImageSerializer(serializers.ModelSerializer):
     id = serializers.UUIDField(default=uuid4)
 
     class Meta:
-        model = Images
+        model = Image
         fields = ["id", "product", "image"]
 
     def save(self, **kwargs):
         response = None
+        request = self.context.get('request', None)
         try:
-            request = self.context.get('request', None)
             #if self.instance and self.instance.image:
             #    self.instance.image.delete()
             if self.is_valid(raise_exception=True):
@@ -97,51 +97,51 @@ class ImagesSerializer(serializers.ModelSerializer):
         return response
 
 
-class CharacteristicsSerializer(serializers.ModelSerializer):
+class CharacteristicSerializer(serializers.ModelSerializer):
     id = serializers.UUIDField(default=uuid4)
 
     class Meta:
-        model = Characteristics
-        fields = ["id", "name", "product", "type_of_product"]
+        model = Characteristic
+        fields = ["id", "name", "product", "type_of_products"]
 
 
-class OrganizationsSerializer(serializers.ModelSerializer):
+class OrganizationSerializer(serializers.ModelSerializer):
     id = serializers.UUIDField(default=uuid4)
 
     class Meta:
-        model = Organizations
+        model = Organization
         fields = ["id", "name"]
 
 
-class PartnersSerializer(serializers.ModelSerializer):
+class PartnerSerializer(serializers.ModelSerializer):
     id = serializers.UUIDField(default=uuid4)
 
     class Meta:
-        model = Partners
+        model = Partner
         fields = ["id", "name", "full_name"]
 
 
-class ContractorsSerializer(serializers.ModelSerializer):
+class ContractorSerializer(serializers.ModelSerializer):
     id = serializers.UUIDField(default=uuid4)
 
     class Meta:
-        model = Contractors
+        model = Contractor
         fields = ["id", "name", "full_name", "status", "inn", "kpp", "partner"]
 
 
-class AgreementsSerializer(serializers.ModelSerializer):
+class AgreementSerializer(serializers.ModelSerializer):
     id = serializers.UUIDField(default=uuid4)
 
     class Meta:
-        model = Agreements
+        model = Agreement
         fields = ["id", "name", "number", "date", "partner", "contractor"]
 
 
-class ContractsSerializer(serializers.ModelSerializer):
+class ContractSerializer(serializers.ModelSerializer):
     id = serializers.UUIDField(default=uuid4)
 
     class Meta:
-        model = Contracts
+        model = Contract
         fields = ["id", "name", "number", "date", "partner", "contractor", "organization", "default"]
 
 
@@ -159,7 +159,7 @@ class ProductsGroupTreeSerializer(serializers.Serializer):
         return nodes
 
 
-class PriceImagesSerializer(serializers.ModelSerializer):
+class PriceImageSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Images
+        model = Image
         fields = ["image"]

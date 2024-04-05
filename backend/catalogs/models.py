@@ -30,7 +30,7 @@ class UseCharacteristic(models.TextChoices):
     INDIVIDUAL = 'IND', 'Индивидуальные для номенклатуры'
 
 
-class TypesOfProducts(models.Model):
+class TypeOfProducts(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     name = models.CharField(verbose_name="Наименование", max_length=64, unique=True)
 
@@ -42,7 +42,7 @@ class TypesOfProducts(models.Model):
         verbose_name_plural = 'Виды номенклатуры'
 
 
-class Products(models.Model):
+class Product(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     full_name = models.CharField(verbose_name="Наименование полное", max_length=256)
     group = models.ForeignKey(
@@ -60,7 +60,7 @@ class Products(models.Model):
         default=UseCharacteristic.NOT_USE
     )
     type_of_product = models.ForeignKey(
-        TypesOfProducts,
+        TypeOfProducts,
         on_delete=models.PROTECT,
         null=True,
         blank=True,
@@ -81,10 +81,10 @@ def image_dir_path(instance, filename):
     return 'products_images/{}/{}'.format(instance.product.id, filename)
 
 
-class Images(models.Model):
+class Image(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     product = models.ForeignKey(
-        Products,
+        Product,
         on_delete=models.PROTECT,
         null=True,
         blank=True,
@@ -101,35 +101,35 @@ class Images(models.Model):
         verbose_name_plural = 'Изображения'
 
 
-class Characteristics(models.Model):
+class Characteristic(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     name = models.CharField(verbose_name="Наименование", max_length=256)
     product = models.ForeignKey(
-        Products,
+        Product,
         on_delete=models.PROTECT,
         null=True,
         blank=True,
         verbose_name='Номенклатура',
-        related_name='product_characteristics'
+        related_name='product_characteristic'
     )
-    type_of_product = models.ForeignKey(
-        TypesOfProducts,
+    type_of_products = models.ForeignKey(
+        TypeOfProducts,
         on_delete=models.PROTECT,
         null=True,
         blank=True,
         verbose_name='Вид номенклатуры',
-        related_name='type_of_product_characteristics'
+        related_name='type_of_products_characteristic'
     )
 
     def __str__(self):
-        return f"{self.name} ({self.product}/{self.type_of_product})"
+        return f"{self.name} ({self.product}/{self.type_of_products})"
 
     class Meta:
         verbose_name = 'Характеристика номенклатуры'
         verbose_name_plural = 'Характеристики номенклатуры'
 
 
-class Organizations(models.Model):
+class Organization(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     name = models.CharField(verbose_name="Наименование", max_length=256, unique=True)
 
@@ -141,7 +141,7 @@ class Organizations(models.Model):
         verbose_name_plural = 'Организации'
 
 
-class Partners(models.Model):
+class Partner(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     name = models.CharField(
         verbose_name="Наименование",
@@ -165,17 +165,17 @@ class Partners(models.Model):
         verbose_name_plural = 'Партнеры'
 
 
-class TypesOfContractors(models.TextChoices):
+class TypeOfContractors(models.TextChoices):
     COMPANY = 'COM', 'Юридическое лицо'
     PERSON = 'PER', 'Физическое лицо'
     OUTER_COMPANY = 'OCOM', 'Юридическое лицо не резидент'
     INDIVIDUAL = 'IND', 'Индивидуальный предприниматель'
 
 
-class Contractors(models.Model):
+class Contractor(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     partner = models.ForeignKey(
-        Partners,
+        Partner,
         on_delete=models.DO_NOTHING,
         verbose_name='Партнер',
         default=None,
@@ -192,8 +192,8 @@ class Contractors(models.Model):
     status = models.CharField(
         verbose_name="Юр/Физлицо",
         max_length=100,
-        choices=TypesOfContractors.choices,
-        default=TypesOfContractors.COMPANY,
+        choices=TypeOfContractors.choices,
+        default=TypeOfContractors.COMPANY,
         blank=True,
     )
     inn = models.CharField(verbose_name="ИНН", max_length=16)
@@ -207,13 +207,13 @@ class Contractors(models.Model):
         verbose_name_plural = 'Контрагенты'
 
 
-class Agreements(models.Model):
+class Agreement(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     name = models.CharField(verbose_name="Наименование", max_length=264)
     number = models.CharField(verbose_name="Номер", max_length=128)
     date = models.DateField(verbose_name="Дата")
     partner = models.ForeignKey(
-        Partners,
+        Partner,
         on_delete=models.PROTECT,
         verbose_name='Партнер',
         default=None,
@@ -222,7 +222,7 @@ class Agreements(models.Model):
         blank=True
     )
     contractor = models.ForeignKey(
-        Contractors,
+        Contractor,
         on_delete=models.PROTECT,
         verbose_name='Контрагент',
         default=None,
@@ -231,7 +231,7 @@ class Agreements(models.Model):
         blank=True
     )
     organization = models.ForeignKey(
-        Organizations,
+        Organization,
         on_delete=models.PROTECT,
         verbose_name='Организация',
         default=None,
@@ -248,27 +248,27 @@ class Agreements(models.Model):
         verbose_name_plural = 'Соглашения об условиях продаж'
 
 
-class Contracts(models.Model):
+class Contract(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     name = models.CharField(verbose_name="Наименование", max_length=264)
     number = models.CharField(verbose_name="Номер", max_length=128)
     date = models.DateField(verbose_name="Дата")
     partner = models.ForeignKey(
-        Partners,
+        Partner,
         on_delete=models.PROTECT,
         verbose_name='Партнер',
         default=None,
         related_name='partner_contract'
     )
     contractor = models.ForeignKey(
-        Contractors,
+        Contractor,
         on_delete=models.PROTECT,
         verbose_name='Контрагент',
         default=None,
         related_name='contractor_contract'
     )
     organization = models.ForeignKey(
-        Organizations,
+        Organization,
         on_delete=models.PROTECT,
         verbose_name='Организация',
         default=None,

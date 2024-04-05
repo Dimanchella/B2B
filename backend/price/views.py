@@ -6,10 +6,10 @@ import django_filters
 from django.db.models import Q
 
 from general_methods.mixins import general_response, StandardResultsSetPagination
-from catalogs.models import Products, Characteristics
+from catalogs.models import Product, Characteristic
 from .serializers import PriceSerializer, PriceDetailSerializer
 from .permissions import IsAdminOrReadOnly
-from .models import Prices
+from .models import Price
 
 from debug import IsDebug, IsDeepDebug, IsPrintExceptions, print_exception, print_to
 
@@ -24,7 +24,7 @@ class PriceFilter(django_filters.FilterSet):
     group = django_filters.CharFilter(field_name="product__group")
 
     class Meta:
-        model = Prices
+        model = Price
         fields = ["search", "price", "group"]
 
     def custom_filter(self, queryset, name, value):
@@ -35,7 +35,7 @@ class PriceFilter(django_filters.FilterSet):
 
 
 class PriceViewSet(viewsets.ModelViewSet):
-    queryset = Prices.objects.all()
+    queryset = Price.objects.all()
     serializer_class = PriceSerializer
     permission_classes = [IsAdminOrReadOnly]
     pagination_class = StandardResultsSetPagination
@@ -43,13 +43,13 @@ class PriceViewSet(viewsets.ModelViewSet):
 
     def create(self, request, *args, **kwargs):
         try:
-            product = Products.objects.filter(pk=request.data["product"])
+            product = Product.objects.filter(pk=request.data["product"])
             if not product.exists():
                 return Response(
                     {"results": None, "errors": "Номенклатуры нет на портале"},
                     status=status.HTTP_404_NOT_FOUND
                 )
-            characteristic = Characteristics.objects.filter(pk=request.data["characteristic"])
+            characteristic = Characteristic.objects.filter(pk=request.data["characteristic"])
             price = request.data["price"]
 
             obj_product = product.get()
@@ -79,6 +79,6 @@ class PriceViewSet(viewsets.ModelViewSet):
 class ProductDetailViewSet(APIView):
     def get(self, request):
         request_id = request.query_params.get('id')
-        queryset = Prices.objects.filter(id=request_id).get()
+        queryset = Price.objects.filter(id=request_id).get()
         serializer = PriceDetailSerializer(queryset)
         return Response({'results': serializer.data, 'errors': ''}, status=status.HTTP_200_OK)

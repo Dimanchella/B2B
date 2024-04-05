@@ -22,7 +22,7 @@
 
       <v-spacer/>
 
-      <div name="username" class="username">{{ data.user.username }}</div>
+      <div name="username" class="username">{{ data.user.full_name }}</div>
 
       <OrderCartIcon class="mr-2"/>
 

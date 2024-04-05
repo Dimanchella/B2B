@@ -4,29 +4,29 @@ from rest_framework.views import APIView
 
 from general_methods.mixins import GeneralModelViewSet
 from .serializers import (
-    TypesOfProductsSerializer,
-    ProductsSerializer,
+    TypeOfProductsSerializer,
+    ProductSerializer,
     ProductsGroupSerializer,
     ProductsGroupTreeSerializer,
-    ImagesSerializer,
-    CharacteristicsSerializer,
-    OrganizationsSerializer,
-    PartnersSerializer,
-    ContractorsSerializer,
-    AgreementsSerializer,
-    ContractsSerializer,
+    ImageSerializer,
+    CharacteristicSerializer,
+    OrganizationSerializer,
+    PartnerSerializer,
+    ContractorSerializer,
+    AgreementSerializer,
+    ContractSerializer,
 )
 from .models import (
-    TypesOfProducts,
-    Products,
+    TypeOfProducts,
+    Product,
     ProductsGroup,
-    Images,
-    Characteristics,
-    Organizations,
-    Partners,
-    Contractors,
-    Agreements,
-    Contracts
+    Image,
+    Characteristic,
+    Organization,
+    Partner,
+    Contractor,
+    Agreement,
+    Contract
 )
 
 #   -------------------------
@@ -34,14 +34,14 @@ from .models import (
 #   -------------------------
 
 
-class TypesOfProductsViewSet(GeneralModelViewSet):
-    queryset = TypesOfProducts.objects.all()
-    serializer_class = TypesOfProductsSerializer
+class TypeOfProductsViewSet(GeneralModelViewSet):
+    queryset = TypeOfProducts.objects.all()
+    serializer_class = TypeOfProductsSerializer
 
 
-class ProductsViewSet(GeneralModelViewSet):
-    queryset = Products.objects.all()
-    serializer_class = ProductsSerializer
+class ProductViewSet(GeneralModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
 
 
 class ProductsGroupViewSet(GeneralModelViewSet):
@@ -49,54 +49,59 @@ class ProductsGroupViewSet(GeneralModelViewSet):
     serializer_class = ProductsGroupSerializer
 
 
-class ImagesViewSet(GeneralModelViewSet):
-    queryset = Images.objects.all()
-    serializer_class = ImagesSerializer
+class ImageViewSet(GeneralModelViewSet):
+    queryset = Image.objects.all()
+    serializer_class = ImageSerializer
 
 
-class CharacteristicsViewSet(GeneralModelViewSet):
-    queryset = Characteristics.objects.all()
-    serializer_class = CharacteristicsSerializer
+class CharacteristicViewSet(GeneralModelViewSet):
+    queryset = Characteristic.objects.all()
+    serializer_class = CharacteristicSerializer
 
 
-class OrganizationsViewSet(GeneralModelViewSet):
-    queryset = Organizations.objects.all()
-    serializer_class = OrganizationsSerializer
+class OrganizationViewSet(GeneralModelViewSet):
+    queryset = Organization.objects.all()
+    serializer_class = OrganizationSerializer
 
 
-class PartnersViewSet(GeneralModelViewSet):
-    queryset = Partners.objects.all()
-    serializer_class = PartnersSerializer
-
-
-class ContractorsViewSet(GeneralModelViewSet):
-    serializer_class = ContractorsSerializer
+class PartnerViewSet(GeneralModelViewSet):
+    serializer_class = PartnerSerializer
 
     def get_queryset(self):
         if self.request.user and self.request.user.is_staff:
-            return Contractors.objects.all()
-        elif self.request.user:
-            return Contractors.objects.filter(id=self.request.user.contractor)
+            return Partner.objects.all()
+        elif self.request.user.contractor:
+            return Partner.objects.filter(id=self.request.user.contractor.partner.id)
 
 
-class AgreementsViewSet(GeneralModelViewSet):
-    serializer_class = AgreementsSerializer
-
-    def get_queryset(self):
-        if self.request.user and self.request.user.is_staff:
-            return Agreements.objects.all()
-        elif self.request.user:
-            return Agreements.objects.filter(contractor=self.request.user.contractor)
-
-
-class ContractsViewSet(GeneralModelViewSet):
-    serializer_class = ContractsSerializer
+class ContractorViewSet(GeneralModelViewSet):
+    serializer_class = ContractorSerializer
 
     def get_queryset(self):
         if self.request.user and self.request.user.is_staff:
-            return Contracts.objects.all()
+            return Contractor.objects.all()
         elif self.request.user:
-            return Contracts.objects.filter(contractor=self.request.user.contractor)
+            return Contractor.objects.filter(id=self.request.user.contractor.id)
+
+
+class AgreementViewSet(GeneralModelViewSet):
+    serializer_class = AgreementSerializer
+
+    def get_queryset(self):
+        if self.request.user and self.request.user.is_staff:
+            return Agreement.objects.all()
+        elif self.request.user:
+            return Agreement.objects.filter(contractor=self.request.user.contractor)
+
+
+class ContractViewSet(GeneralModelViewSet):
+    serializer_class = ContractSerializer
+
+    def get_queryset(self):
+        if self.request.user and self.request.user.is_staff:
+            return Contract.objects.all()
+        elif self.request.user:
+            return Contract.objects.filter(contractor=self.request.user.contractor)
 
 
 class Node(object):

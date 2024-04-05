@@ -2,9 +2,9 @@ from uuid import uuid4
 from rest_framework import serializers
 from drf_writable_nested import WritableNestedModelSerializer
 
-from catalogs.models import Images
-from catalogs.serializers import PriceImagesSerializer
-from .models import Orders, OrdersDetail, ExchangeNode
+from catalogs.models import Image
+from catalogs.serializers import PriceImageSerializer
+from .models import Order, OrdersDetail, ExchangeNode
 
 
 class OrdersDetailSerializer(serializers.ModelSerializer):
@@ -14,9 +14,9 @@ class OrdersDetailSerializer(serializers.ModelSerializer):
     total = serializers.DecimalField(max_digits=10, decimal_places=2, default=0)
 
     def get_images(self, obj):
-        images = Images.objects.filter(product=obj.product)
+        images = Image.objects.filter(product=obj.product)
         if images:
-            result = PriceImagesSerializer(images, many=True)
+            result = PriceImageSerializer(images, many=True)
             return result.data
         return []
 
@@ -36,7 +36,7 @@ class OrdersDetailSerializer(serializers.ModelSerializer):
         ]
 
 
-class OrdersSerializer(WritableNestedModelSerializer):
+class OrderSerializer(WritableNestedModelSerializer):
     id = serializers.UUIDField(default=uuid4)
     order_orders_detail = OrdersDetailSerializer(many=True, required=False)
     partner_full_name = serializers.CharField(source="partner.full_name", read_only=True)
@@ -56,7 +56,7 @@ class OrdersSerializer(WritableNestedModelSerializer):
         return order
 
     class Meta:
-        model = Orders
+        model = Order
         fields = [
             "id",
             "date_time",
@@ -75,7 +75,7 @@ class OrdersSerializer(WritableNestedModelSerializer):
 
 
 class ExchangeNodeSerializer(serializers.ModelSerializer):
-    order = OrdersSerializer()
+    order = OrderSerializer()
 
     class Meta:
         model = ExchangeNode

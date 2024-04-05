@@ -1,17 +1,17 @@
 export default defineEventHandler(async (event) => {
 
-    const {id} = getQuery(event)
+    const url = '/backend/api/v1/partners/'
 
-    const url = `/backend/api/v1/orders/${id}/`
-
-    return await $fetch(
+    const resp = await $fetch(
         `${process.env.DJANGO_URL}${url}`,
         {
-            method: "GET",
+            method: 'get',
             headers: event.context.headers,
         }).catch((err) => {
-        if (err.data?.error?.code >= 400) {
+        if (err.data?.error?.code === 401) {
             return err.data
         }
     })
+
+    return resp
 })

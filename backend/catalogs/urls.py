@@ -1,32 +1,32 @@
 from django.urls import path, include
 from .views import (
-    TypesOfProductsViewSet,
-    ProductsViewSet,
+    TypeOfProductsViewSet,
+    ProductViewSet,
     ProductsGroupViewSet,
     ProductsGroupTree,
-    ImagesViewSet,
-    CharacteristicsViewSet,
-    OrganizationsViewSet,
-    PartnersViewSet,
-    ContractorsViewSet,
-    AgreementsViewSet,
-    ContractsViewSet
+    ImageViewSet,
+    CharacteristicViewSet,
+    OrganizationViewSet,
+    PartnerViewSet,
+    ContractorViewSet,
+    AgreementViewSet,
+    ContractViewSet
 )
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
-router.register(r'backend/api/v1/types_of_products', TypesOfProductsViewSet, basename='types_of_products')
-router.register(r'backend/api/v1/products', ProductsViewSet, basename='products')
-router.register(r'backend/api/v1/products_group', ProductsGroupViewSet, basename='products_group')
-router.register(r'backend/api/v1/images', ImagesViewSet, basename='images')
-router.register(r'backend/api/v1/characteristics', CharacteristicsViewSet, basename='characteristics')
-router.register(r'backend/api/v1/organizations', OrganizationsViewSet, basename='organizations')
-router.register(r'backend/api/v1/partners', PartnersViewSet, basename='partners')
-router.register(r'backend/api/v1/contractors', ContractorsViewSet, basename='contractors')
-router.register(r'backend/api/v1/agreements', AgreementsViewSet, basename='agreements')
-router.register(r'backend/api/v1/contracts', ContractsViewSet, basename='contracts')
+router.register(r'backend/api/v1/types_of_products', TypeOfProductsViewSet, basename='types_of_products')
+router.register(r'backend/api/v1/products', ProductViewSet, basename='products')
+router.register(r'backend/api/v1/products_groups', ProductsGroupViewSet, basename='products_groups')
+router.register(r'backend/api/v1/images', ImageViewSet, basename='images')
+router.register(r'backend/api/v1/characteristics', CharacteristicViewSet, basename='characteristics')
+router.register(r'backend/api/v1/organizations', OrganizationViewSet, basename='organizations')
+router.register(r'backend/api/v1/partners', PartnerViewSet, basename='partners')
+router.register(r'backend/api/v1/contractors', ContractorViewSet, basename='contractors')
+router.register(r'backend/api/v1/agreements', AgreementViewSet, basename='agreements')
+router.register(r'backend/api/v1/contracts', ContractViewSet, basename='contracts')
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('backend/api/v1/products_group_tree/', ProductsGroupTree.as_view(), name='products_group_tree')
+    path('backend/api/v1/products_groups_tree/', ProductsGroupTree.as_view(), name='products_groups_tree')
 ]

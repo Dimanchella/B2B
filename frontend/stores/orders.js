@@ -32,6 +32,8 @@ export const useOrderStore = defineStore("orderStore", () => {
             query: {id: id}
         })
 
+        // console.log(data.value)
+
         return data
     }
 
@@ -88,7 +90,7 @@ export const useOrderStore = defineStore("orderStore", () => {
     }
 
     const uniProductsCount = (order) => {
-        console.log("uniProductsCount: ", order, order.order_orders_detail)
+        // console.log("uniProductsCount: ", order, order.order_orders_detail)
         return order.order_orders_detail.length
     }
 
