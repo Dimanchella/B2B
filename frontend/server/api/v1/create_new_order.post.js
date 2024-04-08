@@ -4,6 +4,8 @@ export default defineEventHandler(async (event) => {
 
     const url = "/backend/api/v1/create_new_order/"
 
+    console.log(payload);
+
     return await $fetch(
         `${process.env.DJANGO_URL}${url}`,
         {

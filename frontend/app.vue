@@ -13,4 +13,5 @@ const darkMode = useCookie("darkMode")
 if (darkMode.value !== undefined) {
   theme.global.name.value = darkMode.value
 }
+theme.global.IsDebug = 1; // XXX flag to project debug option
 </script>

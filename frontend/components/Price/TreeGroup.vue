@@ -24,10 +24,12 @@ const expand = () => {
 }
 
 const groupClickParent = (group) => {
+  //alert("TreeGroup.groupClickParent: " + group.title);
   emit("groupClick", group)
 }
 
 const groupClickChild = (group) => {
+  //alert("TreeGroup.groupClickChild: " + group.title);
   emit("groupClick", group)
 }
 

@@ -13,19 +13,26 @@ export const useCartStore = defineStore("cartStore", () => {
     }
 
     const changeFromCart = (product, value) => {
+        //clearCart();
         if (isNaN(value)) {
             const message = "ERROR!\nProduct count value should be a number only\nPlease, repeat";
             alert(message);
+            //setMessage(message);
+            //setError(message);
             return false;
         }
         const save = product.count || 0;
         const count = Number(value);
+        //alert(value+":"+save+":"+count);
         //console.log('Cart:', cart);
         product.count = count;
         const index = cart.value.findIndex(item => item.id === product.id)
         if (index > -1) {
+            //alert(index+":"+product.id+":"+count);
             cart.value[index].count = count;
         } else {
+            //alert(index);
+            //cart.value.splice(index, 1);
             cart.value.push(product);
         }
         //console.log('Product:', product);
@@ -76,7 +83,7 @@ export const useCartStore = defineStore("cartStore", () => {
         //console.log('cart: ', cart);
         const sum = cart.value.reduce((acc, item) => {
             return acc + Number(isNaN(item.price) ? 0 : item.price) * item.count;
-        }, 0)
+        }, 0);
 
         return sum.toLocaleString(undefined, {minimumFractionDigits: 2});
     }

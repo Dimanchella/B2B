@@ -26,13 +26,13 @@
             />
           </div>
         </v-col>
-        <!-- <v-col cols="6" class="pt-5 pl-2">
+        <v-col cols="6" class="pt-5 pl-2">
           <h4>{{ product.title }}</h4>
           <h4>{{ product.characteristic }}</h4><br>
           <p v-html="product.description "></p><br>
           <p>Цена: {{ product.price }}</p><br>
           <OrderCartSwitch :product="product" />
-        </v-col> -->
+        </v-col>
       </v-row>
     </v-card>
   </v-container>
@@ -40,6 +40,9 @@
 
 <script setup>
 import {usePriceStore} from "~/stores/price"
+
+const priceStore = usePriceStore()
+const {getPriceDetail} = priceStore
 
 import {Swiper, SwiperSlide} from 'swiper/vue';
 import {EffectCube, Pagination} from 'swiper/modules';
@@ -50,9 +53,6 @@ import 'swiper/css';
 
 const modules = [EffectCube, Pagination]
 
-const priceStore = usePriceStore()
-const {getPriceDetail} = priceStore
-
 const route = useRoute()
 const id = route.params.uuid
 
@@ -60,37 +60,37 @@ const router = useRouter()
 
 const product = await getPriceDetail(id)
 
-// useSeoMeta({
-//   title: `${product.title} - ИП Иванов - Продажа вентиляторов`,
-//   ogTitle: `${product.title} - ИП Иванов - Продажа вентиляторов`,
-//   description: product.description,
-//   ogDescription: product.description,
-//   ogImage: 'https://mysite.ru/image.png',
-//   twitterCard: 'summary_large_image',
-// })
+useSeoMeta({
+  title: `${product.title} - ИП Иванов - Продажа вентиляторов`,
+  ogTitle: `${product.title} - ИП Иванов - Продажа вентиляторов`,
+  description: product.description,
+  ogDescription: product.description,
+  ogImage: 'https://mysite.ru/image.png',
+  twitterCard: 'summary_large_image',
+})
 
-// let url = ''
-// if (product.images.length > 0) {
-//   url = getImgUrl(product.images[0].image)
-// }
+let url = ''
+if (product.images.length > 0) {
+  url = getImgUrl(product.images[0].image)
+}
 
-// useSchemaOrg([
-//   defineProduct({
-//     name: product.title,
-//     description: product.description,
-//     image: [
-//       url
-//     ],
-//     offers: [
-//       { price: product.price },
-//     ],
-//   })
-// ])
+useSchemaOrg([
+  defineProduct({
+    name: product.title,
+    description: product.description,
+    image: [
+      url
+    ],
+    offers: [
+      { price: product.price },
+    ],
+  })
+])
 
-// const closeProduct = () => {
-//   product.value = {}
-//   router.back()
-// }
+const closeProduct = () => {
+  product.value = {}
+  router.back()
+}
 
 </script>
 

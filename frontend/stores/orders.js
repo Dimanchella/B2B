@@ -55,7 +55,7 @@ export const useOrderStore = defineStore("orderStore", () => {
     const updateOrder = async (order, register) => {
         // Обновить данные заказа
         if (register && order.value.site_status === "CR") {
-            order.value.site_status = "WR"
+            order.value.site_status = "WR";
         }
 
         // XXX

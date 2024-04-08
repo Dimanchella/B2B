@@ -222,8 +222,32 @@ products.value = data.value?.results.results
 	Возврат;
 КонецЕсли;
 ```
+=======
+### 20240330
 
-### 20240329
+Сверка и тестирование (validate)
+
+backend/documents/views.py NewOrderView.post:
+```
+        if request.user.contractor is not None:
+            order.contractor = request.user.contractor
+            order.partner = request.user.contractor.partner
+```
+Скрипты:
+
+- frontend/setup.sh - установка frontend
+- frontend/run.sh - запуск frontend
+- backend/run.sh - запуск backend
+- show.sh - запуск проекта
+
+Документация:
+
+- Deploy B2B.txt
+- README.md
+- Шпаргалка.txt
+
+
+### 20240408
 
 frontend:
 Исправлены все наименования counterpaty на contractor

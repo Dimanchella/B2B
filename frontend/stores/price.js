@@ -26,48 +26,25 @@ export const usePriceStore = defineStore("priceStore", () => {
                 }
             }
         })
-
         //console.log('getPriceList.is_root: ', is_root)
         if (is_root === 1) {
             products.value = [];
         }
         if (data.value?.results) {
-            count.value = data.value?.results.count
-            numPages.value = data.value?.results.num_pages
-            perPage.value = data.value?.results.per_page
-            currentPage.value = data.value?.results.current_page
-            products.value = data.value?.results.results
+            const per_page = data.value?.results.per_page;
+            const items = data.value?.results.results;
+            //console.log('getPriceList.items: ', items);
+            if (is_root === undefined)
+                products.value = items;
+            else if (items.length > 0)
+                products.value.push(... items);
+            const size = products.value.length;
+            const num_pages = Math.floor(size / per_page); 
 
-            // console.log("Old method:", {
-            //     count: count.value,
-            //     numPages: numPages.value,
-            //     perPage: perPage.value,
-            //     currentPage: currentPage.value,
-            //     // products: products.value
-            // })
-            //
-            // const per_page = data.value?.results.per_page;
-            // const items = data.value?.results.results;
-            // //console.log('getPriceList.items: ', items);
-            // if (is_root === undefined)
-            //     products.value = items;
-            // else if (items.length > 0)
-            //     products.value.push(... items);
-            // const size = products.value.length;
-            // const num_pages = Math.floor(size / per_page);
-            //
-            // perPage.value = per_page;
-            // count.value = size;
-            // numPages.value = num_pages;
-            // currentPage.value = data.value?.results.current_page;
-            //
-            // console.log("New method:", {
-            //     count: count.value,
-            //     numPages: numPages.value,
-            //     perPage: perPage.value,
-            //     currentPage: currentPage.value,
-            //     // products: products.value
-            // })
+            perPage.value = per_page;
+            count.value = size;
+            numPages.value = num_pages;
+            currentPage.value = data.value?.results.current_page;
 
             //data.value?.results.per_page = per_page;
             //data.value?.results.num_pages = num_pages;
