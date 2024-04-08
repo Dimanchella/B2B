@@ -77,11 +77,11 @@
 		<Metadata name="CommonModule.web_Документы" id="137d6018-b62e-40ae-a672-410154c3d825" configVersion="d9a310bcd0984be62142b5489ce9b69c96ade89f"/>
 		<Metadata name="CommonModule.web_Документы.Module" id="137d6018-b62e-40ae-a672-410154c3d825.0" configVersion="4e2fa76dd2a2e3160b0c4ad7d3c6ee975065a9ec"/>
 		<Metadata name="CommonModule.web_Обмен" id="16e0830d-fc78-4b4c-aee4-495bb450f0f9" configVersion="aead63aa75eab711251ab7b4047731d9ebd1ee7b"/>
-		<Metadata name="CommonModule.web_Обмен.Module" id="16e0830d-fc78-4b4c-aee4-495bb450f0f9.0" configVersion="47ae8148df7e00aff6f330495fffc422d305d298"/>
+		<Metadata name="CommonModule.web_Обмен.Module" id="16e0830d-fc78-4b4c-aee4-495bb450f0f9.0" configVersion="4beb6accbeaa2093237db0151fbd5b314cb04b8a"/>
 		<Metadata name="CommonModule.web_ОбщегоНазначенияПовтИсп" id="02bceaa0-74cd-417e-905d-18da0dc8c4eb" configVersion="5f5d2ab724d2091585c5b8b32654ddbb8793d037"/>
 		<Metadata name="CommonModule.web_ОбщегоНазначенияПовтИсп.Module" id="02bceaa0-74cd-417e-905d-18da0dc8c4eb.0" configVersion="66fc690b1984710389e4e9db82ae611450533d31"/>
 		<Metadata name="CommonModule.web_Справочники" id="a0fa57db-e36a-40dc-af22-edda35c2e2dd" configVersion="1a1a9cef399ab826415b7ae86332bbe46e267c48"/>
-		<Metadata name="CommonModule.web_Справочники.Module" id="a0fa57db-e36a-40dc-af22-edda35c2e2dd.0" configVersion="1ebe497e769fc69258b372115025aa53be0ca0ab"/>
+		<Metadata name="CommonModule.web_Справочники.Module" id="a0fa57db-e36a-40dc-af22-edda35c2e2dd.0" configVersion="3e42529c8aa97b27e1573653d37e369a0255b6f6"/>
 		<Metadata name="CommonPicture.web_Django" id="2a513595-47e4-4dff-beda-53c557a505ae" configVersion="d72b5f611ba28d80fc8e79883404fed640e575df"/>
 		<Metadata name="CommonPicture.web_Django.Picture" id="2a513595-47e4-4dff-beda-53c557a505ae.0" configVersion="14725db34c7cd1d5b0529111421d54ac1c601905"/>
 		<Metadata name="Configuration.B2B" id="8939056f-f6a6-44a1-94ab-c62dfae66e3f" configVersion="b6110d5699ab02884e52853c275ef64764fc4533"/>
@@ -162,7 +162,7 @@
 		</Metadata>
 		<Metadata name="EventSubscription.web_РегистрацияДокументов" id="2915e962-9dc9-40d0-adc1-f66bbdc01597" configVersion="0d1eef6556f8a887972c62af6b12ecf2a6f68caf"/>
 		<Metadata name="EventSubscription.web_РегистрацияИзмененияЦен" id="a4fc4f92-e3eb-48e8-ab92-ed4dfe6fad82" configVersion="99610a2989cf36bb4b06c9e485578c9bab98ab56"/>
-		<Metadata name="EventSubscription.web_РегистрацияОбмена" id="d12e9f93-452e-4cac-9ef3-d0cdbf4266aa" configVersion="535854c955d52294ca738641bda972d08f3b256a"/>
+		<Metadata name="EventSubscription.web_РегистрацияОбмена" id="d12e9f93-452e-4cac-9ef3-d0cdbf4266aa" configVersion="ec3e99068cd1a145ec1c39f1d4a31aec7173828a"/>
 		<Metadata name="HTTPService.web_site" id="72c0790d-3b16-445d-8dab-2d2b1ac1370b" configVersion="9d02b861dd16fdfbc5783c838ad13587227891cd">
 			<Metadata name="HTTPService.web_site.URLTemplate.exch.Method.POST" id="05e94da7-0080-4e70-aec0-8d8a5da2173b"/>
 			<Metadata name="HTTPService.web_site.URLTemplate.exch" id="36b64268-45c0-4997-866e-29f3d8f5bd09"/>
@@ -219,7 +219,7 @@
 		<Metadata name="Role.web_ДоступССайта" id="8ac9c8da-3ce0-42c4-832e-439d57e0cdfc" configVersion="b7a3d23d6e3af60184b178e6ea8cdb250bf45ae9"/>
 		<Metadata name="Role.web_ДоступССайта.Rights" id="8ac9c8da-3ce0-42c4-832e-439d57e0cdfc.0" configVersion="72712d169d133c2bfe68af14bc0e01e001c32672"/>
 		<Metadata name="Role.web_ОсновнаяРоль" id="0a380c1e-1ed3-4d0f-aef7-2af714dbf9c5" configVersion="f3840010148a3a3937dfcd205457892b39fd8aaf"/>
-		<Metadata name="Subsystem.web_Django" id="25284336-7b41-4337-b954-1313ad6b06fb" configVersion="1a83dd062d1e0fb236c3c8a0fa220ea33110ae4b"/>
+		<Metadata name="Subsystem.web_Django" id="25284336-7b41-4337-b954-1313ad6b06fb" configVersion="b8746a2e4e44d0de7512f683b9424c58f022a903"/>
 		<Metadata name="Subsystem.web_Django.Subsystem.Настройки" id="081b025f-076f-46cb-a2ef-1aae39103601" configVersion="d643d43ed5e1c88fd0ba4755311ab276fc6d3977"/>
 		<Metadata name="Subsystem.web_Django.Subsystem.Обмен" id="6427fbab-46a0-46d5-bf91-090021c05b35" configVersion="b1536819e0ffbe345aa4627e45561614d56adbf0"/>
 		<Metadata name="Subsystem.web_Django.Subsystem.Сервис" id="a7bcc38c-8e45-494a-a998-ccee6e1909d8" configVersion="77e38c4f229f2a90f0263a7d35716fce082cebfa"/>

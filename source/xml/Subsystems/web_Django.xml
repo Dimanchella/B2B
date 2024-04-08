@@ -6,7 +6,7 @@
 			<Synonym>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>Django</v8:content>
+					<v8:content>B2B</v8:content>
 				</v8:item>
 			</Synonym>
 			<Comment/>
@@ -14,10 +14,7 @@
 			<IncludeInCommandInterface>true</IncludeInCommandInterface>
 			<UseOneCommand>false</UseOneCommand>
 			<Explanation/>
-			<Picture>
-				<xr:Ref>CommonPicture.web_Django</xr:Ref>
-				<xr:LoadTransparent>true</xr:LoadTransparent>
-			</Picture>
+			<Picture/>
 			<Content>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.web_Обмен</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Role.web_ОсновнаяРоль</xr:Item>

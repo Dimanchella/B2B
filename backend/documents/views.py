@@ -34,7 +34,7 @@ class OrderViewSet(ModelViewSet):
 
     def update(self, request, *args, **kwargs):
         if IsDebug:
-            print_to(None, 'OrdersViewSet.update: %s' % request.data)
+            print_to(None, 'OrderViewSet.update: %s' % request.data)
         return super().update(request, *args, **kwargs)
 
     def create(self, request, *args, **kwargs):

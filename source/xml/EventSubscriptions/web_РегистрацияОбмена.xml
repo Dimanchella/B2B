@@ -12,6 +12,7 @@
 			<Comment/>
 			<Source>
 				<v8:Type>cfg:CatalogObject.СоглашенияСКлиентами</v8:Type>
+				<v8:Type>cfg:DocumentObject.ЗаказКлиента</v8:Type>
 				<v8:Type>cfg:CatalogObject.НоменклатураПрисоединенныеФайлы</v8:Type>
 				<v8:Type>cfg:CatalogObject.ВидыНоменклатуры</v8:Type>
 				<v8:Type>cfg:CatalogObject.Организации</v8:Type>
