@@ -222,3 +222,132 @@ products.value = data.value?.results.results
 	Возврат;
 КонецЕсли;
 ```
+
+### 20240329
+
+frontend:
+Исправлены все наименования counterpaty на contractor
+Добавлены партнеры
+
+pages.order.\[uuid\].vue
+```
+<v-select
+    v-model="order.partner"
+    :items="partner"
+    item-title="name"
+    item-value="id"
+    label="Партнер"
+    required
+    single-line
+    :disabled="disabled()"
+></v-select>
+```
+```
+const {organization, contractor, partner, agreement, contract} = storeToRefs(catalogsStore)
+const {getOrganization, getContractor, getPartner, getAgreement, getContract} = catalogsStore
+
+await getOrganization()
+await getContractor()
+await getAgreement()
+await getContract()
+await getPartner()
+```
+
+stores.catalogs.js
+```
+const getPartner = async () => {
+    const {data} = await useFetch('/api/v1/partner')
+    partner.value = data.value?.results
+    // console.log('partner:', data.value?.results)
+}
+```
+
+server.api.partner.get.js
+```
+export default defineEventHandler(async (event) => {
+
+    const url = '/backend/api/v1/partners/'
+
+    const resp = await $fetch(
+        `${process.env.DJANGO_URL}${url}`,
+        {
+            method: 'get',
+            headers: event.context.headers,
+        }).catch((err) => {
+        if (err.data?.error?.code === 401) {
+            return err.data
+        }
+    })
+
+    return resp
+})
+```
+
+backend:
+Изменены названия классов:
+- catalogs:
+	- models:
+		- TypeOfProducts,
+    	- Product,
+    	- ProductsGroup,
+    	- Image,
+    	- Characteristic,
+    	- Organization,
+    	- Partner,
+    	- Contractor,
+    	- Agreement,
+    	- Contract,
+	- serializer:
+    	- TypeOfProductsSerializer,
+    	- ProductSerializer,
+    	- ProductsGroupSerializer,
+    	- ProductsGroupTreeSerializer,
+    	- ImageSerializer,
+    	- CharacteristicSerializer,
+    	- OrganizationSerializer,
+    	- PartnerSerializer,
+    	- ContractorSerializer,
+    	- AgreementSerializer,
+    	- ContractSerializer,
+	- views:
+    	- TypeOfProductsViewSet,
+    	- ProductViewSet,
+    	- ProductsGroupViewSet,
+    	- ProductsGroupTreeViewSet,
+    	- ImageViewSet,
+    	- CharacteristicViewSet,
+    	- OrganizationViewSet,
+    	- PartnerViewSet,
+    	- ContractorViewSet,
+    	- AgreementViewSet,
+    	- ContractViewSet,
+- documents:
+	- models:
+		- Order,
+    	- ExchangeNode,
+    	- OrdersDetail,
+	- serializer:
+    	- OrderSerializer,
+    	- ExchangeNodeSerializer,
+	- views:
+    	- OrderViewSet,
+    	- ExchangeNodeViewSet,
+
+Изменены url-ы:
+- catalogs.urls:
+	- backend/api/v1/types_of_products
+	- backend/api/v1/products
+	- backend/api/v1/products_groups
+	- backend/api/v1/images
+	- backend/api/v1/characteristics
+	- backend/api/v1/organizations
+	- backend/api/v1/partners
+	- backend/api/v1/contractors
+	- backend/api/v1/agreements
+	- backend/api/v1/contracts
+- documents.urls:
+	- backend/api/v1/orders
+	- backend/api/v1/exchanges
+
+1C:
+Исправлены маршруты url
