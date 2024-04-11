@@ -69,15 +69,15 @@ Images backend loader:
 - backend:
 	- config.py: IsDebug, IsPrintExceptions, print_exception, print_to
 	- catalogs.serializers.ImagesSerializer.save()
-	- persacc.settings, django_extensions: python manage.py show_urls
+	- localhost.settings, django_extensions: python manage.py show_urls
 
 ### 20240321
 
 Input cart count value type for product item: 
 
-https://github.com/ichar/persacc.1c/blob/main/screenshots/Screenshot_20240321_111751.png
-https://github.com/ichar/persacc.1c/blob/main/screenshots/Screenshot_20240321_111840.png
-https://github.com/ichar/persacc.1c/blob/main/screenshots/Screenshot_20240321_112005.png
+https://github.com/ichar/localhost.1c/blob/main/screenshots/Screenshot_20240321_111751.png
+https://github.com/ichar/localhost.1c/blob/main/screenshots/Screenshot_20240321_111840.png
+https://github.com/ichar/localhost.1c/blob/main/screenshots/Screenshot_20240321_112005.png
 
 - frontend:
 
@@ -96,7 +96,7 @@ selected group click (include nested catalog items):
 
 ### 20240324-20240325
 
-merge persacc
+merge localhost
 
 source:
 	- web_Price
@@ -222,7 +222,7 @@ products.value = data.value?.results.results
 	Возврат;
 КонецЕсли;
 ```
-=======
+
 ### 20240330
 
 Сверка и тестирование (validate)
@@ -246,132 +246,55 @@ backend/documents/views.py NewOrderView.post:
 - README.md
 - Шпаргалка.txt
 
-
-### 20240408
-
-frontend:
-Исправлены все наименования counterpaty на contractor
-Добавлены партнеры
-
-pages.order.\[uuid\].vue
-```
-<v-select
-    v-model="order.partner"
-    :items="partner"
-    item-title="name"
-    item-value="id"
-    label="Партнер"
-    required
-    single-line
-    :disabled="disabled()"
-></v-select>
-```
-```
-const {organization, contractor, partner, agreement, contract} = storeToRefs(catalogsStore)
-const {getOrganization, getContractor, getPartner, getAgreement, getContract} = catalogsStore
-
-await getOrganization()
-await getContractor()
-await getAgreement()
-await getContract()
-await getPartner()
-```
-
-stores.catalogs.js
-```
-const getPartner = async () => {
-    const {data} = await useFetch('/api/v1/partner')
-    partner.value = data.value?.results
-    // console.log('partner:', data.value?.results)
-}
-```
-
-server.api.partner.get.js
-```
-export default defineEventHandler(async (event) => {
-
-    const url = '/backend/api/v1/partners/'
-
-    const resp = await $fetch(
-        `${process.env.DJANGO_URL}${url}`,
-        {
-            method: 'get',
-            headers: event.context.headers,
-        }).catch((err) => {
-        if (err.data?.error?.code === 401) {
-            return err.data
-        }
-    })
-
-    return resp
-})
-```
+### 20240405-20240408
 
 backend:
-Изменены названия классов:
-- catalogs:
-	- models:
-		- TypeOfProducts,
-    	- Product,
-    	- ProductsGroup,
-    	- Image,
-    	- Characteristic,
-    	- Organization,
-    	- Partner,
-    	- Contractor,
-    	- Agreement,
-    	- Contract,
-	- serializer:
-    	- TypeOfProductsSerializer,
-    	- ProductSerializer,
-    	- ProductsGroupSerializer,
-    	- ProductsGroupTreeSerializer,
-    	- ImageSerializer,
-    	- CharacteristicSerializer,
-    	- OrganizationSerializer,
-    	- PartnerSerializer,
-    	- ContractorSerializer,
-    	- AgreementSerializer,
-    	- ContractSerializer,
-	- views:
-    	- TypeOfProductsViewSet,
-    	- ProductViewSet,
-    	- ProductsGroupViewSet,
-    	- ProductsGroupTreeViewSet,
-    	- ImageViewSet,
-    	- CharacteristicViewSet,
-    	- OrganizationViewSet,
-    	- PartnerViewSet,
-    	- ContractorViewSet,
-    	- AgreementViewSet,
-    	- ContractViewSet,
-- documents:
-	- models:
-		- Order,
-    	- ExchangeNode,
-    	- OrdersDetail,
-	- serializer:
-    	- OrderSerializer,
-    	- ExchangeNodeSerializer,
-	- views:
-    	- OrderViewSet,
-    	- ExchangeNodeViewSet,
 
-Изменены url-ы:
-- catalogs.urls:
-	- backend/api/v1/types_of_products
-	- backend/api/v1/products
-	- backend/api/v1/products_groups
-	- backend/api/v1/images
-	- backend/api/v1/characteristics
-	- backend/api/v1/organizations
-	- backend/api/v1/partners
-	- backend/api/v1/contractors
-	- backend/api/v1/agreements
-	- backend/api/v1/contracts
-- documents.urls:
-	- backend/api/v1/orders
-	- backend/api/v1/exchanges
+	- модель базы данных (оптимизация, имена таблиц)
+	
+	- параметризуемый shell-скрипт запуска backend: run.sh
 
-1C:
-Исправлены маршруты url
+	- python manage.py collectstatic
+
+### 20240409
+
+frontend:
+
+	- авторизация: server/api/auth/[...].ts:	
+```
+async function refreshAccessToken(token: JWT) {
+  try:
+
+  ... (общий try блок)
+
+  } catch (error) {
+  ...
+  }
+}
+
+callbacks: {
+
+  async jwt({ token, user, account }) {
+
+    ... (перегруппировка условий)
+
+    else if (!isNaN(token.accessTokenExpires) && Date.now() > token.accessTokenExpires) {
+    ...
+    }
+    else if (token && user) {
+    ...
+    }
+    return { ...token, ...user }
+  }
+```
+
+### 20240410
+
+1С:
+	- ОбщийМодуль.web_ОбщегоНазначенияПовтИсп: переименован общий модуль (web_ОбщегоНазначения) и все ссылки в коде
+
+	- Перечисления.web_ВидыНастроек: изменен тип параметра настройки соединения Порт (введена Строка вместо Числа)
+
+	- ОбщийМодуль.web_Обмен.СформироватьНастройкиСоединения: добавлен контроль типов параметров соединения
+
+
