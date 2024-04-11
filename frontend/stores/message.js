@@ -1,3 +1,7 @@
+//  ----------------------
+//  Сообщение в интерфейсе
+//  ----------------------
+
 export const useMessageStore = defineStore('messageStore', () => {
 
     let loading = ref(false)

@@ -1,3 +1,7 @@
+//  ----------
+//  Прайс-лист
+//  ----------
+
 import {defineStore} from "pinia";
 
 export const usePriceStore = defineStore("priceStore", () => {
@@ -26,14 +30,12 @@ export const usePriceStore = defineStore("priceStore", () => {
                 }
             }
         })
-        //console.log('getPriceList.is_root: ', is_root)
         if (is_root === 1) {
             products.value = [];
         }
         if (data.value?.results) {
             const per_page = data.value?.results.per_page;
             const items = data.value?.results.results;
-            //console.log('getPriceList.items: ', items);
             if (is_root === undefined)
                 products.value = items;
             else if (items.length > 0)
@@ -45,13 +47,6 @@ export const usePriceStore = defineStore("priceStore", () => {
             count.value = size;
             numPages.value = num_pages;
             currentPage.value = data.value?.results.current_page;
-
-            //data.value?.results.per_page = per_page;
-            //data.value?.results.num_pages = num_pages;
-
-            //await changeSelectedGroupTitle();
-
-            //console.log('getPriceList.products: ', products.value, size, per_page, num_pages);
         } else if (data.value?.error) {
             console.log("getPriceList", data.value?.error)
             // TODO сделать вывод ошибок

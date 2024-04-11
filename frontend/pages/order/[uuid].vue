@@ -1,3 +1,5 @@
+<!--  Карточка заказа  -->
+
 <template>
   <v-container>
     <v-row>
@@ -5,10 +7,19 @@
         <v-btn class="mr-2" @click="closeOrder()">
           Закрыть
         </v-btn>
-        <v-btn :disabled="disabled()" color="success" class="mr-2" @click="saveCurrentOrder()">
+        <v-btn
+            :disabled="disabled()"
+            color="success"
+            class="mr-2"
+            @click="saveCurrentOrder()"
+        >
           Записать
         </v-btn>
-        <v-btn :disabled="disabled()" color="warning" class="mr-2" @click="updateCurrentOrder()">
+        <v-btn
+            :disabled="disabled()"
+            color="warning"
+            class="mr-2"
+            @click="updateCurrentOrder()">
           Оформить
         </v-btn>
         <v-chip :color="getStatusColor(order.site_status)">
@@ -16,33 +27,68 @@
         </v-chip>
       </v-col>
     </v-row>
-
     <v-row>
       <v-col>
-        <v-text-field v-model="order.number" label="Номер" disabled></v-text-field>
+        <v-text-field
+            v-model="order.number"
+            label="Номер"
+            disabled
+        ></v-text-field>
       </v-col>
       <v-col>
-        <v-text-field v-model="orderDate" label="Дата" disabled></v-text-field>
+        <v-text-field
+            v-model="orderDate"
+            label="Дата"
+            disabled
+        ></v-text-field>
       </v-col>
     </v-row>
-
     <v-row>
       <v-col>
-        <v-select v-model="order.organization" :items="organization" item-title="name" item-value="id"
-          label="Организация" required single-line :disabled="disabled()"></v-select>
-        <v-select v-model="order.contractor" :items="contractor" item-title="name" item-value="id" label="Контрагент"
-          required single-line :disabled="disabled()"></v-select>
-        <v-select v-model="order.partner" :items="partner" item-title="name" item-value="id" label="Партнер" required
-          single-line :disabled="disabled()"></v-select>
+        <v-select
+            v-model="order.organization"
+            :items="organization"
+            item-title="name"
+            item-value="id"
+            label="Организация"
+            required
+            single-line
+            :disabled="disabled()"
+        ></v-select>
+        <v-select
+            v-model="order.counterparty"
+            :items="counterparty"
+            item-title="name"
+            item-value="id"
+            label="Контрагент"
+            required
+            single-line
+            :disabled="disabled()"
+        ></v-select>
       </v-col>
       <v-col>
-        <v-select v-model="order.agreement" :items="agreement" item-title="name" item-value="id" label="Соглашение"
-          required single-line :disabled="disabled()"></v-select>
-        <v-select v-model="order.contract" :items="contract" item-title="name" item-value="id" label="Договор" required
-          single-line :disabled="disabled()"></v-select>
+        <v-select
+            v-model="order.agreement"
+            :items="agreement"
+            item-title="name"
+            item-value="id"
+            label="Соглашение"
+            required
+            single-line
+            :disabled="disabled()"
+        ></v-select>
+        <v-select
+            v-model="order.contract"
+            :items="contract"
+            item-title="name"
+            item-value="id"
+            label="Договор"
+            required
+            single-line
+            :disabled="disabled()"
+        ></v-select>
       </v-col>
     </v-row>
-
     <v-row>
       <v-col>
         <v-row class="pa-2">
@@ -52,8 +98,12 @@
           <v-col>Цена</v-col>
           <v-col>Сумма</v-col>
         </v-row>
-
-        <v-card v-for="(item, idx) in order.order_orders_detail" :key="idx" class="pa-2 mb-1" :disabled="disabled()">
+        <v-card
+            v-for="(item, idx) in order.order_orders_detail"
+            :key="idx"
+            class="pa-2 mb-1"
+            :disabled="disabled()"
+        >
           <v-row align="center">
             <v-col>
               {{ item.product_full_name }}
@@ -62,13 +112,25 @@
               {{ item.characteristic_name }}
             </v-col>
             <v-col cols="2">
-              <v-icon size="small" class="me-2" @click="dec(item)">
+              <v-icon
+                  size="small"
+                  class="me-2"
+                  @click="dec(item)"
+              >
                 mdi-minus
               </v-icon>
-              <!-- <span>{{ item.quantity }} шт.</span>-->
-              <input class="product-count" type="text" v-bind:value="productCount(item.quantity)"
-                v-on:change="changeProductCount(item, $event.target.value)" :disabled="disabled()" />
-              <v-icon size="small" class="me-2" @click="inc(item)">
+                <input
+                    class="product-count"
+                    type="text"
+                    v-bind:value="productCount(item.quantity)"
+                    v-on:change="changeProductCount(item, $event.target.value)"
+                    :disabled="disabled()"
+                />
+              <v-icon
+                  size="small"
+                  class="me-2 ms-2"
+                  @click="inc(item)"
+              >
                 mdi-plus
               </v-icon>
             </v-col>
@@ -82,9 +144,7 @@
         </v-card>
       </v-col>
     </v-row>
-
-    <v-divider class="border-opacity-50 mb-6 mt-6" />
-
+    <v-divider class="border-opacity-50 mb-6 mt-6"/>
     <v-row>
       <v-col>
         <p>Позиций: {{ uniProductsCount(order) }}</p>
@@ -92,9 +152,7 @@
       <v-col>
         <p>Количество: {{ orderCount(order) }}</p>
       </v-col>
-
-      <v-spacer />
-      
+      <v-spacer/>
       <v-col>
         <p>Сумма: {{ orderSum(order) }}</p>
       </v-col>
@@ -103,8 +161,8 @@
 </template>
 
 <script setup>
-import { useOrderStore } from "~/stores/orders"
-import { useCatalogsStore } from "~/stores/catalogs"
+import {useOrderStore} from "~/stores/orders"
+import {useCatalogsStore} from "~/stores/catalogs"
 
 const route = useRoute()
 const uuid = route.params.uuid
@@ -115,22 +173,21 @@ const orderStore = useOrderStore()
 
 const catalogsStore = useCatalogsStore()
 
-const { getOrder, updateOrder, orderCount, orderSum, uniProductsCount } = orderStore
+const {getOrder, updateOrder, orderCount, orderSum, uniProductsCount} = orderStore
 
-const { organization, contractor, partner, agreement, contract } = storeToRefs(catalogsStore)
-const { getOrganization, getContractor, getPartner, getAgreement, getContract } = catalogsStore
+const {organization, counterparty, agreement, contract} = storeToRefs(catalogsStore)
+const {getOrganization, getCounterparty, getAgreement, getContract} = catalogsStore
 
 await getOrganization()
 await getCounterparty()
 await getAgreement()
 await getContract()
-await getPartner()
 
 const order = await getOrder(uuid)
 
 const orderDate = computed({
   get() {
-    return new Date(order.value.date_time).toLocaleString()
+    return order.value.date_time ? new Date(order.value.date_time).toLocaleString() : '';
   },
   set(value) {
   }
@@ -180,37 +237,41 @@ const inc = (product) => {
 }
 
 const changeProductCount = (product, value) => {
-  console.log('changeProductCount: ', product, order)
-  if (isNaN(value)) {
-    const message = "ERROR!\nOrder product count value should be a number only\nPlease, repeat";
-    alert(message);
-    return false;
-  }
-  const count = Number(value);
-  const products = order.value.order_orders_detail
-  const index = products.findIndex(item => item.pk === product.pk)
-  if (products[index] !== undefined) {
-    products[index].quantity = count;
-    products[index].total = products[index].quantity * products[index].price
-  }
-  //console.log('changeProductCount:', products[index], value);
+    console.log('changeProductCount: ', product, order)
+    if (isNaN(value)) {
+        const message = "ERROR!\nOrder product count value should be a number only\nPlease, repeat";
+        alert(message);
+        return false;
+    }
+    const count = Number(value);
+    const products = order.value.order_orders_detail
+    const index = products.findIndex(item => item.pk === product.pk)
+    if (products[index] !== undefined) {
+        products[index].quantity = count;
+        products[index].total = products[index].quantity * products[index].price
+    }
+    //console.log('changeProductCount:', products[index], value);
 }
 
 const productCount = (value) => {
-  return Math.floor(value)
+    return Math.floor(value)
 }
 
 const disabled = () => {
-  return order.value.site_status === 'PR' || order.value.site_status === 'CL'
+  if (order.value.site_status === 'PR' || order.value.site_status === 'CL') {
+    return true
+  } else {
+    return false
+  }
 }
 
 </script>
 
 <style scoped>
 .product-count {
-  text-align: center;
-  border: 1px solid white;
-  padding: 5px;
-  width: 40%;
+    text-align:center;
+    border:1px solid white;
+    padding:5px;
+    width:40%;
 }
 </style>

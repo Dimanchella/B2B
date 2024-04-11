@@ -1,3 +1,5 @@
+!-- Главное меню -->
+
 <template>
   <v-app-bar>
     <v-container class="fill-height">
@@ -22,7 +24,7 @@
 
       <v-spacer/>
 
-      <div name="username" class="username">{{ data.user.full_name }}</div>
+      <div name="username" class="username">{{ data.user.full_name + " : [ " + data.user.username + " ]" }}</div>
 
       <OrderCartIcon class="mr-2"/>
 
@@ -90,15 +92,23 @@ import {ref} from "vue"
 const drawer = ref(null)
 
 const links = [
+  {title: "Каталог товаров", to: "/price"},
   {title: "Заказы", to: "/"},
-  {title: "Прайс", to: "/price"},
 ]
 
 //import {useField} from "vee-validate";
-//const username = '...';
 
 const {status, signOut} = useAuth()
-const {data, token} = useAuthState()
+//const {data, token} = useAuthState()
+const {
+    data,
+    lastRefreshedAt,
+    token
+} = useAuthState();
+
+console.log('useAuthState:', 'data:', data, 'lastRefreshedAt:', lastRefreshedAt, 'token:', token)
+
+//const username = data.user.username + " : [" + (token ? token.refreshToken : 'Unathorized') + "]";
 
 </script>
 

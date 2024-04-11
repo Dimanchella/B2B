@@ -1,3 +1,5 @@
+<-- Корзина -->
+
 <script setup>
 const props = defineProps({
   product: {

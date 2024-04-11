@@ -1,3 +1,7 @@
+//  ---------------
+//  Каталог товаров
+//  ---------------
+
 export const useCatalogsStore = defineStore('catalogsStore', () => {
 
     const organization = ref([])
