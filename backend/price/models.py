@@ -1,5 +1,5 @@
 from django.db import models
-from catalogs.models import Product, Characteristic
+from catalog.models import Product, Characteristic
 
 
 class Price(models.Model):
@@ -26,3 +26,4 @@ class Price(models.Model):
     class Meta:
         verbose_name = 'Прайс'
         verbose_name_plural = 'Прайс'
+

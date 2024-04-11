@@ -49,11 +49,11 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
-    'catalogs.apps.CatalogsConfig',
-    'users.apps.UsersConfig',
+    'catalog.apps.catalogConfig',
+    'user.apps.userConfig',
     'price.apps.PriceConfig',
     'django_filters',
-    'documents.apps.DocumentsConfig',
+    'document.apps.documentConfig',
     'django_celery_beat',
     'django_extensions',
 ]
@@ -150,7 +150,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'users.CustomUser'
+AUTH_USER_MODEL = 'user.CustomUser'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -181,11 +181,11 @@ CORS_ALLOWED_ORIGINS = env.list(
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
-    "ROTATE_REFRESH_TOKENS": True,
-    "BLACKLIST_AFTER_ROTATION": True,
-    "UPDATE_LAST_LOGIN": False,
-    "TOKEN_OBTAIN_SERIALIZER": "users.serializers.TokenObtainLifetimeSerializer",
-    "TOKEN_REFRESH_SERIALIZER": "users.serializers.TokenRefreshLifetimeSerializer",
+    #"ROTATE_REFRESH_TOKENS": True,
+    #"BLACKLIST_AFTER_ROTATION": True,
+    #"UPDATE_LAST_LOGIN": False,
+    #"TOKEN_OBTAIN_SERIALIZER": "user.serializers.TokenObtainLifetimeSerializer",
+    #"TOKEN_REFRESH_SERIALIZER": "user.serializers.TokenRefreshLifetimeSerializer",
 }
 
 EMAIL_CONFIG = env.email_url('EMAIL_CONFIG')
@@ -198,3 +198,5 @@ HTTP_PASSWORD = env.str('HTTP_PASSWORD')
 CELERY_BROKER_URL = env.str('CELERY_BROKER_URL')
 
 # CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS')
+
+

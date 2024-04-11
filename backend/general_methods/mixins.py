@@ -1,3 +1,4 @@
+from rest_framework import request
 from rest_framework import response, viewsets, status, pagination
 from rest_framework.permissions import BasePermission
 from rest_framework.settings import api_settings
@@ -5,16 +6,20 @@ from rest_framework.pagination import PageNumberPagination
 
 from debug import IsDebug, IsDeepDebug, IsPrintExceptions, print_to, print_exception
 
+#   ----------------
+#   GENERAL RESPONSE
+#   ----------------
+
 
 def general_response(results=None, response_status=status.HTTP_200_OK, headers=None, errors=None):
     try:
         return response.Response({
             'results': results,
-            'error': errors
+            'error': errors 
         }, response_status, headers)
     except Exception as err:
         if IsPrintExceptions:
-            print_exception()
+            print_exception(stack=True, request=request)
 
 
 class CreateModelMixin(viewsets.ModelViewSet):

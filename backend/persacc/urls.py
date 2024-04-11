@@ -26,13 +26,12 @@ from rest_framework_simplejwt.views import (
 urlpatterns = [
     #path('backend/admin/', admin.site.urls),
     path('admin/', admin.site.urls),
+    path('', include('user.urls')),
+    path('', include('catalog.urls')),
+    path('', include('price.urls')),
+    path('', include('document.urls')),
     path('backend/api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('backend/api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-
-    path('', include('users.urls')),
-    path('', include('catalogs.urls')),
-    path('', include('price.urls')),
-    path('', include('documents.urls'))
 ]
 
 if settings.DEBUG:

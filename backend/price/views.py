@@ -6,7 +6,7 @@ import django_filters
 from django.db.models import Q
 
 from general_methods.mixins import general_response, StandardResultsSetPagination
-from catalogs.models import Product, Characteristic
+from catalog.models import Product, Characteristic
 from .serializers import PriceSerializer, PriceDetailSerializer
 from .permissions import IsAdminOrReadOnly
 from .models import Price
@@ -82,3 +82,4 @@ class ProductDetailViewSet(APIView):
         queryset = Price.objects.filter(id=request_id).get()
         serializer = PriceDetailSerializer(queryset)
         return Response({'results': serializer.data, 'errors': ''}, status=status.HTTP_200_OK)
+

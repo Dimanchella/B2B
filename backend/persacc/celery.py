@@ -3,10 +3,10 @@ from celery import Celery
 from celery.schedules import crontab
 
 # Setting the default Django settings module for the celery program. 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'persacc.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'localhost.settings')
 
 # passing the project name in Celery(project_name)
-app = Celery('persacc')
+app = Celery('localhost')
 
 # Using a string here means the worker doesn't have to serialize 
 # the configuration object to child processes. 
@@ -21,3 +21,4 @@ app.autodiscover_tasks()
 @app.task(bind=True)
 def debug_task(self):
     print(f'Request: {self.request!r}')
+

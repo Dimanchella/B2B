@@ -1,0 +1,24 @@
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+April 10, 2024 - 17:46:27
+Django version 4.2.10, using settings 'persacc.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+Not Found: /backend/api/v1/partners/dee6e1b4-55bc-11d9-848a-00112f43529a/
+[10/Apr/2024 17:47:35] "HEAD /backend/api/v1/partners/dee6e1b4-55bc-11d9-848a-00112f43529a/ HTTP/1.1" 404 0
+[10/Apr/2024 17:47:35] "POST /backend/api/v1/partners/ HTTP/1.1" 201 192
+Not Found: /backend/api/v1/organizations/51ed67a3-7220-11df-b336-0011955cba6b/
+[10/Apr/2024 17:47:35] "HEAD /backend/api/v1/organizations/51ed67a3-7220-11df-b336-0011955cba6b/ HTTP/1.1" 404 0
+[10/Apr/2024 17:47:35] "POST /backend/api/v1/organizations/ HTTP/1.1" 201 130
+Not Found: /backend/api/v1/contractors/dee6e1b4-55bc-11d9-848a-00112f43529a/
+[10/Apr/2024 17:47:35] "HEAD /backend/api/v1/contractors/dee6e1b4-55bc-11d9-848a-00112f43529a/ HTTP/1.1" 404 0
+[10/Apr/2024 17:47:35] "POST /backend/api/v1/contractors/ HTTP/1.1" 201 289
+Not Found: /backend/api/v1/agreements/3931f6d5-785b-11df-b33a-0011955cba6b/
+[10/Apr/2024 17:47:35] "HEAD /backend/api/v1/agreements/3931f6d5-785b-11df-b33a-0011955cba6b/ HTTP/1.1" 404 0
+[10/Apr/2024 17:47:35] "POST /backend/api/v1/agreements/ HTTP/1.1" 201 239
+Not Found: /backend/api/v1/contracts/cc1e1ada-e504-11e0-af8f-0015e9b8c48d/
+[10/Apr/2024 17:47:35] "HEAD /backend/api/v1/contracts/cc1e1ada-e504-11e0-af8f-0015e9b8c48d/ HTTP/1.1" 404 0
+[10/Apr/2024 17:47:35] "POST /backend/api/v1/contracts/ HTTP/1.1" 201 369

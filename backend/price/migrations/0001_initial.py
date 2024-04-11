@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('catalogs', '0001_initial'),
+        ('catalog', '0001_initial'),
     ]
 
     operations = [
@@ -18,12 +18,13 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('price', models.DecimalField(blank=True, decimal_places=2, default=0, max_digits=10, verbose_name='Цена')),
-                ('characteristic', models.ForeignKey(blank=True, default=None, null=True, on_delete=django.db.models.deletion.PROTECT, related_name='characteristic_price', to='catalogs.characteristic', verbose_name='Характеристика')),
-                ('product', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='product', to='catalogs.product', verbose_name='Номенклатура')),
+                ('characteristic', models.ForeignKey(blank=True, default=None, null=True, on_delete=django.db.models.deletion.PROTECT, related_name='characteristic_price', to='catalog.characteristic', verbose_name='Характеристика')),
+                ('product', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='product', to='catalog.product', verbose_name='Номенклатура')),
             ],
             options={
                 'verbose_name': 'Прайс',
-                'verbose_name_plural': 'Прайс',
+                'verbose_name_plural': 'Прайс-листы',
             },
         ),
     ]
+

@@ -1,8 +1,8 @@
 from rest_framework import serializers
 
 from .models import Price
-from catalogs.models import Image
-from catalogs.serializers import PriceImageSerializer
+from catalog.models import Image
+from catalog.serializers import PriceImageSerializer
 
 
 class PriceSerializer(serializers.ModelSerializer):
@@ -50,3 +50,4 @@ class PriceDetailSerializer(serializers.ModelSerializer):
             "images",
             "description"
         ]
+
