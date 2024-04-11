@@ -311,3 +311,20 @@ callbacks: {
 
 - ОбщийМодуль.web_Обмен.СформироватьНастройкиСоединения: добавлен контроль типов параметров соединения
 
+
+### 20240411
+
+backend:
+
+- trace_request: трассировка http request
+
+frontend:
+
+- nuxt_config.ts
+
+- setup.sh:
+
+```
+$ npx nuxi@latest module add sidebase-auth
+```
+

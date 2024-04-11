@@ -1,17 +1,16 @@
-from rest_framework import request
 from rest_framework import response, viewsets, status, pagination
 from rest_framework.permissions import BasePermission
 from rest_framework.settings import api_settings
 from rest_framework.pagination import PageNumberPagination
 
-from debug import IsDebug, IsDeepDebug, IsPrintExceptions, print_to, print_exception
+from debug import IsDebug, IsDeepDebug, IsTrace, IsPrintExceptions, print_to, print_exception, trace_request
 
 #   ----------------
 #   GENERAL RESPONSE
 #   ----------------
 
-
 def general_response(results=None, response_status=status.HTTP_200_OK, headers=None, errors=None):
+    trace_request('mixins.general_response', results=results)
     try:
         return response.Response({
             'results': results,
@@ -28,6 +27,7 @@ class CreateModelMixin(viewsets.ModelViewSet):
     """
 
     def create(self, request, *args, **kwargs):
+        trace_request('mixins.CreateModelMixin.create', request=request, **kwargs)
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
@@ -51,6 +51,7 @@ class ListModelMixin(viewsets.ModelViewSet, pagination.PageNumberPagination):
 
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
+        trace_request('mixins.ListModelMixin.list', request=request)
 
         page = self.paginate_queryset(queryset)
         if page is not None:
@@ -67,6 +68,7 @@ class RetrieveModelMixin(viewsets.ModelViewSet):
     """
 
     def retrieve(self, request, *args, **kwargs):
+        trace_request('mixins.RetrieveModelMixin.retrieve', request=request)
         instance = self.get_object()
         serializer = self.get_serializer(instance)
         return general_response(serializer.data)
@@ -80,6 +82,7 @@ class UpdateModelMixin(viewsets.ModelViewSet):
     def update(self, request, *args, **kwargs):
         partial = kwargs.pop('partial', False)
         instance = self.get_object()
+        trace_request('mixins.UpdateModelMixin.update', request=request)
         serializer = self.get_serializer(instance, data=request.data, partial=partial)
         serializer.is_valid(raise_exception=True)
         self.perform_update(serializer)
@@ -96,6 +99,7 @@ class UpdateModelMixin(viewsets.ModelViewSet):
 
     def partial_update(self, request, *args, **kwargs):
         kwargs['partial'] = True
+        trace_request('mixins.UpdateModelMixin.update', request=request)
         return self.update(request, *args, **kwargs)
 
 
@@ -107,6 +111,7 @@ class DestroyModelMixin(viewsets.ModelViewSet):
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
         self.perform_destroy(instance)
+        trace_request('mixins.DestroyModelMixin.destroy', request=request)
         return general_response(response_status=status.HTTP_204_NO_CONTENT)
 
     def perform_destroy(self, instance):
@@ -115,6 +120,7 @@ class DestroyModelMixin(viewsets.ModelViewSet):
 
 class IsOwnerOrAdminUser(BasePermission):
     def has_permission(self, request, view):
+        trace_request('mixins.IsOwnerOrAdminUser.has_permission', request=request)
         if request.method in ["POST", "PUT", "DELETE"]:
             return request.user and request.user.is_staff
         elif request.method in ['GET']:

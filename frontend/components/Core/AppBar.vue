@@ -33,7 +33,7 @@
       <v-divider class=" hidden-sm-and-down border-opacity-50 ml-6 mr-6" vertical/>
       <v-btn
           class="hidden-sm-and-down"
-          v-if="status === 'authenticated'"
+          v-if="status.value === 'authenticated'"
           key="logout"
           @click="signOut()"
       >
@@ -41,7 +41,7 @@
       </v-btn>
       <v-btn
           class="hidden-sm-and-down"
-          v-if="status !== 'authenticated'"
+          v-if="status.value !== 'authenticated'"
           key="login"
           @click="signIn()"
       >
@@ -67,7 +67,7 @@
     <template v-slot:append>
       <v-btn
           class="ma-2"
-          v-if="status === 'authenticated'"
+          v-if="status.value === 'authenticated'"
           key="logout"
           @click="signOut()"
       >
@@ -75,7 +75,7 @@
       </v-btn>
       <v-btn
           class="ma-2"
-          v-if="status !== 'authenticated'"
+          v-if="status.value !== 'authenticated'"
           key="login"
           @click="signIn()"
       >
@@ -98,15 +98,20 @@ const links = [
 
 //import {useField} from "vee-validate";
 
-const {status, signOut} = useAuth()
+//const {status, signOut} = useAuth()
 //const {data, token} = useAuthState()
 const {
-    data,
-    lastRefreshedAt,
-    token
-} = useAuthState();
+  status,
+  data,
+  lastRefreshedAt,
+  getCsrfToken,
+  getProviders,
+  getSession,
+  signIn,
+  signOut,
+} = useAuth()
 
-console.log('useAuthState:', 'data:', data, 'lastRefreshedAt:', lastRefreshedAt, 'token:', token)
+console.log('useAuthState:', 'data:', data.value, 'lastRefreshedAt:', lastRefreshedAt.value, 'status:', status.value)
 
 //const username = data.user.username + " : [" + (token ? token.refreshToken : 'Unathorized') + "]";
 

@@ -8,7 +8,7 @@ from collections.abc import Iterable
 
 IsDebug                = 1  # sa[stdout]: prints general info (1 - forbidden with apache!)
 IsDeepDebug            = 0  # sa[stdout]: prints detailed info (1 - forbidden with apache!)
-IsTrace                = 0  # Trace[errorlog]: output execution trace for http-requests
+IsTrace                = 1  # Trace[errorlog]: output execution trace for http-requests
 IsPrintExceptions      = 1  # Flag: sets printing of exceptions
 IsDisableOutput        = 0  # Flag: disabled stdout
 
@@ -80,3 +80,8 @@ def getErrorlog():
 
 def getCurrentDate():
     return datetime.datetime.now().strftime(LOCAL_EASY_DATESTAMP)
+
+def trace_request(caption, request=None, results=None):
+    if IsTrace:
+        print_to(None, ">>>%s:\n>>>results:%s\n" % (caption or 'request', results), request=request)
+

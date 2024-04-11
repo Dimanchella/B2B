@@ -1,6 +1,8 @@
+/// js-source
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import vuetify, {transformAssetUrls} from 'vite-plugin-vuetify'
 
+// @ts-ignore
 export default defineNuxtConfig({
   devtools: {enabled: true},
   build: {
