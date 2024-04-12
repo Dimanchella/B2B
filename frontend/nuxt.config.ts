@@ -10,6 +10,7 @@ export default defineNuxtConfig({
   },
   modules: [
     '@sidebase/nuxt-auth',
+    // @ts-ignore
     (_options, nuxt) => {
       nuxt.hooks.hook('vite:extendConfig', (config) => {
         // @ts-expect-error
@@ -18,6 +19,7 @@ export default defineNuxtConfig({
     },
     '@pinia/nuxt',
     '@pinia-plugin-persistedstate/nuxt',
+    '@sidebase/nuxt-session',
     'nuxt-schema-org',
   ],
   auth: {

@@ -2,7 +2,7 @@
 > dev
 > nuxt dev
 
-Nuxt 3.11.1 with Nitro 2.9.5
+Nuxt 3.9.0 with Nitro 2.9.5
 
  
               █▀▀▀▀▀▀▀█▀██▀▀███▀█▀▀▀▀▀▀▀█
@@ -26,394 +26,223 @@ Nuxt 3.11.1 with Nitro 2.9.5
 [sidebase-auth] ℹ nuxt-auth setup starting
 [sidebase-auth] ℹ Selected provider: authjs. Auth API location is http://localhost:3000/api/auth, ensure that NuxtAuthHandler({ ... }) is there, see https://sidebase.io/nuxt-auth/configuration/nuxt-auth-handler
 [sidebase-auth] ✔ nuxt-auth setup done
+[nuxt-session] ℹ Setting up sessions...
+[nuxt-session] ℹ Session API "patch, delete, get, post" endpoints registered at "/api/session"
+[nuxt-session] ✔ Session setup complete
   ➜ DevTools: press Shift + Alt + D in the browser (v1.1.5)
 
-ℹ Re-optimizing dependencies because lockfile has changed
-ℹ Vite server warmed up in 6008ms
-ℹ Vite client warmed up in 7846ms
-[nitro] ✔ Nuxt Nitro server built in 4582 ms
-ℹ ✨ new dependencies optimized: vee-validate
-ℹ ✨ optimized dependencies changed. reloading
+ℹ Vite server warmed up in 6641ms
+ℹ Vite client warmed up in 7084ms
+[nitro] ✔ Nuxt Nitro server built in 2504 ms
+[nuxt] Your project has layouts but the `<NuxtLayout />` component has not been used.
 authorize
-userTokens: { refresh:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzQ0NjIwOCwiaWF0IjoxNzEyODQxNDA4LCJqdGkiOiI5ZDYyZDQ4NWJlYzA0YThjYjAxMGQ3M2M3MjI0MDExZiIsInVzZXJfaWQiOiJkZWU2ZTFiNC01NWJjLTExZDktODQ4YS0wMDExMmY0MzUyOWEifQ.PShZzBs5d2rThnLK5qlvJek0xX3wvvnM9mBdAPPHYwM',
-  access:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ1MDA4LCJpYXQiOjE3MTI4NDE0MDgsImp0aSI6ImQ5NTU4MzRkZWEwNDQzN2I5OThkYTJmNDRiMDRjNGZhIiwidXNlcl9pZCI6ImRlZTZlMWI0LTU1YmMtMTFkOS04NDhhLTAwMTEyZjQzNTI5YSJ9.VEcboZ5JCucVwZieuF2k5xJtasHjJWxzN41LVWbouwM' } payload: { username: '2345126123', password: 'user1234' }
-userDetails: { user:
-   { full_name: 'ЗАО "Дальстрой"',
-     username: '2345126123',
-     contractor: 'dee6e1b4-55bc-11d9-848a-00112f43529a' } }
-userData: { username: '2345126123',
-  full_name: 'ЗАО "Дальстрой"',
-  accessToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ1MDA4LCJpYXQiOjE3MTI4NDE0MDgsImp0aSI6ImQ5NTU4MzRkZWEwNDQzN2I5OThkYTJmNDRiMDRjNGZhIiwidXNlcl9pZCI6ImRlZTZlMWI0LTU1YmMtMTFkOS04NDhhLTAwMTEyZjQzNTI5YSJ9.VEcboZ5JCucVwZieuF2k5xJtasHjJWxzN41LVWbouwM',
+userTokens: {
+  refresh: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzUwOTc3MywiaWF0IjoxNzEyOTA0OTczLCJqdGkiOiJiZWU5ZGI1N2ZlNGI0ZmJlOWRhY2ViODA2YzVkNjc0YiIsInVzZXJfaWQiOiI0Y2UxZTM2Yi1iZDU1LTRjMjQtYWUyMi1kMzhkOGNjZjUyZjMifQ.PKb-FYjRnAheJJU9G39Mlj1F1vUn0T1R_SzKyNeOgpE',
+  access: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyOTA4NTczLCJpYXQiOjE3MTI5MDQ5NzMsImp0aSI6IjI4MWY4YjVlZGE0MTQ5NjFiNDI2OGUxZmE3OTRjZDlmIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.hBMRZNDr-ZEhohIv6kgQjzkhrpP_873iV-3fxTN676k'
+} payload: { username: 'admin', password: 'root1234' }
+userDetails: {
+  user: { full_name: 'Администратор', username: 'admin', contractor: null }
+}
+userData: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyOTA4NTczLCJpYXQiOjE3MTI5MDQ5NzMsImp0aSI6IjI4MWY4YjVlZGE0MTQ5NjFiNDI2OGUxZmE3OTRjZDlmIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.hBMRZNDr-ZEhohIv6kgQjzkhrpP_873iV-3fxTN676k',
   accessTokenExpires: NaN,
-  refreshToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzQ0NjIwOCwiaWF0IjoxNzEyODQxNDA4LCJqdGkiOiI5ZDYyZDQ4NWJlYzA0YThjYjAxMGQ3M2M3MjI0MDExZiIsInVzZXJfaWQiOiJkZWU2ZTFiNC01NWJjLTExZDktODQ4YS0wMDExMmY0MzUyOWEifQ.PShZzBs5d2rThnLK5qlvJek0xX3wvvnM9mBdAPPHYwM' }
-jwt... user: { username: '2345126123',
-  full_name: 'ЗАО "Дальстрой"',
-  accessToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ1MDA4LCJpYXQiOjE3MTI4NDE0MDgsImp0aSI6ImQ5NTU4MzRkZWEwNDQzN2I5OThkYTJmNDRiMDRjNGZhIiwidXNlcl9pZCI6ImRlZTZlMWI0LTU1YmMtMTFkOS04NDhhLTAwMTEyZjQzNTI5YSJ9.VEcboZ5JCucVwZieuF2k5xJtasHjJWxzN41LVWbouwM',
+  refreshToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzUwOTc3MywiaWF0IjoxNzEyOTA0OTczLCJqdGkiOiJiZWU5ZGI1N2ZlNGI0ZmJlOWRhY2ViODA2YzVkNjc0YiIsInVzZXJfaWQiOiI0Y2UxZTM2Yi1iZDU1LTRjMjQtYWUyMi1kMzhkOGNjZjUyZjMifQ.PKb-FYjRnAheJJU9G39Mlj1F1vUn0T1R_SzKyNeOgpE'
+}
+jwt... user: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyOTA4NTczLCJpYXQiOjE3MTI5MDQ5NzMsImp0aSI6IjI4MWY4YjVlZGE0MTQ5NjFiNDI2OGUxZmE3OTRjZDlmIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.hBMRZNDr-ZEhohIv6kgQjzkhrpP_873iV-3fxTN676k',
   accessTokenExpires: NaN,
-  refreshToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzQ0NjIwOCwiaWF0IjoxNzEyODQxNDA4LCJqdGkiOiI5ZDYyZDQ4NWJlYzA0YThjYjAxMGQ3M2M3MjI0MDExZiIsInVzZXJfaWQiOiJkZWU2ZTFiNC01NWJjLTExZDktODQ4YS0wMDExMmY0MzUyOWEifQ.PShZzBs5d2rThnLK5qlvJek0xX3wvvnM9mBdAPPHYwM' } account: { providerAccountId: undefined, type: 'credentials', provider: 'credentials' } token: { name: undefined, email: undefined, picture: undefined, sub: undefined }
+  refreshToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzUwOTc3MywiaWF0IjoxNzEyOTA0OTczLCJqdGkiOiJiZWU5ZGI1N2ZlNGI0ZmJlOWRhY2ViODA2YzVkNjc0YiIsInVzZXJfaWQiOiI0Y2UxZTM2Yi1iZDU1LTRjMjQtYWUyMi1kMzhkOGNjZjUyZjMifQ.PKb-FYjRnAheJJU9G39Mlj1F1vUn0T1R_SzKyNeOgpE'
+} account: {
+  providerAccountId: undefined,
+  type: 'credentials',
+  provider: 'credentials'
+} token: {
+  name: undefined,
+  email: undefined,
+  picture: undefined,
+  sub: undefined
+}
 >>> Пользователь авторизован (with account)
-jwt... user: undefined account: undefined token: { username: '2345126123',
-  full_name: 'ЗАО "Дальстрой"',
-  accessToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ1MDA4LCJpYXQiOjE3MTI4NDE0MDgsImp0aSI6ImQ5NTU4MzRkZWEwNDQzN2I5OThkYTJmNDRiMDRjNGZhIiwidXNlcl9pZCI6ImRlZTZlMWI0LTU1YmMtMTFkOS04NDhhLTAwMTEyZjQzNTI5YSJ9.VEcboZ5JCucVwZieuF2k5xJtasHjJWxzN41LVWbouwM',
+jwt... user: undefined account: undefined token: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyOTA4NTczLCJpYXQiOjE3MTI5MDQ5NzMsImp0aSI6IjI4MWY4YjVlZGE0MTQ5NjFiNDI2OGUxZmE3OTRjZDlmIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.hBMRZNDr-ZEhohIv6kgQjzkhrpP_873iV-3fxTN676k',
   accessTokenExpires: null,
-  refreshToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzQ0NjIwOCwiaWF0IjoxNzEyODQxNDA4LCJqdGkiOiI5ZDYyZDQ4NWJlYzA0YThjYjAxMGQ3M2M3MjI0MDExZiIsInVzZXJfaWQiOiJkZWU2ZTFiNC01NWJjLTExZDktODQ4YS0wMDExMmY0MzUyOWEifQ.PShZzBs5d2rThnLK5qlvJek0xX3wvvnM9mBdAPPHYwM',
-  iat: 1712841408,
-  exp: 1715433408,
-  jti: '8d668b7d-3b19-444f-bb27-b3382fb2b3a9' }
+  refreshToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzUwOTc3MywiaWF0IjoxNzEyOTA0OTczLCJqdGkiOiJiZWU5ZGI1N2ZlNGI0ZmJlOWRhY2ViODA2YzVkNjc0YiIsInVzZXJfaWQiOiI0Y2UxZTM2Yi1iZDU1LTRjMjQtYWUyMi1kMzhkOGNjZjUyZjMifQ.PKb-FYjRnAheJJU9G39Mlj1F1vUn0T1R_SzKyNeOgpE',
+  iat: 1712904973,
+  exp: 1715496973,
+  jti: '083c7730-40d1-4000-b450-39a1636fedd4'
+}
 >>> Срок действия токена истек. Получение нового
 >>> Аутентификация. Получение токена доступа
-refreshedTokens: { access:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ1MDA4LCJpYXQiOjE3MTI4NDE0MDgsImp0aSI6ImZhOTgwMzc2NTE0NTQwYmU4YWU2Y2M2ZTQ2OWQ3ZTQ4IiwidXNlcl9pZCI6ImRlZTZlMWI0LTU1YmMtMTFkOS04NDhhLTAwMTEyZjQzNTI5YSJ9.aXanfcPUJYzg1ZjLGoz8cLQLS1aPGgwMsbcJ2LR1HV0' }
+refreshedTokens: {
+  access: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyOTA4NTczLCJpYXQiOjE3MTI5MDQ5NzMsImp0aSI6IjI5YmI1MTUzZGZmOTRhYmM4YmMxZmQxNDE1OWY1M2VkIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.j1j2qGP9hLfaTKQioQ7V2YgmIx6dEWE-k124l053mQ0'
+}
 >>> Токен получен
->>> Чтение сессии session: { user: { name: undefined, email: undefined, image: undefined },
-  expires: '2024-05-11T13:16:48.706Z' } token: { username: '2345126123',
-  full_name: 'ЗАО "Дальстрой"',
-  accessToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ1MDA4LCJpYXQiOjE3MTI4NDE0MDgsImp0aSI6ImZhOTgwMzc2NTE0NTQwYmU4YWU2Y2M2ZTQ2OWQ3ZTQ4IiwidXNlcl9pZCI6ImRlZTZlMWI0LTU1YmMtMTFkOS04NDhhLTAwMTEyZjQzNTI5YSJ9.aXanfcPUJYzg1ZjLGoz8cLQLS1aPGgwMsbcJ2LR1HV0',
+>>> Чтение сессии session: {
+  user: { name: undefined, email: undefined, image: undefined },
+  expires: '2024-05-12T06:56:13.240Z'
+} token: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyOTA4NTczLCJpYXQiOjE3MTI5MDQ5NzMsImp0aSI6IjI5YmI1MTUzZGZmOTRhYmM4YmMxZmQxNDE1OWY1M2VkIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.j1j2qGP9hLfaTKQioQ7V2YgmIx6dEWE-k124l053mQ0',
   accessTokenExpires: NaN,
   refreshToken: undefined,
-  iat: 1712841408,
-  exp: 1715433408,
-  jti: '8d668b7d-3b19-444f-bb27-b3382fb2b3a9' }
-useAuthState: data: { user:
-   { username: '2345126123',
-     full_name: 'ЗАО "Дальстрой"',
-     accessToken:
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ1MDA4LCJpYXQiOjE3MTI4NDE0MDgsImp0aSI6ImZhOTgwMzc2NTE0NTQwYmU4YWU2Y2M2ZTQ2OWQ3ZTQ4IiwidXNlcl9pZCI6ImRlZTZlMWI0LTU1YmMtMTFkOS04NDhhLTAwMTEyZjQzNTI5YSJ9.aXanfcPUJYzg1ZjLGoz8cLQLS1aPGgwMsbcJ2LR1HV0',
-     accessTokenExpires: null,
-     iat: 1712841408,
-     exp: 1715433408,
-     jti: '8d668b7d-3b19-444f-bb27-b3382fb2b3a9' },
-  expires: '2024-05-11T13:16:48.706Z' } lastRefreshedAt: 2024-04-11T13:16:48.679Z status: authenticated
-jwt... user: undefined account: undefined token: { username: '2345126123',
-  full_name: 'ЗАО "Дальстрой"',
-  accessToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ1MDA4LCJpYXQiOjE3MTI4NDE0MDgsImp0aSI6ImZhOTgwMzc2NTE0NTQwYmU4YWU2Y2M2ZTQ2OWQ3ZTQ4IiwidXNlcl9pZCI6ImRlZTZlMWI0LTU1YmMtMTFkOS04NDhhLTAwMTEyZjQzNTI5YSJ9.aXanfcPUJYzg1ZjLGoz8cLQLS1aPGgwMsbcJ2LR1HV0',
-  accessTokenExpires: null,
-  iat: 1712841408,
-  exp: 1715433408,
-  jti: 'da755cd7-ecf7-44cc-9b7f-961644b8161e' }
->>> Срок действия токена истек. Получение нового
->>> Аутентификация. Получение токена доступа
-!!! Ошибка авторизации
-
- WARN  [h3] Please prefer using message for longer error messages instead of statusMessage. In the future, statusMessage will be sanitized by default.
-
-
- ERROR  [next-auth][error][JWT_SESSION_ERROR] 
-https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена Ошибка обновления токена
-
-  at createError (node_modules/h3/dist/index.mjs:79:15)
-  at refreshAccessToken (server/api/auth/[...].ts:51:1)
-  at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-  at async Object.session (node_modules/next-auth/core/routes/session.js:47:21)
-  at async AuthHandler (node_modules/next-auth/core/index.js:158:27)
-  at Object.handler (node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)
-  at async node_modules/h3/dist/index.mjs:1962:19
-  at async Object.callAsync (node_modules/unctx/dist/index.mjs:72:16)
-  at async Server.toNodeHandle (node_modules/h3/dist/index.mjs:2249:7)
-
+  iat: 1712904973,
+  exp: 1715496973,
+  jti: '083c7730-40d1-4000-b450-39a1636fedd4'
+}
+useAuthState: data: {
+  user: {
+    username: 'admin',
+    full_name: 'Администратор',
+    accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyOTA4NTczLCJpYXQiOjE3MTI5MDQ5NzMsImp0aSI6IjI5YmI1MTUzZGZmOTRhYmM4YmMxZmQxNDE1OWY1M2VkIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.j1j2qGP9hLfaTKQioQ7V2YgmIx6dEWE-k124l053mQ0',
+    accessTokenExpires: null,
+    iat: 1712904973,
+    exp: 1715496973,
+    jti: '083c7730-40d1-4000-b450-39a1636fedd4'
+  },
+  expires: '2024-05-12T06:56:13.240Z'
+} lastRefreshedAt: 2024-04-12T06:56:13.225Z status: <ref *1> ComputedRefImpl {
+  getter: [Function (anonymous)],
+  _setter: [Function: setter],
+  dep: undefined,
+  __v_isRef: true,
+  __v_isReadonly: true,
+  effect: ReactiveEffect {
+    fn: [Function (anonymous)],
+    trigger: [Function (anonymous)],
+    scheduler: undefined,
+    active: false,
+    deps: [],
+    _dirtyLevel: 4,
+    _trackId: 0,
+    _runnings: 0,
+    _shouldSchedule: false,
+    _depsLength: 0,
+    computed: [Circular *1]
+  },
+  _cacheable: false
+}
+useAuthState: data: null lastRefreshedAt: 2024-04-12T06:57:03.453Z status: <ref *1> ComputedRefImpl {
+  getter: [Function (anonymous)],
+  _setter: [Function: setter],
+  dep: undefined,
+  __v_isRef: true,
+  __v_isReadonly: true,
+  effect: ReactiveEffect {
+    fn: [Function (anonymous)],
+    trigger: [Function (anonymous)],
+    scheduler: undefined,
+    active: false,
+    deps: [],
+    _dirtyLevel: 4,
+    _trackId: 0,
+    _runnings: 0,
+    _shouldSchedule: false,
+    _depsLength: 0,
+    computed: [Circular *1]
+  },
+  _cacheable: false
+}
 authorize
-userTokens: { refresh:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzQ0Nzc1NiwiaWF0IjoxNzEyODQyOTU2LCJqdGkiOiI3YTg4YTBkZmUzY2I0ZjdmOTJiMzViNWFkOGMzNzk2YyIsInVzZXJfaWQiOiJkZWU2ZTFiNC01NWJjLTExZDktODQ4YS0wMDExMmY0MzUyOWEifQ.qSaYZ-HS5TETNC22MOBtlmkvXEMXNXAjqHX3fvZ_PP8',
-  access:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ2NTU2LCJpYXQiOjE3MTI4NDI5NTYsImp0aSI6ImY0YTdiY2E1ZWU5MDRhNDE4NmFlOWYzZmM4OWRhZWVhIiwidXNlcl9pZCI6ImRlZTZlMWI0LTU1YmMtMTFkOS04NDhhLTAwMTEyZjQzNTI5YSJ9.C6iDbBQzI6HGkcrweDRBN3TmbaB9_ya8tYhvihJCLv0' } payload: { username: '2345126123', password: 'user1234' }
-userDetails: { user:
-   { full_name: 'ЗАО "Дальстрой"',
-     username: '2345126123',
-     contractor: 'dee6e1b4-55bc-11d9-848a-00112f43529a' } }
-userData: { username: '2345126123',
+userTokens: {
+  refresh: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzUwOTg1NSwiaWF0IjoxNzEyOTA1MDU1LCJqdGkiOiI4NDcwMjcyYjFiN2M0NzJiYjQxMjk2ZTkzZGQyNTk1NyIsInVzZXJfaWQiOiJkZWU2ZTFiNC01NWJjLTExZDktODQ4YS0wMDExMmY0MzUyOWEifQ.5GMA5IBsLer-O5HfsqkpOFpwcfaXw62j2RIubK6D62Y',
+  access: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyOTA4NjU1LCJpYXQiOjE3MTI5MDUwNTUsImp0aSI6IjMzOWY1NmRlZTVmNDRjZTViNWYzMjllODMwNTkzYWVmIiwidXNlcl9pZCI6ImRlZTZlMWI0LTU1YmMtMTFkOS04NDhhLTAwMTEyZjQzNTI5YSJ9.cf6VGLcgHXqsqzPK-96xOWHmwArbKc-fo5Qy7nCHJPk'
+} payload: { username: '2345126123', password: 'user1234' }
+userDetails: {
+  user: {
+    full_name: 'ЗАО "Дальстрой"',
+    username: '2345126123',
+    contractor: 'dee6e1b4-55bc-11d9-848a-00112f43529a'
+  }
+}
+userData: {
+  username: '2345126123',
   full_name: 'ЗАО "Дальстрой"',
-  accessToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ2NTU2LCJpYXQiOjE3MTI4NDI5NTYsImp0aSI6ImY0YTdiY2E1ZWU5MDRhNDE4NmFlOWYzZmM4OWRhZWVhIiwidXNlcl9pZCI6ImRlZTZlMWI0LTU1YmMtMTFkOS04NDhhLTAwMTEyZjQzNTI5YSJ9.C6iDbBQzI6HGkcrweDRBN3TmbaB9_ya8tYhvihJCLv0',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyOTA4NjU1LCJpYXQiOjE3MTI5MDUwNTUsImp0aSI6IjMzOWY1NmRlZTVmNDRjZTViNWYzMjllODMwNTkzYWVmIiwidXNlcl9pZCI6ImRlZTZlMWI0LTU1YmMtMTFkOS04NDhhLTAwMTEyZjQzNTI5YSJ9.cf6VGLcgHXqsqzPK-96xOWHmwArbKc-fo5Qy7nCHJPk',
   accessTokenExpires: NaN,
-  refreshToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzQ0Nzc1NiwiaWF0IjoxNzEyODQyOTU2LCJqdGkiOiI3YTg4YTBkZmUzY2I0ZjdmOTJiMzViNWFkOGMzNzk2YyIsInVzZXJfaWQiOiJkZWU2ZTFiNC01NWJjLTExZDktODQ4YS0wMDExMmY0MzUyOWEifQ.qSaYZ-HS5TETNC22MOBtlmkvXEMXNXAjqHX3fvZ_PP8' }
-jwt... user: { username: '2345126123',
+  refreshToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzUwOTg1NSwiaWF0IjoxNzEyOTA1MDU1LCJqdGkiOiI4NDcwMjcyYjFiN2M0NzJiYjQxMjk2ZTkzZGQyNTk1NyIsInVzZXJfaWQiOiJkZWU2ZTFiNC01NWJjLTExZDktODQ4YS0wMDExMmY0MzUyOWEifQ.5GMA5IBsLer-O5HfsqkpOFpwcfaXw62j2RIubK6D62Y'
+}
+jwt... user: {
+  username: '2345126123',
   full_name: 'ЗАО "Дальстрой"',
-  accessToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ2NTU2LCJpYXQiOjE3MTI4NDI5NTYsImp0aSI6ImY0YTdiY2E1ZWU5MDRhNDE4NmFlOWYzZmM4OWRhZWVhIiwidXNlcl9pZCI6ImRlZTZlMWI0LTU1YmMtMTFkOS04NDhhLTAwMTEyZjQzNTI5YSJ9.C6iDbBQzI6HGkcrweDRBN3TmbaB9_ya8tYhvihJCLv0',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyOTA4NjU1LCJpYXQiOjE3MTI5MDUwNTUsImp0aSI6IjMzOWY1NmRlZTVmNDRjZTViNWYzMjllODMwNTkzYWVmIiwidXNlcl9pZCI6ImRlZTZlMWI0LTU1YmMtMTFkOS04NDhhLTAwMTEyZjQzNTI5YSJ9.cf6VGLcgHXqsqzPK-96xOWHmwArbKc-fo5Qy7nCHJPk',
   accessTokenExpires: NaN,
-  refreshToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzQ0Nzc1NiwiaWF0IjoxNzEyODQyOTU2LCJqdGkiOiI3YTg4YTBkZmUzY2I0ZjdmOTJiMzViNWFkOGMzNzk2YyIsInVzZXJfaWQiOiJkZWU2ZTFiNC01NWJjLTExZDktODQ4YS0wMDExMmY0MzUyOWEifQ.qSaYZ-HS5TETNC22MOBtlmkvXEMXNXAjqHX3fvZ_PP8' } account: { providerAccountId: undefined, type: 'credentials', provider: 'credentials' } token: { name: undefined, email: undefined, picture: undefined, sub: undefined }
+  refreshToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzUwOTg1NSwiaWF0IjoxNzEyOTA1MDU1LCJqdGkiOiI4NDcwMjcyYjFiN2M0NzJiYjQxMjk2ZTkzZGQyNTk1NyIsInVzZXJfaWQiOiJkZWU2ZTFiNC01NWJjLTExZDktODQ4YS0wMDExMmY0MzUyOWEifQ.5GMA5IBsLer-O5HfsqkpOFpwcfaXw62j2RIubK6D62Y'
+} account: {
+  providerAccountId: undefined,
+  type: 'credentials',
+  provider: 'credentials'
+} token: {
+  name: undefined,
+  email: undefined,
+  picture: undefined,
+  sub: undefined
+}
 >>> Пользователь авторизован (with account)
-jwt... user: undefined account: undefined token: { username: '2345126123',
+jwt... user: undefined account: undefined token: {
+  username: '2345126123',
   full_name: 'ЗАО "Дальстрой"',
-  accessToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ2NTU2LCJpYXQiOjE3MTI4NDI5NTYsImp0aSI6ImY0YTdiY2E1ZWU5MDRhNDE4NmFlOWYzZmM4OWRhZWVhIiwidXNlcl9pZCI6ImRlZTZlMWI0LTU1YmMtMTFkOS04NDhhLTAwMTEyZjQzNTI5YSJ9.C6iDbBQzI6HGkcrweDRBN3TmbaB9_ya8tYhvihJCLv0',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyOTA4NjU1LCJpYXQiOjE3MTI5MDUwNTUsImp0aSI6IjMzOWY1NmRlZTVmNDRjZTViNWYzMjllODMwNTkzYWVmIiwidXNlcl9pZCI6ImRlZTZlMWI0LTU1YmMtMTFkOS04NDhhLTAwMTEyZjQzNTI5YSJ9.cf6VGLcgHXqsqzPK-96xOWHmwArbKc-fo5Qy7nCHJPk',
   accessTokenExpires: null,
-  refreshToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzQ0Nzc1NiwiaWF0IjoxNzEyODQyOTU2LCJqdGkiOiI3YTg4YTBkZmUzY2I0ZjdmOTJiMzViNWFkOGMzNzk2YyIsInVzZXJfaWQiOiJkZWU2ZTFiNC01NWJjLTExZDktODQ4YS0wMDExMmY0MzUyOWEifQ.qSaYZ-HS5TETNC22MOBtlmkvXEMXNXAjqHX3fvZ_PP8',
-  iat: 1712842956,
-  exp: 1715434956,
-  jti: '473ac0b1-024f-440b-9975-25888834c0cc' }
+  refreshToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzUwOTg1NSwiaWF0IjoxNzEyOTA1MDU1LCJqdGkiOiI4NDcwMjcyYjFiN2M0NzJiYjQxMjk2ZTkzZGQyNTk1NyIsInVzZXJfaWQiOiJkZWU2ZTFiNC01NWJjLTExZDktODQ4YS0wMDExMmY0MzUyOWEifQ.5GMA5IBsLer-O5HfsqkpOFpwcfaXw62j2RIubK6D62Y',
+  iat: 1712905055,
+  exp: 1715497055,
+  jti: '1712402c-f24b-42ad-88a8-177d2b48015f'
+}
 >>> Срок действия токена истек. Получение нового
 >>> Аутентификация. Получение токена доступа
-refreshedTokens: { access:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ2NTU2LCJpYXQiOjE3MTI4NDI5NTYsImp0aSI6Ijg2YWYzYTUwOTVhMDRjYzI4YWIxZDQ0MjEwZDYyNjRjIiwidXNlcl9pZCI6ImRlZTZlMWI0LTU1YmMtMTFkOS04NDhhLTAwMTEyZjQzNTI5YSJ9._a2DRY-tv2JD1ioVLykHiiVsVjbkKOfiW0WSAGrh-4A' }
+refreshedTokens: {
+  access: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyOTA4NjU1LCJpYXQiOjE3MTI5MDUwNTUsImp0aSI6IjRhMDdjY2FhZDU2MjRkNTdiNjM5OWRkMmQ0ZGEwNGQ1IiwidXNlcl9pZCI6ImRlZTZlMWI0LTU1YmMtMTFkOS04NDhhLTAwMTEyZjQzNTI5YSJ9.3deZzIrz9Gw-ndDp5GCWTuUpbs506rprdg5J7ngpXUk'
+}
 >>> Токен получен
->>> Чтение сессии session: { user: { name: undefined, email: undefined, image: undefined },
-  expires: '2024-05-11T13:42:36.835Z' } token: { username: '2345126123',
+>>> Чтение сессии session: {
+  user: { name: undefined, email: undefined, image: undefined },
+  expires: '2024-05-12T06:57:35.255Z'
+} token: {
+  username: '2345126123',
   full_name: 'ЗАО "Дальстрой"',
-  accessToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ2NTU2LCJpYXQiOjE3MTI4NDI5NTYsImp0aSI6Ijg2YWYzYTUwOTVhMDRjYzI4YWIxZDQ0MjEwZDYyNjRjIiwidXNlcl9pZCI6ImRlZTZlMWI0LTU1YmMtMTFkOS04NDhhLTAwMTEyZjQzNTI5YSJ9._a2DRY-tv2JD1ioVLykHiiVsVjbkKOfiW0WSAGrh-4A',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyOTA4NjU1LCJpYXQiOjE3MTI5MDUwNTUsImp0aSI6IjRhMDdjY2FhZDU2MjRkNTdiNjM5OWRkMmQ0ZGEwNGQ1IiwidXNlcl9pZCI6ImRlZTZlMWI0LTU1YmMtMTFkOS04NDhhLTAwMTEyZjQzNTI5YSJ9.3deZzIrz9Gw-ndDp5GCWTuUpbs506rprdg5J7ngpXUk',
   accessTokenExpires: NaN,
   refreshToken: undefined,
-  iat: 1712842956,
-  exp: 1715434956,
-  jti: '473ac0b1-024f-440b-9975-25888834c0cc' }
-useAuthState: data: { user:
-   { username: '2345126123',
-     full_name: 'ЗАО "Дальстрой"',
-     accessToken:
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ2NTU2LCJpYXQiOjE3MTI4NDI5NTYsImp0aSI6Ijg2YWYzYTUwOTVhMDRjYzI4YWIxZDQ0MjEwZDYyNjRjIiwidXNlcl9pZCI6ImRlZTZlMWI0LTU1YmMtMTFkOS04NDhhLTAwMTEyZjQzNTI5YSJ9._a2DRY-tv2JD1ioVLykHiiVsVjbkKOfiW0WSAGrh-4A',
-     accessTokenExpires: null,
-     iat: 1712842956,
-     exp: 1715434956,
-     jti: '473ac0b1-024f-440b-9975-25888834c0cc' },
-  expires: '2024-05-11T13:42:36.835Z' } lastRefreshedAt: 2024-04-11T13:42:36.817Z status: authenticated
-jwt... user: undefined account: undefined token: { username: '2345126123',
-  full_name: 'ЗАО "Дальстрой"',
-  accessToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ2NTU2LCJpYXQiOjE3MTI4NDI5NTYsImp0aSI6Ijg2YWYzYTUwOTVhMDRjYzI4YWIxZDQ0MjEwZDYyNjRjIiwidXNlcl9pZCI6ImRlZTZlMWI0LTU1YmMtMTFkOS04NDhhLTAwMTEyZjQzNTI5YSJ9._a2DRY-tv2JD1ioVLykHiiVsVjbkKOfiW0WSAGrh-4A',
-  accessTokenExpires: null,
-  iat: 1712842956,
-  exp: 1715434956,
-  jti: '89a1b00d-010f-473c-8baa-4ae1d64bd80d' }
->>> Срок действия токена истек. Получение нового
->>> Аутентификация. Получение токена доступа
-!!! Ошибка авторизации
-
- WARN  [h3] Please prefer using message for longer error messages instead of statusMessage. In the future, statusMessage will be sanitized by default.
-
-
- ERROR  [next-auth][error][JWT_SESSION_ERROR] 
-https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена Ошибка обновления токена
-
-  at createError (node_modules/h3/dist/index.mjs:79:15)
-  at refreshAccessToken (server/api/auth/[...].ts:51:1)
-  at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-  at async Object.session (node_modules/next-auth/core/routes/session.js:47:21)
-  at async AuthHandler (node_modules/next-auth/core/index.js:158:27)
-  at Object.handler (node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)
-  at async node_modules/h3/dist/index.mjs:1962:19
-  at async Object.callAsync (node_modules/unctx/dist/index.mjs:72:16)
-  at async Server.toNodeHandle (node_modules/h3/dist/index.mjs:2249:7)
-
-authorize
-userTokens: { refresh:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzQ0OTIxMiwiaWF0IjoxNzEyODQ0NDEyLCJqdGkiOiJjOWY4OGJkOGJkM2Q0MWJmODY5NDg1ZTkyZTkyMjQxMyIsInVzZXJfaWQiOiI0Y2UxZTM2Yi1iZDU1LTRjMjQtYWUyMi1kMzhkOGNjZjUyZjMifQ.zL8UT4JxH6qVT9tj4MU9sVA9QFGSTOAOPjBFWrU_IZE',
-  access:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ4MDEyLCJpYXQiOjE3MTI4NDQ0MTIsImp0aSI6Ijg0MzQ5OGQ2NGZmNjQ4ZDZhMDk3N2JkNjgxY2UzODExIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.X98fRzls9MrHGtUCQxeMlFxjI4iIB2D8TR7PKhkLV5I' } payload: { username: 'admin', password: 'root1234' }
-userDetails: { user: { full_name: 'Администратор', username: 'admin', contractor: null } }
-userData: { username: 'admin',
-  full_name: 'Администратор',
-  accessToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ4MDEyLCJpYXQiOjE3MTI4NDQ0MTIsImp0aSI6Ijg0MzQ5OGQ2NGZmNjQ4ZDZhMDk3N2JkNjgxY2UzODExIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.X98fRzls9MrHGtUCQxeMlFxjI4iIB2D8TR7PKhkLV5I',
-  accessTokenExpires: NaN,
-  refreshToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzQ0OTIxMiwiaWF0IjoxNzEyODQ0NDEyLCJqdGkiOiJjOWY4OGJkOGJkM2Q0MWJmODY5NDg1ZTkyZTkyMjQxMyIsInVzZXJfaWQiOiI0Y2UxZTM2Yi1iZDU1LTRjMjQtYWUyMi1kMzhkOGNjZjUyZjMifQ.zL8UT4JxH6qVT9tj4MU9sVA9QFGSTOAOPjBFWrU_IZE' }
-jwt... user: { username: 'admin',
-  full_name: 'Администратор',
-  accessToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ4MDEyLCJpYXQiOjE3MTI4NDQ0MTIsImp0aSI6Ijg0MzQ5OGQ2NGZmNjQ4ZDZhMDk3N2JkNjgxY2UzODExIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.X98fRzls9MrHGtUCQxeMlFxjI4iIB2D8TR7PKhkLV5I',
-  accessTokenExpires: NaN,
-  refreshToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzQ0OTIxMiwiaWF0IjoxNzEyODQ0NDEyLCJqdGkiOiJjOWY4OGJkOGJkM2Q0MWJmODY5NDg1ZTkyZTkyMjQxMyIsInVzZXJfaWQiOiI0Y2UxZTM2Yi1iZDU1LTRjMjQtYWUyMi1kMzhkOGNjZjUyZjMifQ.zL8UT4JxH6qVT9tj4MU9sVA9QFGSTOAOPjBFWrU_IZE' } account: { providerAccountId: undefined, type: 'credentials', provider: 'credentials' } token: { name: undefined, email: undefined, picture: undefined, sub: undefined }
->>> Пользователь авторизован (with account)
-jwt... user: undefined account: undefined token: { username: 'admin',
-  full_name: 'Администратор',
-  accessToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ4MDEyLCJpYXQiOjE3MTI4NDQ0MTIsImp0aSI6Ijg0MzQ5OGQ2NGZmNjQ4ZDZhMDk3N2JkNjgxY2UzODExIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.X98fRzls9MrHGtUCQxeMlFxjI4iIB2D8TR7PKhkLV5I',
-  accessTokenExpires: null,
-  refreshToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzQ0OTIxMiwiaWF0IjoxNzEyODQ0NDEyLCJqdGkiOiJjOWY4OGJkOGJkM2Q0MWJmODY5NDg1ZTkyZTkyMjQxMyIsInVzZXJfaWQiOiI0Y2UxZTM2Yi1iZDU1LTRjMjQtYWUyMi1kMzhkOGNjZjUyZjMifQ.zL8UT4JxH6qVT9tj4MU9sVA9QFGSTOAOPjBFWrU_IZE',
-  iat: 1712844412,
-  exp: 1715436412,
-  jti: 'b82b3bfa-03ce-45dc-8bce-476ae52a8e6a' }
->>> Срок действия токена истек. Получение нового
->>> Аутентификация. Получение токена доступа
-refreshedTokens: { access:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ4MDEyLCJpYXQiOjE3MTI4NDQ0MTIsImp0aSI6ImYyOWUzMjhkZDc2ZjQ1MjZiMmI5YmY2MjRkNzU5ODg5IiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.Tx2TaAN7QnDpx1Qdu2kLsuizBjHB2DUtKW2IDR0Qda8' }
->>> Токен получен
->>> Чтение сессии session: { user: { name: undefined, email: undefined, image: undefined },
-  expires: '2024-05-11T14:06:52.540Z' } token: { username: 'admin',
-  full_name: 'Администратор',
-  accessToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ4MDEyLCJpYXQiOjE3MTI4NDQ0MTIsImp0aSI6ImYyOWUzMjhkZDc2ZjQ1MjZiMmI5YmY2MjRkNzU5ODg5IiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.Tx2TaAN7QnDpx1Qdu2kLsuizBjHB2DUtKW2IDR0Qda8',
-  accessTokenExpires: NaN,
-  refreshToken: undefined,
-  iat: 1712844412,
-  exp: 1715436412,
-  jti: 'b82b3bfa-03ce-45dc-8bce-476ae52a8e6a' }
-useAuthState: data: { user:
-   { username: 'admin',
-     full_name: 'Администратор',
-     accessToken:
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ4MDEyLCJpYXQiOjE3MTI4NDQ0MTIsImp0aSI6ImYyOWUzMjhkZDc2ZjQ1MjZiMmI5YmY2MjRkNzU5ODg5IiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.Tx2TaAN7QnDpx1Qdu2kLsuizBjHB2DUtKW2IDR0Qda8',
-     accessTokenExpires: null,
-     iat: 1712844412,
-     exp: 1715436412,
-     jti: 'b82b3bfa-03ce-45dc-8bce-476ae52a8e6a' },
-  expires: '2024-05-11T14:06:52.540Z' } lastRefreshedAt: 2024-04-11T14:06:52.519Z status: authenticated
-jwt... user: undefined account: undefined token: { username: 'admin',
-  full_name: 'Администратор',
-  accessToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ4MDEyLCJpYXQiOjE3MTI4NDQ0MTIsImp0aSI6ImYyOWUzMjhkZDc2ZjQ1MjZiMmI5YmY2MjRkNzU5ODg5IiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.Tx2TaAN7QnDpx1Qdu2kLsuizBjHB2DUtKW2IDR0Qda8',
-  accessTokenExpires: null,
-  iat: 1712844412,
-  exp: 1715436412,
-  jti: 'c09883ee-6508-46c7-a5fc-ac1772a27438' }
->>> Срок действия токена истек. Получение нового
->>> Аутентификация. Получение токена доступа
-!!! Ошибка авторизации
-
- WARN  [h3] Please prefer using message for longer error messages instead of statusMessage. In the future, statusMessage will be sanitized by default.
-
-
- ERROR  [next-auth][error][JWT_SESSION_ERROR] 
-https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена Ошибка обновления токена
-
-  at createError (node_modules/h3/dist/index.mjs:79:15)
-  at refreshAccessToken (server/api/auth/[...].ts:51:1)
-  at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-  at async Object.session (node_modules/next-auth/core/routes/session.js:47:21)
-  at async AuthHandler (node_modules/next-auth/core/index.js:158:27)
-  at Object.handler (node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)
-  at async node_modules/h3/dist/index.mjs:1962:19
-  at async Object.callAsync (node_modules/unctx/dist/index.mjs:72:16)
-  at async Server.toNodeHandle (node_modules/h3/dist/index.mjs:2249:7)
-
-useAuthState: data: null lastRefreshedAt: 2024-04-11T14:08:16.076Z status: unauthenticated
-jwt... user: undefined account: undefined token: { username: 'admin',
-  full_name: 'Администратор',
-  accessToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ4MDEyLCJpYXQiOjE3MTI4NDQ0MTIsImp0aSI6ImYyOWUzMjhkZDc2ZjQ1MjZiMmI5YmY2MjRkNzU5ODg5IiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.Tx2TaAN7QnDpx1Qdu2kLsuizBjHB2DUtKW2IDR0Qda8',
-  accessTokenExpires: null,
-  iat: 1712844412,
-  exp: 1715436412,
-  jti: 'c09883ee-6508-46c7-a5fc-ac1772a27438' }
->>> Срок действия токена истек. Получение нового
->>> Аутентификация. Получение токена доступа
-!!! Ошибка авторизации
-
- WARN  [h3] Please prefer using message for longer error messages instead of statusMessage. In the future, statusMessage will be sanitized by default.
-
-
- ERROR  [next-auth][error][JWT_SESSION_ERROR] 
-https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена Ошибка обновления токена
-
-  at createError (node_modules/h3/dist/index.mjs:79:15)
-  at refreshAccessToken (server/api/auth/[...].ts:51:1)
-  at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-  at async Object.session (node_modules/next-auth/core/routes/session.js:47:21)
-  at async AuthHandler (node_modules/next-auth/core/index.js:158:27)
-  at Object.handler (node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)
-  at async node_modules/h3/dist/index.mjs:1962:19
-  at async Object.callAsync (node_modules/unctx/dist/index.mjs:72:16)
-  at async Server.toNodeHandle (node_modules/h3/dist/index.mjs:2249:7)
-
-authorize
-!!! Ошибка входа [POST] "http://localhost:8000/backend/api/token/": 401 Unauthorized
-
-  at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-  at async $fetch2 (node_modules/ofetch/dist/shared/ofetch.37386b05.mjs:268:15)
-  at Object.authorize (server/api/auth/[...].ts:73:1)
-  at async Object.callback (node_modules/next-auth/core/routes/callback.js:362:14)
-  at async AuthHandler (node_modules/next-auth/core/index.js:295:28)
-  at Object.handler (node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)
-  at async node_modules/h3/dist/index.mjs:1962:19
-  at async Object.callAsync (node_modules/unctx/dist/index.mjs:72:16)
-  at async Server.toNodeHandle (node_modules/h3/dist/index.mjs:2249:7)
-jwt... user: undefined account: undefined token: { username: 'admin',
-  full_name: 'Администратор',
-  accessToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ4MDEyLCJpYXQiOjE3MTI4NDQ0MTIsImp0aSI6ImYyOWUzMjhkZDc2ZjQ1MjZiMmI5YmY2MjRkNzU5ODg5IiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.Tx2TaAN7QnDpx1Qdu2kLsuizBjHB2DUtKW2IDR0Qda8',
-  accessTokenExpires: null,
-  iat: 1712844412,
-  exp: 1715436412,
-  jti: 'c09883ee-6508-46c7-a5fc-ac1772a27438' }
->>> Срок действия токена истек. Получение нового
->>> Аутентификация. Получение токена доступа
-!!! Ошибка авторизации
-
- WARN  [h3] Please prefer using message for longer error messages instead of statusMessage. In the future, statusMessage will be sanitized by default.
-
-
- ERROR  [next-auth][error][JWT_SESSION_ERROR] 
-https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена Ошибка обновления токена
-
-  at createError (node_modules/h3/dist/index.mjs:79:15)
-  at refreshAccessToken (server/api/auth/[...].ts:51:1)
-  at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-  at async Object.session (node_modules/next-auth/core/routes/session.js:47:21)
-  at async AuthHandler (node_modules/next-auth/core/index.js:158:27)
-  at Object.handler (node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)
-  at async node_modules/h3/dist/index.mjs:1962:19
-  at async Object.callAsync (node_modules/unctx/dist/index.mjs:72:16)
-  at async Server.toNodeHandle (node_modules/h3/dist/index.mjs:2249:7)
-
-authorize
-userTokens: { refresh:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzQ0OTMyNywiaWF0IjoxNzEyODQ0NTI3LCJqdGkiOiI1YTM2Y2YxMjdiNDM0Mjk3YTA3YTkwMzY1MWU3ODBiYiIsInVzZXJfaWQiOiI0Y2UxZTM2Yi1iZDU1LTRjMjQtYWUyMi1kMzhkOGNjZjUyZjMifQ.vlPd_ZPIrGrVgCrGdxQpGF1eujrymwsM4r6useEGWZ8',
-  access:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ4MTI3LCJpYXQiOjE3MTI4NDQ1MjcsImp0aSI6ImMzZTgzNTdmMzRiNDRhN2E5YWZmNTQyNTcxZDhkNzE4IiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.QRPmR1Lu7Qm_6BX2l2m6xUWjXe2vsLoUtibj8s0Paz4' } payload: { username: 'admin', password: 'root1234' }
-userDetails: { user: { full_name: 'Администратор', username: 'admin', contractor: null } }
-userData: { username: 'admin',
-  full_name: 'Администратор',
-  accessToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ4MTI3LCJpYXQiOjE3MTI4NDQ1MjcsImp0aSI6ImMzZTgzNTdmMzRiNDRhN2E5YWZmNTQyNTcxZDhkNzE4IiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.QRPmR1Lu7Qm_6BX2l2m6xUWjXe2vsLoUtibj8s0Paz4',
-  accessTokenExpires: NaN,
-  refreshToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzQ0OTMyNywiaWF0IjoxNzEyODQ0NTI3LCJqdGkiOiI1YTM2Y2YxMjdiNDM0Mjk3YTA3YTkwMzY1MWU3ODBiYiIsInVzZXJfaWQiOiI0Y2UxZTM2Yi1iZDU1LTRjMjQtYWUyMi1kMzhkOGNjZjUyZjMifQ.vlPd_ZPIrGrVgCrGdxQpGF1eujrymwsM4r6useEGWZ8' }
-jwt... user: { username: 'admin',
-  full_name: 'Администратор',
-  accessToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ4MTI3LCJpYXQiOjE3MTI4NDQ1MjcsImp0aSI6ImMzZTgzNTdmMzRiNDRhN2E5YWZmNTQyNTcxZDhkNzE4IiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.QRPmR1Lu7Qm_6BX2l2m6xUWjXe2vsLoUtibj8s0Paz4',
-  accessTokenExpires: NaN,
-  refreshToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzQ0OTMyNywiaWF0IjoxNzEyODQ0NTI3LCJqdGkiOiI1YTM2Y2YxMjdiNDM0Mjk3YTA3YTkwMzY1MWU3ODBiYiIsInVzZXJfaWQiOiI0Y2UxZTM2Yi1iZDU1LTRjMjQtYWUyMi1kMzhkOGNjZjUyZjMifQ.vlPd_ZPIrGrVgCrGdxQpGF1eujrymwsM4r6useEGWZ8' } account: { providerAccountId: undefined, type: 'credentials', provider: 'credentials' } token: { name: undefined, email: undefined, picture: undefined, sub: undefined }
->>> Пользователь авторизован (with account)
-jwt... user: undefined account: undefined token: { username: 'admin',
-  full_name: 'Администратор',
-  accessToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ4MTI3LCJpYXQiOjE3MTI4NDQ1MjcsImp0aSI6ImMzZTgzNTdmMzRiNDRhN2E5YWZmNTQyNTcxZDhkNzE4IiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.QRPmR1Lu7Qm_6BX2l2m6xUWjXe2vsLoUtibj8s0Paz4',
-  accessTokenExpires: null,
-  refreshToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzQ0OTMyNywiaWF0IjoxNzEyODQ0NTI3LCJqdGkiOiI1YTM2Y2YxMjdiNDM0Mjk3YTA3YTkwMzY1MWU3ODBiYiIsInVzZXJfaWQiOiI0Y2UxZTM2Yi1iZDU1LTRjMjQtYWUyMi1kMzhkOGNjZjUyZjMifQ.vlPd_ZPIrGrVgCrGdxQpGF1eujrymwsM4r6useEGWZ8',
-  iat: 1712844527,
-  exp: 1715436527,
-  jti: '2dac1f9b-ff8f-4430-8e41-f3cbef661fb1' }
->>> Срок действия токена истек. Получение нового
->>> Аутентификация. Получение токена доступа
-refreshedTokens: { access:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ4MTI4LCJpYXQiOjE3MTI4NDQ1MjcsImp0aSI6IjA3ZmIwZWMxMTRkYzQyNjRiMDUxOTc0NGZmZmVhYjM3IiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.jT9Q5boYoyHb1_dqSqxxoshQXu5Z5K3PVrbkPQ9AJ1Y' }
->>> Токен получен
->>> Чтение сессии session: { user: { name: undefined, email: undefined, image: undefined },
-  expires: '2024-05-11T14:08:48.032Z' } token: { username: 'admin',
-  full_name: 'Администратор',
-  accessToken:
-   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ4MTI4LCJpYXQiOjE3MTI4NDQ1MjcsImp0aSI6IjA3ZmIwZWMxMTRkYzQyNjRiMDUxOTc0NGZmZmVhYjM3IiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.jT9Q5boYoyHb1_dqSqxxoshQXu5Z5K3PVrbkPQ9AJ1Y',
-  accessTokenExpires: NaN,
-  refreshToken: undefined,
-  iat: 1712844527,
-  exp: 1715436527,
-  jti: '2dac1f9b-ff8f-4430-8e41-f3cbef661fb1' }
-useAuthState: data: { user:
-   { username: 'admin',
-     full_name: 'Администратор',
-     accessToken:
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyODQ4MTI4LCJpYXQiOjE3MTI4NDQ1MjcsImp0aSI6IjA3ZmIwZWMxMTRkYzQyNjRiMDUxOTc0NGZmZmVhYjM3IiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.jT9Q5boYoyHb1_dqSqxxoshQXu5Z5K3PVrbkPQ9AJ1Y',
-     accessTokenExpires: null,
-     iat: 1712844527,
-     exp: 1715436527,
-     jti: '2dac1f9b-ff8f-4430-8e41-f3cbef661fb1' },
-  expires: '2024-05-11T14:08:48.032Z' } lastRefreshedAt: 2024-04-11T14:08:48.015Z status: authenticated
+  iat: 1712905055,
+  exp: 1715497055,
+  jti: '1712402c-f24b-42ad-88a8-177d2b48015f'
+}
+useAuthState: data: {
+  user: {
+    username: '2345126123',
+    full_name: 'ЗАО "Дальстрой"',
+    accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyOTA4NjU1LCJpYXQiOjE3MTI5MDUwNTUsImp0aSI6IjRhMDdjY2FhZDU2MjRkNTdiNjM5OWRkMmQ0ZGEwNGQ1IiwidXNlcl9pZCI6ImRlZTZlMWI0LTU1YmMtMTFkOS04NDhhLTAwMTEyZjQzNTI5YSJ9.3deZzIrz9Gw-ndDp5GCWTuUpbs506rprdg5J7ngpXUk',
+    accessTokenExpires: null,
+    iat: 1712905055,
+    exp: 1715497055,
+    jti: '1712402c-f24b-42ad-88a8-177d2b48015f'
+  },
+  expires: '2024-05-12T06:57:35.255Z'
+} lastRefreshedAt: 2024-04-12T06:57:35.239Z status: <ref *1> ComputedRefImpl {
+  getter: [Function (anonymous)],
+  _setter: [Function: setter],
+  dep: undefined,
+  __v_isRef: true,
+  __v_isReadonly: true,
+  effect: ReactiveEffect {
+    fn: [Function (anonymous)],
+    trigger: [Function (anonymous)],
+    scheduler: undefined,
+    active: false,
+    deps: [],
+    _dirtyLevel: 4,
+    _trackId: 0,
+    _runnings: 0,
+    _shouldSchedule: false,
+    _depsLength: 0,
+    computed: [Circular *1]
+  },
+  _cacheable: false
+}

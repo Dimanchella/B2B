@@ -12,9 +12,10 @@
   "devDependencies": {
     "@nuxt/devtools": "^1.0.8",
     "@pinia-plugin-persistedstate/nuxt": "^1.2.0",
-    "@sidebase/nuxt-auth": "^0.7.1",
+    "@sidebase/nuxt-auth": "0.6.7",
+    "@sidebase/nuxt-session": "^0.2.8",
     "@types/node": "^20.11.24",
-    "nuxt": "^3.9.0",
+    "nuxt": "3.9.0",
     "nuxt-schema-org": "^3.3.6",
     "vite-plugin-vuetify": "^2.0.2",
     "vue": "^3.4.6",
@@ -24,7 +25,8 @@
   "dependencies": {
     "@mdi/font": "^7.4.47",
     "@pinia/nuxt": "^0.5.1",
-    "next-auth": "^4.21.1",
+    "multiformats": "^9.9.0",
+    "next-auth": "4.21.1",
     "pinia": "^2.1.7",
     "swiper": "^11.0.7",
     "vee-validate": "^4.12.5"

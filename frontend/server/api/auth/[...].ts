@@ -1,11 +1,12 @@
 //  -----------
 //  Авторизация
 //  -----------
-
+/// js-source
 import {NuxtAuthHandler} from "#auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import {JWT} from "next-auth/jwt";
 
+// @ts-ignore
 async function refreshAccessToken(token: JWT) {
     let refreshedTokens;
     try {
@@ -147,7 +148,7 @@ export default NuxtAuthHandler({
                 return { ...token, ...user }
             }
 
-            else if (!isNaN(token.accessTokenExpires) && Date.now() > token.accessTokenExpires) {
+            else if (token && !isNaN(token.accessTokenExpires) && Date.now() > token.accessTokenExpires) {
                 console.log(">>> Срок действия токена истек. Получение нового")
                 // @ts-ignore
                 return refreshAccessToken(token)
@@ -159,14 +160,13 @@ export default NuxtAuthHandler({
         },
 
         // @ts-ignore
-        async session({ session, token }) {
+         async session({ session, token }) {
             console.log('>>> Чтение сессии', 'session:', session, 'token:',  token)
             session.user = token
             return session
         },
-
-        // @ts-ignore
         /*
+        // @ts-ignore
         async session({ session, user, token }) {
             if (token && typeof token.accessTokenExpire === 'number' && typeof token.accessTokenIssuedAt === 'number') {
                 const tempsession: any = session;

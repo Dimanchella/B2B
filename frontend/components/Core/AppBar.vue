@@ -24,7 +24,7 @@
 
       <v-spacer/>
 
-      <div name="username" class="username">{{ data.user.full_name + " : [ " + data.user.username + " ]" }}</div>
+      <div name="username" class="username">{{ data.user.full_name + " : [ " + status + " ]" }}</div>
 
       <OrderCartIcon class="mr-2"/>
 
@@ -33,7 +33,7 @@
       <v-divider class=" hidden-sm-and-down border-opacity-50 ml-6 mr-6" vertical/>
       <v-btn
           class="hidden-sm-and-down"
-          v-if="status.value === 'authenticated'"
+          v-if="status === 'authenticated'"
           key="logout"
           @click="signOut()"
       >
@@ -41,7 +41,7 @@
       </v-btn>
       <v-btn
           class="hidden-sm-and-down"
-          v-if="status.value !== 'authenticated'"
+          v-if="status !== 'authenticated'"
           key="login"
           @click="signIn()"
       >
@@ -67,7 +67,7 @@
     <template v-slot:append>
       <v-btn
           class="ma-2"
-          v-if="status.value === 'authenticated'"
+          v-if="status === 'authenticated'"
           key="logout"
           @click="signOut()"
       >
@@ -75,7 +75,7 @@
       </v-btn>
       <v-btn
           class="ma-2"
-          v-if="status.value !== 'authenticated'"
+          v-if="status !== 'authenticated'"
           key="login"
           @click="signIn()"
       >
@@ -100,6 +100,7 @@ const links = [
 
 //const {status, signOut} = useAuth()
 //const {data, token} = useAuthState()
+
 const {
   status,
   data,
@@ -111,7 +112,7 @@ const {
   signOut,
 } = useAuth()
 
-console.log('useAuthState:', 'data:', data.value, 'lastRefreshedAt:', lastRefreshedAt.value, 'status:', status.value)
+console.log('useAuthState:', 'data:', data.value, 'lastRefreshedAt:', lastRefreshedAt.value, 'status:', status)
 
 //const username = data.user.username + " : [" + (token ? token.refreshToken : 'Unathorized') + "]";
 

@@ -328,3 +328,11 @@ frontend:
 $ npx nuxi@latest module add sidebase-auth
 ```
 
+### 20240412
+
+frontend:
+- сессия nuxt-session:
+```
+    npm i -D @sidebase/nuxt-session
+```
+
