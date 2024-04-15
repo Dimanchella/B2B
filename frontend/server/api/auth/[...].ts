@@ -19,6 +19,7 @@ async function refreshAccessToken(token: JWT) {
         refreshedTokens = await $fetch(
             `${process.env.DJANGO_URL}/backend/api/token/refresh/`,
             {
+                mode: 'no-cors',
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

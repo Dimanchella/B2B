@@ -14,6 +14,7 @@ import os
 import environ
 from pathlib import Path
 from datetime import timedelta
+from corsheaders.defaults import default_headers
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -166,17 +167,28 @@ REST_FRAMEWORK = {
     'NON_FIELD_ERRORS_KEY': 'error',
 }
 
-# CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:",
-#     "http://localhost:3000",
-# ]
-CORS_ALLOWED_ORIGINS = env.list(
-    'CORS_ALLOWED_ORIGINS',
-    default=[
-        "http://localhost:",
-        "http://localhost:3000",
-    ]
-)
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOWED_ORIGINS = [
+     "http://localhost",
+     "http://localhost:",
+     "http://localhost:3000",
+     "https://localhost:3000",
+     "https://localhost",
+     "https://localhost:",
+ ]
+
+#CORS_ALLOWED_ORIGINS = env.list(
+#    'CORS_ALLOWED_ORIGINS',
+#    default=[
+#        "http://localhost:",
+#        "http://localhost:3000",
+#    ]
+#)
+
+CSRF_COOKIE_NAME = "XSRF-TOKEN"
+CORS_ALLOW_HEADERS = list(default_headers) + ["x-xsrf-token",]
+#CORS_ORIGIN_ALLOW_ALL = False
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
@@ -200,3 +212,4 @@ CELERY_BROKER_URL = env.str('CELERY_BROKER_URL')
 # CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS')
 
 
+    

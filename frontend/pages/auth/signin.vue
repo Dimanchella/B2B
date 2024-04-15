@@ -74,12 +74,26 @@ const password = useField('password')
 const {signIn} = useAuth()
 
 const submit = handleSubmit(values => {
+  console.log('>>> Войти:', values)
   signIn('credentials', {
     username: values.username,
     password: values.password,
     callbackUrl: '/'
   })
-})
+}
+/*
+login() {
+  this.$auth.loginWith('cookie', {
+    data: {
+    username: values.username,
+    password: values.password,
+    }
+  })
+    .then(() => this.$toast.success('Добро пожаловать'))
+    .catch((e) => this.$toast.error(e.response.data.detail));
+}
+*/
+)
 
 </script>
 

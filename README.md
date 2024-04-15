@@ -333,6 +333,6 @@ $ npx nuxi@latest module add sidebase-auth
 frontend:
 - сессия nuxt-session:
 ```
-    npm i -D @sidebase/nuxt-session
+$ npm i -D @sidebase/nuxt-session
 ```
 

@@ -31,218 +31,853 @@ Nuxt 3.9.0 with Nitro 2.9.5
 [nuxt-session] ✔ Session setup complete
   ➜ DevTools: press Shift + Alt + D in the browser (v1.1.5)
 
-ℹ Vite server warmed up in 6641ms
-ℹ Vite client warmed up in 7084ms
-[nitro] ✔ Nuxt Nitro server built in 2504 ms
-[nuxt] Your project has layouts but the `<NuxtLayout />` component has not been used.
-authorize
-userTokens: {
-  refresh: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzUwOTc3MywiaWF0IjoxNzEyOTA0OTczLCJqdGkiOiJiZWU5ZGI1N2ZlNGI0ZmJlOWRhY2ViODA2YzVkNjc0YiIsInVzZXJfaWQiOiI0Y2UxZTM2Yi1iZDU1LTRjMjQtYWUyMi1kMzhkOGNjZjUyZjMifQ.PKb-FYjRnAheJJU9G39Mlj1F1vUn0T1R_SzKyNeOgpE',
-  access: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyOTA4NTczLCJpYXQiOjE3MTI5MDQ5NzMsImp0aSI6IjI4MWY4YjVlZGE0MTQ5NjFiNDI2OGUxZmE3OTRjZDlmIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.hBMRZNDr-ZEhohIv6kgQjzkhrpP_873iV-3fxTN676k'
-} payload: { username: 'admin', password: 'root1234' }
-userDetails: {
-  user: { full_name: 'Администратор', username: 'admin', contractor: null }
-}
-userData: {
-  username: 'admin',
-  full_name: 'Администратор',
-  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyOTA4NTczLCJpYXQiOjE3MTI5MDQ5NzMsImp0aSI6IjI4MWY4YjVlZGE0MTQ5NjFiNDI2OGUxZmE3OTRjZDlmIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.hBMRZNDr-ZEhohIv6kgQjzkhrpP_873iV-3fxTN676k',
-  accessTokenExpires: NaN,
-  refreshToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzUwOTc3MywiaWF0IjoxNzEyOTA0OTczLCJqdGkiOiJiZWU5ZGI1N2ZlNGI0ZmJlOWRhY2ViODA2YzVkNjc0YiIsInVzZXJfaWQiOiI0Y2UxZTM2Yi1iZDU1LTRjMjQtYWUyMi1kMzhkOGNjZjUyZjMifQ.PKb-FYjRnAheJJU9G39Mlj1F1vUn0T1R_SzKyNeOgpE'
-}
-jwt... user: {
-  username: 'admin',
-  full_name: 'Администратор',
-  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyOTA4NTczLCJpYXQiOjE3MTI5MDQ5NzMsImp0aSI6IjI4MWY4YjVlZGE0MTQ5NjFiNDI2OGUxZmE3OTRjZDlmIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.hBMRZNDr-ZEhohIv6kgQjzkhrpP_873iV-3fxTN676k',
-  accessTokenExpires: NaN,
-  refreshToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzUwOTc3MywiaWF0IjoxNzEyOTA0OTczLCJqdGkiOiJiZWU5ZGI1N2ZlNGI0ZmJlOWRhY2ViODA2YzVkNjc0YiIsInVzZXJfaWQiOiI0Y2UxZTM2Yi1iZDU1LTRjMjQtYWUyMi1kMzhkOGNjZjUyZjMifQ.PKb-FYjRnAheJJU9G39Mlj1F1vUn0T1R_SzKyNeOgpE'
-} account: {
-  providerAccountId: undefined,
-  type: 'credentials',
-  provider: 'credentials'
-} token: {
-  name: undefined,
-  email: undefined,
-  picture: undefined,
-  sub: undefined
-}
->>> Пользователь авторизован (with account)
+ℹ Vite client warmed up in 7146ms
+ℹ Vite server warmed up in 7943ms
+[nitro] ✔ Nuxt Nitro server built in 2560 ms
 jwt... user: undefined account: undefined token: {
   username: 'admin',
   full_name: 'Администратор',
-  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyOTA4NTczLCJpYXQiOjE3MTI5MDQ5NzMsImp0aSI6IjI4MWY4YjVlZGE0MTQ5NjFiNDI2OGUxZmE3OTRjZDlmIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.hBMRZNDr-ZEhohIv6kgQjzkhrpP_873iV-3fxTN676k',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTY4MzYxLCJpYXQiOjE3MTMxNjQ3NjEsImp0aSI6ImJkNzhmZjRkMTY5MjQyYjM4ODc4ODI0NDU1NDZlMTdiIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.UJT3xolR4AKgpgbG8I4cX4QJZJTZNQAs00QUXqF6-ho',
   accessTokenExpires: null,
-  refreshToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzUwOTc3MywiaWF0IjoxNzEyOTA0OTczLCJqdGkiOiJiZWU5ZGI1N2ZlNGI0ZmJlOWRhY2ViODA2YzVkNjc0YiIsInVzZXJfaWQiOiI0Y2UxZTM2Yi1iZDU1LTRjMjQtYWUyMi1kMzhkOGNjZjUyZjMifQ.PKb-FYjRnAheJJU9G39Mlj1F1vUn0T1R_SzKyNeOgpE',
-  iat: 1712904973,
-  exp: 1715496973,
-  jti: '083c7730-40d1-4000-b450-39a1636fedd4'
+  iat: 1713164761,
+  exp: 1715756761,
+  jti: 'e25c1649-d38e-4f57-8bec-e4fa433bc697'
 }
 >>> Срок действия токена истек. Получение нового
 >>> Аутентификация. Получение токена доступа
-refreshedTokens: {
-  access: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyOTA4NTczLCJpYXQiOjE3MTI5MDQ5NzMsImp0aSI6IjI5YmI1MTUzZGZmOTRhYmM4YmMxZmQxNDE1OWY1M2VkIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.j1j2qGP9hLfaTKQioQ7V2YgmIx6dEWE-k124l053mQ0'
+[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.
+!!! Ошибка авторизации
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена {
+  message: 'Ошибка обновления токена',
+  stack: 'Error: Ошибка обновления токена\n' +
+    '    at createError (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:79:15)\n' +
+    '    at refreshAccessToken (/storage/www/web/1c/frontend/server/api/auth/[...].ts:53:1)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async Object.session (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/session.js:47:21)\n' +
+    '    at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:158:27)\n' +
+    '    at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)\n' +
+    '    at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)\n' +
+    '    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7)',
+  name: 'Error'
 }
->>> Токен получен
->>> Чтение сессии session: {
-  user: { name: undefined, email: undefined, image: undefined },
-  expires: '2024-05-12T06:56:13.240Z'
-} token: {
+[nuxt] Your project has layouts but the `<NuxtLayout />` component has not been used.
+jwt... user: undefined account: undefined token: {
   username: 'admin',
   full_name: 'Администратор',
-  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyOTA4NTczLCJpYXQiOjE3MTI5MDQ5NzMsImp0aSI6IjI5YmI1MTUzZGZmOTRhYmM4YmMxZmQxNDE1OWY1M2VkIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.j1j2qGP9hLfaTKQioQ7V2YgmIx6dEWE-k124l053mQ0',
-  accessTokenExpires: NaN,
-  refreshToken: undefined,
-  iat: 1712904973,
-  exp: 1715496973,
-  jti: '083c7730-40d1-4000-b450-39a1636fedd4'
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTY4MzYxLCJpYXQiOjE3MTMxNjQ3NjEsImp0aSI6ImJkNzhmZjRkMTY5MjQyYjM4ODc4ODI0NDU1NDZlMTdiIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.UJT3xolR4AKgpgbG8I4cX4QJZJTZNQAs00QUXqF6-ho',
+  accessTokenExpires: null,
+  iat: 1713164761,
+  exp: 1715756761,
+  jti: 'e25c1649-d38e-4f57-8bec-e4fa433bc697'
 }
-useAuthState: data: {
-  user: {
-    username: 'admin',
-    full_name: 'Администратор',
-    accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyOTA4NTczLCJpYXQiOjE3MTI5MDQ5NzMsImp0aSI6IjI5YmI1MTUzZGZmOTRhYmM4YmMxZmQxNDE1OWY1M2VkIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.j1j2qGP9hLfaTKQioQ7V2YgmIx6dEWE-k124l053mQ0',
-    accessTokenExpires: null,
-    iat: 1712904973,
-    exp: 1715496973,
-    jti: '083c7730-40d1-4000-b450-39a1636fedd4'
-  },
-  expires: '2024-05-12T06:56:13.240Z'
-} lastRefreshedAt: 2024-04-12T06:56:13.225Z status: <ref *1> ComputedRefImpl {
-  getter: [Function (anonymous)],
-  _setter: [Function: setter],
-  dep: undefined,
-  __v_isRef: true,
-  __v_isReadonly: true,
-  effect: ReactiveEffect {
-    fn: [Function (anonymous)],
-    trigger: [Function (anonymous)],
-    scheduler: undefined,
-    active: false,
-    deps: [],
-    _dirtyLevel: 4,
-    _trackId: 0,
-    _runnings: 0,
-    _shouldSchedule: false,
-    _depsLength: 0,
-    computed: [Circular *1]
-  },
-  _cacheable: false
+>>> Срок действия токена истек. Получение нового
+>>> Аутентификация. Получение токена доступа
+[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.
+!!! Ошибка авторизации
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена {
+  message: 'Ошибка обновления токена',
+  stack: 'Error: Ошибка обновления токена\n' +
+    '    at createError (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:79:15)\n' +
+    '    at refreshAccessToken (/storage/www/web/1c/frontend/server/api/auth/[...].ts:53:1)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async Object.session (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/session.js:47:21)\n' +
+    '    at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:158:27)\n' +
+    '    at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)\n' +
+    '    at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)\n' +
+    '    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7)',
+  name: 'Error'
 }
-useAuthState: data: null lastRefreshedAt: 2024-04-12T06:57:03.453Z status: <ref *1> ComputedRefImpl {
-  getter: [Function (anonymous)],
-  _setter: [Function: setter],
-  dep: undefined,
-  __v_isRef: true,
-  __v_isReadonly: true,
-  effect: ReactiveEffect {
-    fn: [Function (anonymous)],
-    trigger: [Function (anonymous)],
-    scheduler: undefined,
-    active: false,
-    deps: [],
-    _dirtyLevel: 4,
-    _trackId: 0,
-    _runnings: 0,
-    _shouldSchedule: false,
-    _depsLength: 0,
-    computed: [Circular *1]
-  },
-  _cacheable: false
+jwt... user: undefined account: undefined token: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTY4MzYxLCJpYXQiOjE3MTMxNjQ3NjEsImp0aSI6ImJkNzhmZjRkMTY5MjQyYjM4ODc4ODI0NDU1NDZlMTdiIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.UJT3xolR4AKgpgbG8I4cX4QJZJTZNQAs00QUXqF6-ho',
+  accessTokenExpires: null,
+  iat: 1713164761,
+  exp: 1715756761,
+  jti: 'e25c1649-d38e-4f57-8bec-e4fa433bc697'
+}
+>>> Срок действия токена истек. Получение нового
+>>> Аутентификация. Получение токена доступа
+[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.
+!!! Ошибка авторизации
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена {
+  message: 'Ошибка обновления токена',
+  stack: 'Error: Ошибка обновления токена\n' +
+    '    at createError (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:79:15)\n' +
+    '    at refreshAccessToken (/storage/www/web/1c/frontend/server/api/auth/[...].ts:53:1)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async Object.session (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/session.js:47:21)\n' +
+    '    at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:158:27)\n' +
+    '    at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)\n' +
+    '    at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)\n' +
+    '    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7)',
+  name: 'Error'
+}
+[nuxt] Your project has layouts but the `<NuxtLayout />` component has not been used.
+jwt... user: undefined account: undefined token: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTY4MzYxLCJpYXQiOjE3MTMxNjQ3NjEsImp0aSI6ImJkNzhmZjRkMTY5MjQyYjM4ODc4ODI0NDU1NDZlMTdiIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.UJT3xolR4AKgpgbG8I4cX4QJZJTZNQAs00QUXqF6-ho',
+  accessTokenExpires: null,
+  iat: 1713164761,
+  exp: 1715756761,
+  jti: 'e25c1649-d38e-4f57-8bec-e4fa433bc697'
+}
+>>> Срок действия токена истек. Получение нового
+>>> Аутентификация. Получение токена доступа
+[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.
+!!! Ошибка авторизации
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена {
+  message: 'Ошибка обновления токена',
+  stack: 'Error: Ошибка обновления токена\n' +
+    '    at createError (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:79:15)\n' +
+    '    at refreshAccessToken (/storage/www/web/1c/frontend/server/api/auth/[...].ts:53:1)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async Object.session (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/session.js:47:21)\n' +
+    '    at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:158:27)\n' +
+    '    at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)\n' +
+    '    at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)\n' +
+    '    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7)',
+  name: 'Error'
 }
 authorize
-userTokens: {
-  refresh: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzUwOTg1NSwiaWF0IjoxNzEyOTA1MDU1LCJqdGkiOiI4NDcwMjcyYjFiN2M0NzJiYjQxMjk2ZTkzZGQyNTk1NyIsInVzZXJfaWQiOiJkZWU2ZTFiNC01NWJjLTExZDktODQ4YS0wMDExMmY0MzUyOWEifQ.5GMA5IBsLer-O5HfsqkpOFpwcfaXw62j2RIubK6D62Y',
-  access: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyOTA4NjU1LCJpYXQiOjE3MTI5MDUwNTUsImp0aSI6IjMzOWY1NmRlZTVmNDRjZTViNWYzMjllODMwNTkzYWVmIiwidXNlcl9pZCI6ImRlZTZlMWI0LTU1YmMtMTFkOS04NDhhLTAwMTEyZjQzNTI5YSJ9.cf6VGLcgHXqsqzPK-96xOWHmwArbKc-fo5Qy7nCHJPk'
-} payload: { username: '2345126123', password: 'user1234' }
-userDetails: {
-  user: {
-    full_name: 'ЗАО "Дальстрой"',
-    username: '2345126123',
-    contractor: 'dee6e1b4-55bc-11d9-848a-00112f43529a'
+!!! Ошибка входа FetchError: [POST] "http://localhost:8000/backend/api/token/": <no response> fetch failed
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async $fetch2 (file:///storage/www/web/1c/frontend/node_modules/ofetch/dist/shared/ofetch.37386b05.mjs:268:15)
+    ... 5 lines matching cause stack trace ...
+    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7) {
+  [cause]: TypeError: fetch failed
+      at node:internal/deps/undici/undici:12345:11
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async $fetchRaw2 (file:///storage/www/web/1c/frontend/node_modules/ofetch/dist/shared/ofetch.37386b05.mjs:222:26)
+      at async $fetch2 (file:///storage/www/web/1c/frontend/node_modules/ofetch/dist/shared/ofetch.37386b05.mjs:268:15)
+      at Object.authorize (/storage/www/web/1c/frontend/server/api/auth/[...].ts:75:1)
+      at async Object.callback (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/callback.js:362:14)
+      at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:295:28)
+      at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)
+      at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)
+      at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7) {
+    cause: Error: connect ECONNREFUSED 127.0.0.1:8000
+        at __node_internal_captureLargerStackTrace (node:internal/errors:563:5)
+        at __node_internal_exceptionWithHostPort (node:internal/errors:738:12)
+        at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1595:16) {
+      errno: -111,
+      code: 'ECONNREFUSED',
+      syscall: 'connect',
+      address: '127.0.0.1',
+      port: 8000
+    }
   }
 }
-userData: {
-  username: '2345126123',
-  full_name: 'ЗАО "Дальстрой"',
-  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyOTA4NjU1LCJpYXQiOjE3MTI5MDUwNTUsImp0aSI6IjMzOWY1NmRlZTVmNDRjZTViNWYzMjllODMwNTkzYWVmIiwidXNlcl9pZCI6ImRlZTZlMWI0LTU1YmMtMTFkOS04NDhhLTAwMTEyZjQzNTI5YSJ9.cf6VGLcgHXqsqzPK-96xOWHmwArbKc-fo5Qy7nCHJPk',
-  accessTokenExpires: NaN,
-  refreshToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzUwOTg1NSwiaWF0IjoxNzEyOTA1MDU1LCJqdGkiOiI4NDcwMjcyYjFiN2M0NzJiYjQxMjk2ZTkzZGQyNTk1NyIsInVzZXJfaWQiOiJkZWU2ZTFiNC01NWJjLTExZDktODQ4YS0wMDExMmY0MzUyOWEifQ.5GMA5IBsLer-O5HfsqkpOFpwcfaXw62j2RIubK6D62Y'
-}
-jwt... user: {
-  username: '2345126123',
-  full_name: 'ЗАО "Дальстрой"',
-  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyOTA4NjU1LCJpYXQiOjE3MTI5MDUwNTUsImp0aSI6IjMzOWY1NmRlZTVmNDRjZTViNWYzMjllODMwNTkzYWVmIiwidXNlcl9pZCI6ImRlZTZlMWI0LTU1YmMtMTFkOS04NDhhLTAwMTEyZjQzNTI5YSJ9.cf6VGLcgHXqsqzPK-96xOWHmwArbKc-fo5Qy7nCHJPk',
-  accessTokenExpires: NaN,
-  refreshToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzUwOTg1NSwiaWF0IjoxNzEyOTA1MDU1LCJqdGkiOiI4NDcwMjcyYjFiN2M0NzJiYjQxMjk2ZTkzZGQyNTk1NyIsInVzZXJfaWQiOiJkZWU2ZTFiNC01NWJjLTExZDktODQ4YS0wMDExMmY0MzUyOWEifQ.5GMA5IBsLer-O5HfsqkpOFpwcfaXw62j2RIubK6D62Y'
-} account: {
-  providerAccountId: undefined,
-  type: 'credentials',
-  provider: 'credentials'
-} token: {
-  name: undefined,
-  email: undefined,
-  picture: undefined,
-  sub: undefined
-}
->>> Пользователь авторизован (with account)
 jwt... user: undefined account: undefined token: {
-  username: '2345126123',
-  full_name: 'ЗАО "Дальстрой"',
-  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyOTA4NjU1LCJpYXQiOjE3MTI5MDUwNTUsImp0aSI6IjMzOWY1NmRlZTVmNDRjZTViNWYzMjllODMwNTkzYWVmIiwidXNlcl9pZCI6ImRlZTZlMWI0LTU1YmMtMTFkOS04NDhhLTAwMTEyZjQzNTI5YSJ9.cf6VGLcgHXqsqzPK-96xOWHmwArbKc-fo5Qy7nCHJPk',
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTY4MzYxLCJpYXQiOjE3MTMxNjQ3NjEsImp0aSI6ImJkNzhmZjRkMTY5MjQyYjM4ODc4ODI0NDU1NDZlMTdiIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.UJT3xolR4AKgpgbG8I4cX4QJZJTZNQAs00QUXqF6-ho',
   accessTokenExpires: null,
-  refreshToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxMzUwOTg1NSwiaWF0IjoxNzEyOTA1MDU1LCJqdGkiOiI4NDcwMjcyYjFiN2M0NzJiYjQxMjk2ZTkzZGQyNTk1NyIsInVzZXJfaWQiOiJkZWU2ZTFiNC01NWJjLTExZDktODQ4YS0wMDExMmY0MzUyOWEifQ.5GMA5IBsLer-O5HfsqkpOFpwcfaXw62j2RIubK6D62Y',
-  iat: 1712905055,
-  exp: 1715497055,
-  jti: '1712402c-f24b-42ad-88a8-177d2b48015f'
+  iat: 1713164761,
+  exp: 1715756761,
+  jti: 'e25c1649-d38e-4f57-8bec-e4fa433bc697'
 }
 >>> Срок действия токена истек. Получение нового
 >>> Аутентификация. Получение токена доступа
-refreshedTokens: {
-  access: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyOTA4NjU1LCJpYXQiOjE3MTI5MDUwNTUsImp0aSI6IjRhMDdjY2FhZDU2MjRkNTdiNjM5OWRkMmQ0ZGEwNGQ1IiwidXNlcl9pZCI6ImRlZTZlMWI0LTU1YmMtMTFkOS04NDhhLTAwMTEyZjQzNTI5YSJ9.3deZzIrz9Gw-ndDp5GCWTuUpbs506rprdg5J7ngpXUk'
+[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.
+!!! Ошибка авторизации
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена {
+  message: 'Ошибка обновления токена',
+  stack: 'Error: Ошибка обновления токена\n' +
+    '    at createError (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:79:15)\n' +
+    '    at refreshAccessToken (/storage/www/web/1c/frontend/server/api/auth/[...].ts:53:1)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async Object.session (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/session.js:47:21)\n' +
+    '    at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:158:27)\n' +
+    '    at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)\n' +
+    '    at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)\n' +
+    '    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7)',
+  name: 'Error'
 }
->>> Токен получен
->>> Чтение сессии session: {
-  user: { name: undefined, email: undefined, image: undefined },
-  expires: '2024-05-12T06:57:35.255Z'
-} token: {
-  username: '2345126123',
-  full_name: 'ЗАО "Дальстрой"',
-  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyOTA4NjU1LCJpYXQiOjE3MTI5MDUwNTUsImp0aSI6IjRhMDdjY2FhZDU2MjRkNTdiNjM5OWRkMmQ0ZGEwNGQ1IiwidXNlcl9pZCI6ImRlZTZlMWI0LTU1YmMtMTFkOS04NDhhLTAwMTEyZjQzNTI5YSJ9.3deZzIrz9Gw-ndDp5GCWTuUpbs506rprdg5J7ngpXUk',
-  accessTokenExpires: NaN,
-  refreshToken: undefined,
-  iat: 1712905055,
-  exp: 1715497055,
-  jti: '1712402c-f24b-42ad-88a8-177d2b48015f'
+jwt... user: undefined account: undefined token: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTY4MzYxLCJpYXQiOjE3MTMxNjQ3NjEsImp0aSI6ImJkNzhmZjRkMTY5MjQyYjM4ODc4ODI0NDU1NDZlMTdiIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.UJT3xolR4AKgpgbG8I4cX4QJZJTZNQAs00QUXqF6-ho',
+  accessTokenExpires: null,
+  iat: 1713164761,
+  exp: 1715756761,
+  jti: 'e25c1649-d38e-4f57-8bec-e4fa433bc697'
 }
-useAuthState: data: {
-  user: {
-    username: '2345126123',
-    full_name: 'ЗАО "Дальстрой"',
-    accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEyOTA4NjU1LCJpYXQiOjE3MTI5MDUwNTUsImp0aSI6IjRhMDdjY2FhZDU2MjRkNTdiNjM5OWRkMmQ0ZGEwNGQ1IiwidXNlcl9pZCI6ImRlZTZlMWI0LTU1YmMtMTFkOS04NDhhLTAwMTEyZjQzNTI5YSJ9.3deZzIrz9Gw-ndDp5GCWTuUpbs506rprdg5J7ngpXUk',
-    accessTokenExpires: null,
-    iat: 1712905055,
-    exp: 1715497055,
-    jti: '1712402c-f24b-42ad-88a8-177d2b48015f'
-  },
-  expires: '2024-05-12T06:57:35.255Z'
-} lastRefreshedAt: 2024-04-12T06:57:35.239Z status: <ref *1> ComputedRefImpl {
-  getter: [Function (anonymous)],
-  _setter: [Function: setter],
-  dep: undefined,
-  __v_isRef: true,
-  __v_isReadonly: true,
-  effect: ReactiveEffect {
-    fn: [Function (anonymous)],
-    trigger: [Function (anonymous)],
-    scheduler: undefined,
-    active: false,
-    deps: [],
-    _dirtyLevel: 4,
-    _trackId: 0,
-    _runnings: 0,
-    _shouldSchedule: false,
-    _depsLength: 0,
-    computed: [Circular *1]
-  },
-  _cacheable: false
+>>> Срок действия токена истек. Получение нового
+>>> Аутентификация. Получение токена доступа
+[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.
+!!! Ошибка авторизации
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена {
+  message: 'Ошибка обновления токена',
+  stack: 'Error: Ошибка обновления токена\n' +
+    '    at createError (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:79:15)\n' +
+    '    at refreshAccessToken (/storage/www/web/1c/frontend/server/api/auth/[...].ts:53:1)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async Object.session (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/session.js:47:21)\n' +
+    '    at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:158:27)\n' +
+    '    at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)\n' +
+    '    at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)\n' +
+    '    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7)',
+  name: 'Error'
+}
+[nuxt] Your project has layouts but the `<NuxtLayout />` component has not been used.
+jwt... user: undefined account: undefined token: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTY4MzYxLCJpYXQiOjE3MTMxNjQ3NjEsImp0aSI6ImJkNzhmZjRkMTY5MjQyYjM4ODc4ODI0NDU1NDZlMTdiIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.UJT3xolR4AKgpgbG8I4cX4QJZJTZNQAs00QUXqF6-ho',
+  accessTokenExpires: null,
+  iat: 1713164761,
+  exp: 1715756761,
+  jti: 'e25c1649-d38e-4f57-8bec-e4fa433bc697'
+}
+>>> Срок действия токена истек. Получение нового
+>>> Аутентификация. Получение токена доступа
+[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.
+!!! Ошибка авторизации
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена {
+  message: 'Ошибка обновления токена',
+  stack: 'Error: Ошибка обновления токена\n' +
+    '    at createError (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:79:15)\n' +
+    '    at refreshAccessToken (/storage/www/web/1c/frontend/server/api/auth/[...].ts:53:1)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async Object.session (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/session.js:47:21)\n' +
+    '    at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:158:27)\n' +
+    '    at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)\n' +
+    '    at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)\n' +
+    '    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7)',
+  name: 'Error'
+}
+jwt... user: undefined account: undefined token: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTY4MzYxLCJpYXQiOjE3MTMxNjQ3NjEsImp0aSI6ImJkNzhmZjRkMTY5MjQyYjM4ODc4ODI0NDU1NDZlMTdiIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.UJT3xolR4AKgpgbG8I4cX4QJZJTZNQAs00QUXqF6-ho',
+  accessTokenExpires: null,
+  iat: 1713164761,
+  exp: 1715756761,
+  jti: 'e25c1649-d38e-4f57-8bec-e4fa433bc697'
+}
+>>> Срок действия токена истек. Получение нового
+>>> Аутентификация. Получение токена доступа
+[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.
+!!! Ошибка авторизации
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена {
+  message: 'Ошибка обновления токена',
+  stack: 'Error: Ошибка обновления токена\n' +
+    '    at createError (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:79:15)\n' +
+    '    at refreshAccessToken (/storage/www/web/1c/frontend/server/api/auth/[...].ts:53:1)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async Object.session (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/session.js:47:21)\n' +
+    '    at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:158:27)\n' +
+    '    at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)\n' +
+    '    at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)\n' +
+    '    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7)',
+  name: 'Error'
+}
+jwt... user: undefined account: undefined token: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTY4MzYxLCJpYXQiOjE3MTMxNjQ3NjEsImp0aSI6ImJkNzhmZjRkMTY5MjQyYjM4ODc4ODI0NDU1NDZlMTdiIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.UJT3xolR4AKgpgbG8I4cX4QJZJTZNQAs00QUXqF6-ho',
+  accessTokenExpires: null,
+  iat: 1713164761,
+  exp: 1715756761,
+  jti: 'e25c1649-d38e-4f57-8bec-e4fa433bc697'
+}
+>>> Срок действия токена истек. Получение нового
+>>> Аутентификация. Получение токена доступа
+[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.
+!!! Ошибка авторизации
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена {
+  message: 'Ошибка обновления токена',
+  stack: 'Error: Ошибка обновления токена\n' +
+    '    at createError (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:79:15)\n' +
+    '    at refreshAccessToken (/storage/www/web/1c/frontend/server/api/auth/[...].ts:53:1)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async Object.session (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/session.js:47:21)\n' +
+    '    at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:158:27)\n' +
+    '    at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)\n' +
+    '    at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)\n' +
+    '    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7)',
+  name: 'Error'
+}
+jwt... user: undefined account: undefined token: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTY4MzYxLCJpYXQiOjE3MTMxNjQ3NjEsImp0aSI6ImJkNzhmZjRkMTY5MjQyYjM4ODc4ODI0NDU1NDZlMTdiIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.UJT3xolR4AKgpgbG8I4cX4QJZJTZNQAs00QUXqF6-ho',
+  accessTokenExpires: null,
+  iat: 1713164761,
+  exp: 1715756761,
+  jti: 'e25c1649-d38e-4f57-8bec-e4fa433bc697'
+}
+>>> Срок действия токена истек. Получение нового
+>>> Аутентификация. Получение токена доступа
+!!! Ошибка авторизации
+[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена {
+  message: 'Ошибка обновления токена',
+  stack: 'Error: Ошибка обновления токена\n' +
+    '    at createError (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:79:15)\n' +
+    '    at refreshAccessToken (/storage/www/web/1c/frontend/server/api/auth/[...].ts:53:1)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async Object.session (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/session.js:47:21)\n' +
+    '    at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:158:27)\n' +
+    '    at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)\n' +
+    '    at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)\n' +
+    '    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7)',
+  name: 'Error'
+}
+jwt... user: undefined account: undefined token: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTY4MzYxLCJpYXQiOjE3MTMxNjQ3NjEsImp0aSI6ImJkNzhmZjRkMTY5MjQyYjM4ODc4ODI0NDU1NDZlMTdiIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.UJT3xolR4AKgpgbG8I4cX4QJZJTZNQAs00QUXqF6-ho',
+  accessTokenExpires: null,
+  iat: 1713164761,
+  exp: 1715756761,
+  jti: 'e25c1649-d38e-4f57-8bec-e4fa433bc697'
+}
+>>> Срок действия токена истек. Получение нового
+>>> Аутентификация. Получение токена доступа
+[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.
+!!! Ошибка авторизации
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена {
+  message: 'Ошибка обновления токена',
+  stack: 'Error: Ошибка обновления токена\n' +
+    '    at createError (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:79:15)\n' +
+    '    at refreshAccessToken (/storage/www/web/1c/frontend/server/api/auth/[...].ts:53:1)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async Object.session (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/session.js:47:21)\n' +
+    '    at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:158:27)\n' +
+    '    at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)\n' +
+    '    at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)\n' +
+    '    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7)',
+  name: 'Error'
+}
+jwt... user: undefined account: undefined token: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTY4MzYxLCJpYXQiOjE3MTMxNjQ3NjEsImp0aSI6ImJkNzhmZjRkMTY5MjQyYjM4ODc4ODI0NDU1NDZlMTdiIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.UJT3xolR4AKgpgbG8I4cX4QJZJTZNQAs00QUXqF6-ho',
+  accessTokenExpires: null,
+  iat: 1713164761,
+  exp: 1715756761,
+  jti: 'e25c1649-d38e-4f57-8bec-e4fa433bc697'
+}
+>>> Срок действия токена истек. Получение нового
+>>> Аутентификация. Получение токена доступа
+[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.
+!!! Ошибка авторизации
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена {
+  message: 'Ошибка обновления токена',
+  stack: 'Error: Ошибка обновления токена\n' +
+    '    at createError (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:79:15)\n' +
+    '    at refreshAccessToken (/storage/www/web/1c/frontend/server/api/auth/[...].ts:53:1)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async Object.session (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/session.js:47:21)\n' +
+    '    at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:158:27)\n' +
+    '    at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)\n' +
+    '    at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)\n' +
+    '    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7)',
+  name: 'Error'
+}
+jwt... user: undefined account: undefined token: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTY4MzYxLCJpYXQiOjE3MTMxNjQ3NjEsImp0aSI6ImJkNzhmZjRkMTY5MjQyYjM4ODc4ODI0NDU1NDZlMTdiIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.UJT3xolR4AKgpgbG8I4cX4QJZJTZNQAs00QUXqF6-ho',
+  accessTokenExpires: null,
+  iat: 1713164761,
+  exp: 1715756761,
+  jti: 'e25c1649-d38e-4f57-8bec-e4fa433bc697'
+}
+>>> Срок действия токена истек. Получение нового
+>>> Аутентификация. Получение токена доступа
+[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.
+!!! Ошибка авторизации
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена {
+  message: 'Ошибка обновления токена',
+  stack: 'Error: Ошибка обновления токена\n' +
+    '    at createError (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:79:15)\n' +
+    '    at refreshAccessToken (/storage/www/web/1c/frontend/server/api/auth/[...].ts:53:1)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async Object.session (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/session.js:47:21)\n' +
+    '    at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:158:27)\n' +
+    '    at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)\n' +
+    '    at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)\n' +
+    '    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7)',
+  name: 'Error'
+}
+jwt... user: undefined account: undefined token: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTY4MzYxLCJpYXQiOjE3MTMxNjQ3NjEsImp0aSI6ImJkNzhmZjRkMTY5MjQyYjM4ODc4ODI0NDU1NDZlMTdiIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.UJT3xolR4AKgpgbG8I4cX4QJZJTZNQAs00QUXqF6-ho',
+  accessTokenExpires: null,
+  iat: 1713164761,
+  exp: 1715756761,
+  jti: 'e25c1649-d38e-4f57-8bec-e4fa433bc697'
+}
+>>> Срок действия токена истек. Получение нового
+>>> Аутентификация. Получение токена доступа
+[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.
+!!! Ошибка авторизации
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена {
+  message: 'Ошибка обновления токена',
+  stack: 'Error: Ошибка обновления токена\n' +
+    '    at createError (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:79:15)\n' +
+    '    at refreshAccessToken (/storage/www/web/1c/frontend/server/api/auth/[...].ts:53:1)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async Object.session (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/session.js:47:21)\n' +
+    '    at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:158:27)\n' +
+    '    at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)\n' +
+    '    at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)\n' +
+    '    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7)',
+  name: 'Error'
+}
+ℹ hmr update /pages/auth/signin.vue
+✔ Vite server hmr 96 files in 354.526ms
+jwt... user: undefined account: undefined token: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTY4MzYxLCJpYXQiOjE3MTMxNjQ3NjEsImp0aSI6ImJkNzhmZjRkMTY5MjQyYjM4ODc4ODI0NDU1NDZlMTdiIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.UJT3xolR4AKgpgbG8I4cX4QJZJTZNQAs00QUXqF6-ho',
+  accessTokenExpires: null,
+  iat: 1713164761,
+  exp: 1715756761,
+  jti: 'e25c1649-d38e-4f57-8bec-e4fa433bc697'
+}
+>>> Срок действия токена истек. Получение нового
+>>> Аутентификация. Получение токена доступа
+[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.
+!!! Ошибка авторизации
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена {
+  message: 'Ошибка обновления токена',
+  stack: 'Error: Ошибка обновления токена\n' +
+    '    at createError (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:79:15)\n' +
+    '    at refreshAccessToken (/storage/www/web/1c/frontend/server/api/auth/[...].ts:53:1)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async Object.session (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/session.js:47:21)\n' +
+    '    at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:158:27)\n' +
+    '    at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)\n' +
+    '    at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)\n' +
+    '    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7)',
+  name: 'Error'
+}
+jwt... user: undefined account: undefined token: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTY4MzYxLCJpYXQiOjE3MTMxNjQ3NjEsImp0aSI6ImJkNzhmZjRkMTY5MjQyYjM4ODc4ODI0NDU1NDZlMTdiIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.UJT3xolR4AKgpgbG8I4cX4QJZJTZNQAs00QUXqF6-ho',
+  accessTokenExpires: null,
+  iat: 1713164761,
+  exp: 1715756761,
+  jti: 'e25c1649-d38e-4f57-8bec-e4fa433bc697'
+}
+>>> Срок действия токена истек. Получение нового
+>>> Аутентификация. Получение токена доступа
+[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.
+!!! Ошибка авторизации
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена {
+  message: 'Ошибка обновления токена',
+  stack: 'Error: Ошибка обновления токена\n' +
+    '    at createError (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:79:15)\n' +
+    '    at refreshAccessToken (/storage/www/web/1c/frontend/server/api/auth/[...].ts:53:1)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async Object.session (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/session.js:47:21)\n' +
+    '    at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:158:27)\n' +
+    '    at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)\n' +
+    '    at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)\n' +
+    '    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7)',
+  name: 'Error'
+}
+jwt... user: undefined account: undefined token: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTY4MzYxLCJpYXQiOjE3MTMxNjQ3NjEsImp0aSI6ImJkNzhmZjRkMTY5MjQyYjM4ODc4ODI0NDU1NDZlMTdiIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.UJT3xolR4AKgpgbG8I4cX4QJZJTZNQAs00QUXqF6-ho',
+  accessTokenExpires: null,
+  iat: 1713164761,
+  exp: 1715756761,
+  jti: 'e25c1649-d38e-4f57-8bec-e4fa433bc697'
+}
+>>> Срок действия токена истек. Получение нового
+>>> Аутентификация. Получение токена доступа
+!!! Ошибка авторизации
+[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена {
+  message: 'Ошибка обновления токена',
+  stack: 'Error: Ошибка обновления токена\n' +
+    '    at createError (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:79:15)\n' +
+    '    at refreshAccessToken (/storage/www/web/1c/frontend/server/api/auth/[...].ts:53:1)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async Object.session (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/session.js:47:21)\n' +
+    '    at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:158:27)\n' +
+    '    at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)\n' +
+    '    at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)\n' +
+    '    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7)',
+  name: 'Error'
+}
+jwt... user: undefined account: undefined token: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTY4MzYxLCJpYXQiOjE3MTMxNjQ3NjEsImp0aSI6ImJkNzhmZjRkMTY5MjQyYjM4ODc4ODI0NDU1NDZlMTdiIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.UJT3xolR4AKgpgbG8I4cX4QJZJTZNQAs00QUXqF6-ho',
+  accessTokenExpires: null,
+  iat: 1713164761,
+  exp: 1715756761,
+  jti: 'e25c1649-d38e-4f57-8bec-e4fa433bc697'
+}
+>>> Срок действия токена истек. Получение нового
+>>> Аутентификация. Получение токена доступа
+[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.
+!!! Ошибка авторизации
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена {
+  message: 'Ошибка обновления токена',
+  stack: 'Error: Ошибка обновления токена\n' +
+    '    at createError (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:79:15)\n' +
+    '    at refreshAccessToken (/storage/www/web/1c/frontend/server/api/auth/[...].ts:53:1)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async Object.session (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/session.js:47:21)\n' +
+    '    at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:158:27)\n' +
+    '    at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)\n' +
+    '    at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)\n' +
+    '    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7)',
+  name: 'Error'
+}
+jwt... user: undefined account: undefined token: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTY4MzYxLCJpYXQiOjE3MTMxNjQ3NjEsImp0aSI6ImJkNzhmZjRkMTY5MjQyYjM4ODc4ODI0NDU1NDZlMTdiIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.UJT3xolR4AKgpgbG8I4cX4QJZJTZNQAs00QUXqF6-ho',
+  accessTokenExpires: null,
+  iat: 1713164761,
+  exp: 1715756761,
+  jti: 'e25c1649-d38e-4f57-8bec-e4fa433bc697'
+}
+>>> Срок действия токена истек. Получение нового
+>>> Аутентификация. Получение токена доступа
+[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.
+!!! Ошибка авторизации
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена {
+  message: 'Ошибка обновления токена',
+  stack: 'Error: Ошибка обновления токена\n' +
+    '    at createError (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:79:15)\n' +
+    '    at refreshAccessToken (/storage/www/web/1c/frontend/server/api/auth/[...].ts:53:1)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async Object.session (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/session.js:47:21)\n' +
+    '    at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:158:27)\n' +
+    '    at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)\n' +
+    '    at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)\n' +
+    '    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7)',
+  name: 'Error'
+}
+jwt... user: undefined account: undefined token: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTY4MzYxLCJpYXQiOjE3MTMxNjQ3NjEsImp0aSI6ImJkNzhmZjRkMTY5MjQyYjM4ODc4ODI0NDU1NDZlMTdiIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.UJT3xolR4AKgpgbG8I4cX4QJZJTZNQAs00QUXqF6-ho',
+  accessTokenExpires: null,
+  iat: 1713164761,
+  exp: 1715756761,
+  jti: 'e25c1649-d38e-4f57-8bec-e4fa433bc697'
+}
+>>> Срок действия токена истек. Получение нового
+>>> Аутентификация. Получение токена доступа
+[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.
+!!! Ошибка авторизации
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена {
+  message: 'Ошибка обновления токена',
+  stack: 'Error: Ошибка обновления токена\n' +
+    '    at createError (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:79:15)\n' +
+    '    at refreshAccessToken (/storage/www/web/1c/frontend/server/api/auth/[...].ts:53:1)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async Object.session (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/session.js:47:21)\n' +
+    '    at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:158:27)\n' +
+    '    at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)\n' +
+    '    at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)\n' +
+    '    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7)',
+  name: 'Error'
+}
+ℹ hmr update /pages/auth/signin.vue (x2)
+✔ Vite server hmr 96 files in 231.072ms
+jwt... user: undefined account: undefined token: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTY4MzYxLCJpYXQiOjE3MTMxNjQ3NjEsImp0aSI6ImJkNzhmZjRkMTY5MjQyYjM4ODc4ODI0NDU1NDZlMTdiIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.UJT3xolR4AKgpgbG8I4cX4QJZJTZNQAs00QUXqF6-ho',
+  accessTokenExpires: null,
+  iat: 1713164761,
+  exp: 1715756761,
+  jti: 'e25c1649-d38e-4f57-8bec-e4fa433bc697'
+}
+>>> Срок действия токена истек. Получение нового
+>>> Аутентификация. Получение токена доступа
+[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.
+!!! Ошибка авторизации
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена {
+  message: 'Ошибка обновления токена',
+  stack: 'Error: Ошибка обновления токена\n' +
+    '    at createError (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:79:15)\n' +
+    '    at refreshAccessToken (/storage/www/web/1c/frontend/server/api/auth/[...].ts:53:1)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async Object.session (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/session.js:47:21)\n' +
+    '    at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:158:27)\n' +
+    '    at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)\n' +
+    '    at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)\n' +
+    '    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7)',
+  name: 'Error'
+}
+jwt... user: undefined account: undefined token: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTY4MzYxLCJpYXQiOjE3MTMxNjQ3NjEsImp0aSI6ImJkNzhmZjRkMTY5MjQyYjM4ODc4ODI0NDU1NDZlMTdiIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.UJT3xolR4AKgpgbG8I4cX4QJZJTZNQAs00QUXqF6-ho',
+  accessTokenExpires: null,
+  iat: 1713164761,
+  exp: 1715756761,
+  jti: 'e25c1649-d38e-4f57-8bec-e4fa433bc697'
+}
+>>> Срок действия токена истек. Получение нового
+>>> Аутентификация. Получение токена доступа
+[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.
+!!! Ошибка авторизации
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена {
+  message: 'Ошибка обновления токена',
+  stack: 'Error: Ошибка обновления токена\n' +
+    '    at createError (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:79:15)\n' +
+    '    at refreshAccessToken (/storage/www/web/1c/frontend/server/api/auth/[...].ts:53:1)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async Object.session (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/session.js:47:21)\n' +
+    '    at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:158:27)\n' +
+    '    at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)\n' +
+    '    at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)\n' +
+    '    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7)',
+  name: 'Error'
+}
+jwt... user: undefined account: undefined token: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTY4MzYxLCJpYXQiOjE3MTMxNjQ3NjEsImp0aSI6ImJkNzhmZjRkMTY5MjQyYjM4ODc4ODI0NDU1NDZlMTdiIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.UJT3xolR4AKgpgbG8I4cX4QJZJTZNQAs00QUXqF6-ho',
+  accessTokenExpires: null,
+  iat: 1713164761,
+  exp: 1715756761,
+  jti: 'e25c1649-d38e-4f57-8bec-e4fa433bc697'
+}
+>>> Срок действия токена истек. Получение нового
+>>> Аутентификация. Получение токена доступа
+[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.
+!!! Ошибка авторизации
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена {
+  message: 'Ошибка обновления токена',
+  stack: 'Error: Ошибка обновления токена\n' +
+    '    at createError (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:79:15)\n' +
+    '    at refreshAccessToken (/storage/www/web/1c/frontend/server/api/auth/[...].ts:53:1)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async Object.session (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/session.js:47:21)\n' +
+    '    at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:158:27)\n' +
+    '    at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)\n' +
+    '    at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)\n' +
+    '    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7)',
+  name: 'Error'
+}
+[nuxt] Your project has layouts but the `<NuxtLayout />` component has not been used.
+jwt... user: undefined account: undefined token: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTY4MzYxLCJpYXQiOjE3MTMxNjQ3NjEsImp0aSI6ImJkNzhmZjRkMTY5MjQyYjM4ODc4ODI0NDU1NDZlMTdiIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.UJT3xolR4AKgpgbG8I4cX4QJZJTZNQAs00QUXqF6-ho',
+  accessTokenExpires: null,
+  iat: 1713164761,
+  exp: 1715756761,
+  jti: 'e25c1649-d38e-4f57-8bec-e4fa433bc697'
+}
+>>> Срок действия токена истек. Получение нового
+>>> Аутентификация. Получение токена доступа
+[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.
+!!! Ошибка авторизации
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена {
+  message: 'Ошибка обновления токена',
+  stack: 'Error: Ошибка обновления токена\n' +
+    '    at createError (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:79:15)\n' +
+    '    at refreshAccessToken (/storage/www/web/1c/frontend/server/api/auth/[...].ts:53:1)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async Object.session (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/session.js:47:21)\n' +
+    '    at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:158:27)\n' +
+    '    at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)\n' +
+    '    at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)\n' +
+    '    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7)',
+  name: 'Error'
+}
+jwt... user: undefined account: undefined token: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTY4MzYxLCJpYXQiOjE3MTMxNjQ3NjEsImp0aSI6ImJkNzhmZjRkMTY5MjQyYjM4ODc4ODI0NDU1NDZlMTdiIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.UJT3xolR4AKgpgbG8I4cX4QJZJTZNQAs00QUXqF6-ho',
+  accessTokenExpires: null,
+  iat: 1713164761,
+  exp: 1715756761,
+  jti: 'e25c1649-d38e-4f57-8bec-e4fa433bc697'
+}
+>>> Срок действия токена истек. Получение нового
+>>> Аутентификация. Получение токена доступа
+!!! Ошибка авторизации
+[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена {
+  message: 'Ошибка обновления токена',
+  stack: 'Error: Ошибка обновления токена\n' +
+    '    at createError (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:79:15)\n' +
+    '    at refreshAccessToken (/storage/www/web/1c/frontend/server/api/auth/[...].ts:53:1)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async Object.session (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/session.js:47:21)\n' +
+    '    at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:158:27)\n' +
+    '    at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)\n' +
+    '    at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)\n' +
+    '    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7)',
+  name: 'Error'
+}
+jwt... user: undefined account: undefined token: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTY4MzYxLCJpYXQiOjE3MTMxNjQ3NjEsImp0aSI6ImJkNzhmZjRkMTY5MjQyYjM4ODc4ODI0NDU1NDZlMTdiIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.UJT3xolR4AKgpgbG8I4cX4QJZJTZNQAs00QUXqF6-ho',
+  accessTokenExpires: null,
+  iat: 1713164761,
+  exp: 1715756761,
+  jti: 'e25c1649-d38e-4f57-8bec-e4fa433bc697'
+}
+>>> Срок действия токена истек. Получение нового
+>>> Аутентификация. Получение токена доступа
+[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.
+!!! Ошибка авторизации
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена {
+  message: 'Ошибка обновления токена',
+  stack: 'Error: Ошибка обновления токена\n' +
+    '    at createError (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:79:15)\n' +
+    '    at refreshAccessToken (/storage/www/web/1c/frontend/server/api/auth/[...].ts:53:1)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async Object.session (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/session.js:47:21)\n' +
+    '    at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:158:27)\n' +
+    '    at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)\n' +
+    '    at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)\n' +
+    '    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7)',
+  name: 'Error'
+}
+jwt... user: undefined account: undefined token: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTY4MzYxLCJpYXQiOjE3MTMxNjQ3NjEsImp0aSI6ImJkNzhmZjRkMTY5MjQyYjM4ODc4ODI0NDU1NDZlMTdiIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.UJT3xolR4AKgpgbG8I4cX4QJZJTZNQAs00QUXqF6-ho',
+  accessTokenExpires: null,
+  iat: 1713164761,
+  exp: 1715756761,
+  jti: 'e25c1649-d38e-4f57-8bec-e4fa433bc697'
+}
+>>> Срок действия токена истек. Получение нового
+>>> Аутентификация. Получение токена доступа
+[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.
+!!! Ошибка авторизации
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена {
+  message: 'Ошибка обновления токена',
+  stack: 'Error: Ошибка обновления токена\n' +
+    '    at createError (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:79:15)\n' +
+    '    at refreshAccessToken (/storage/www/web/1c/frontend/server/api/auth/[...].ts:53:1)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async Object.session (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/session.js:47:21)\n' +
+    '    at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:158:27)\n' +
+    '    at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)\n' +
+    '    at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)\n' +
+    '    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7)',
+  name: 'Error'
+}
+jwt... user: undefined account: undefined token: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTY4MzYxLCJpYXQiOjE3MTMxNjQ3NjEsImp0aSI6ImJkNzhmZjRkMTY5MjQyYjM4ODc4ODI0NDU1NDZlMTdiIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.UJT3xolR4AKgpgbG8I4cX4QJZJTZNQAs00QUXqF6-ho',
+  accessTokenExpires: null,
+  iat: 1713164761,
+  exp: 1715756761,
+  jti: 'e25c1649-d38e-4f57-8bec-e4fa433bc697'
+}
+>>> Срок действия токена истек. Получение нового
+>>> Аутентификация. Получение токена доступа
+[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.
+!!! Ошибка авторизации
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена {
+  message: 'Ошибка обновления токена',
+  stack: 'Error: Ошибка обновления токена\n' +
+    '    at createError (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:79:15)\n' +
+    '    at refreshAccessToken (/storage/www/web/1c/frontend/server/api/auth/[...].ts:53:1)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async Object.session (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/session.js:47:21)\n' +
+    '    at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:158:27)\n' +
+    '    at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)\n' +
+    '    at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)\n' +
+    '    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7)',
+  name: 'Error'
+}
+jwt... user: undefined account: undefined token: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTY4MzYxLCJpYXQiOjE3MTMxNjQ3NjEsImp0aSI6ImJkNzhmZjRkMTY5MjQyYjM4ODc4ODI0NDU1NDZlMTdiIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.UJT3xolR4AKgpgbG8I4cX4QJZJTZNQAs00QUXqF6-ho',
+  accessTokenExpires: null,
+  iat: 1713164761,
+  exp: 1715756761,
+  jti: 'e25c1649-d38e-4f57-8bec-e4fa433bc697'
+}
+>>> Срок действия токена истек. Получение нового
+>>> Аутентификация. Получение токена доступа
+[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.
+!!! Ошибка авторизации
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена {
+  message: 'Ошибка обновления токена',
+  stack: 'Error: Ошибка обновления токена\n' +
+    '    at createError (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:79:15)\n' +
+    '    at refreshAccessToken (/storage/www/web/1c/frontend/server/api/auth/[...].ts:53:1)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async Object.session (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/session.js:47:21)\n' +
+    '    at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:158:27)\n' +
+    '    at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)\n' +
+    '    at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)\n' +
+    '    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7)',
+  name: 'Error'
+}
+jwt... user: undefined account: undefined token: {
+  username: 'admin',
+  full_name: 'Администратор',
+  accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEzMTY4MzYxLCJpYXQiOjE3MTMxNjQ3NjEsImp0aSI6ImJkNzhmZjRkMTY5MjQyYjM4ODc4ODI0NDU1NDZlMTdiIiwidXNlcl9pZCI6IjRjZTFlMzZiLWJkNTUtNGMyNC1hZTIyLWQzOGQ4Y2NmNTJmMyJ9.UJT3xolR4AKgpgbG8I4cX4QJZJTZNQAs00QUXqF6-ho',
+  accessTokenExpires: null,
+  iat: 1713164761,
+  exp: 1715756761,
+  jti: 'e25c1649-d38e-4f57-8bec-e4fa433bc697'
+}
+>>> Срок действия токена истек. Получение нового
+>>> Аутентификация. Получение токена доступа
+[h3] Please prefer using `message` for longer error messages instead of `statusMessage`. In the future, `statusMessage` will be sanitized by default.
+!!! Ошибка авторизации
+[next-auth][error][JWT_SESSION_ERROR] 
+https://next-auth.js.org/errors#jwt_session_error Ошибка обновления токена {
+  message: 'Ошибка обновления токена',
+  stack: 'Error: Ошибка обновления токена\n' +
+    '    at createError (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:79:15)\n' +
+    '    at refreshAccessToken (/storage/www/web/1c/frontend/server/api/auth/[...].ts:53:1)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+    '    at async Object.session (/storage/www/web/1c/frontend/node_modules/next-auth/core/routes/session.js:47:21)\n' +
+    '    at async AuthHandler (/storage/www/web/1c/frontend/node_modules/next-auth/core/index.js:158:27)\n' +
+    '    at Object.handler (/storage/www/web/1c/frontend/node_modules/@sidebase/nuxt-auth/dist/runtime/server/services/authjs/nuxtAuthHandler.mjs:88:24)\n' +
+    '    at async Object.handler (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:1962:19)\n' +
+    '    at async Server.toNodeHandle (file:///storage/www/web/1c/frontend/node_modules/h3/dist/index.mjs:2249:7)',
+  name: 'Error'
 }

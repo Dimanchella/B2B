@@ -5,6 +5,39 @@ from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.response import Response
 
+#from django.shortcuts import render_to_response
+#from django.core.context_processors import csrf
+from django.views.decorators.csrf import ensure_csrf_cookie
+from django.views.decorators.http import require_http_methods, require_POST
+from django.contrib.auth import authenticate, login, logout
+from django.http import JsonResponse
+import json
+
+
+@ensure_csrf_cookie
+def auth_set_csrf_cookie(request):
+    return JsonResponse({"details": "CSRF cookie set"})
+
+
+@require_POST
+def auth_login(request):
+    data = json.loads(request.body)
+    username = data.get("username")
+    password = data.get("password")
+    # добавить необходимые проверки
+    user = authenticate(username=username, password=password)
+    if user is not None:
+        login(request, user)
+        return JsonResponse({"detail": "Success"})
+    return JsonResponse({"detail": "Invalid credentials"}, status=400)
+
+
+@require_POST
+def auth_logout(request):
+    logout(request)
+    return JsonResponse({"detail": "Logout Successful"})
+
+
 
 class CustomUserViewSet(viewsets.ModelViewSet):
     queryset = get_user_model().objects.all()
@@ -28,6 +61,7 @@ class ProfileCustomUserViewSet(viewsets.ReadOnlyModelViewSet):
     #         if not user:
     #             raise exceptions.AuthenticationFailed("Пользователь не найден.")
     #         return user
+
 
 class LogoutView(APIView):
     permission_classes = (permissions.IsAuthenticated,)

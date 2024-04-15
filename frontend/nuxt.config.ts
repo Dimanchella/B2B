@@ -28,6 +28,31 @@ export default defineNuxtConfig({
       type: 'authjs'
     },
     globalAppMiddleware: true,
+    strategies: {
+      cookie: {
+        user: {
+          property: false,
+          autoFetch: true
+        },
+        endpoints: {
+          login: {
+            url: '/api/auth/login/',
+            method: 'post',
+            propertyName: false
+          },
+          logout: {
+            url: '/api/auth/logout/',
+            method: 'post',
+            propertyName: false
+          },
+          csrf: {
+            url: '/api/auth/csrf'
+          }
+        },
+        tokenRequired: false,
+        tokenType: false
+      }
+    }
   },
   vite: {
     vue: {
@@ -44,8 +69,17 @@ export default defineNuxtConfig({
       imgUrl: process.env.IMG_URL,
     }
   },
+  routes: 
+  { 
+    '/' : { prerender: true }, 
+    '/*': { cors: true },
+  },
   devServer: {
     host: '0.0.0.0',
     port: 3000,
   },
 })
+
+router: {
+  middleware: ['auth']
+}
